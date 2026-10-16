@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge — Pathways to Sustainable Digital Livelihoods</title>
+  <meta name="description" content="SkillBridge combats youth unemployment through a structured pathway: Learn → Earn points → Prove your skills → Unlock gigs → Complete real work → Build your portfolio → Qualify for better gigs.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- Main Viewport Shell -->
+  <main class="app-viewport">
+    <div class="app-layout">
+
+      <!-- ====================================================================
+           LEFT SIDEBAR: Brand, Navigation, Network, Role Switcher
+           ==================================================================== -->
+      <aside class="sidebar-left" aria-label="Main Navigation">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="brand-header" id="brand-logo" title="SkillBridge Home">
+          <div class="brand-icon-wrapper">
+            <!-- Glowing Sparkle / Bridge SVG -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title">
+              SkillBridge
+              <span class="brand-badge">Beta</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Section: Overview Navigation -->
+        <nav class="nav-section" aria-label="Primary Navigation">
+          <div class="section-label">Overview</div>
+          
+          <a class="nav-item active" id="nav-dashboard" data-view="dashboard">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9" rx="1.5"/>
+                <rect x="14" y="3" width="7" height="5" rx="1.5"/>
+                <rect x="14" y="12" width="7" height="9" rx="1.5"/>
+                <rect x="3" y="16" width="7" height="5" rx="1.5"/>
+              </svg>
+            </span>
+            <span>Dashboard</span>
+          </a>
+
+          <a class="nav-item" id="nav-simulations" data-view="simulations">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </span>
+            <span>Job Simulations</span>
+            <span class="nav-badge sp-badge" id="sidebar-sim-badge">Earn SP</span>
+          </a>
+
+          <a class="nav-item" id="nav-tasks" data-view="tasks">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                <rect x="8" y="2" width="8" height="4" rx="1"/>
+                <path d="m9 14 2 2 4-4"/>
+              </svg>
+            </span>
+            <span>Paid Micro-Gigs</span>
+            <span class="nav-badge accent" id="sidebar-task-count">6 Gigs</span>
+          </a>
+
+          <a class="nav-item" id="nav-academy" data-view="academy">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </span>
+            <span>Academy</span>
+            <span class="nav-badge live">Learn</span>
+          </a>
+
+          <a class="nav-item" id="nav-portfolio" data-view="portfolio">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+            <span>Verified Portfolio</span>
+          </a>
+
+          <a class="nav-item" id="nav-wallet" data-view="wallet">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" x2="22" y1="10" y2="10"/>
+              </svg>
+            </span>
+            <span>Wallet & Escrow</span>
+            <span class="nav-badge" id="nav-balance-badge">$295.50</span>
+          </a>
+        </nav>
+
+        <!-- Section: Network / Peers -->
+        <div class="nav-section">
+          <div class="section-label">Jobseeker Network</div>
+          <div class="friend-list">
+            
+            <div class="friend-item" title="Bagas Mahpie - AI Annotator">
+              <div class="friend-avatar-wrap">
+                <img src="assets/images/user_avatar.jpg" alt="Bagas Mahpie" class="friend-avatar">
+                <span class="friend-status status-online"></span>
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">Bagas Mahpie</span>
+                <span class="friend-role">AI Annotator</span>
+              </div>
+            </div>
+
+            <div class="friend-item" title="Sir Dandy - UI/UX Designer">
+              <div class="friend-avatar-wrap">
+                <img src="assets/images/user_avatar.jpg" alt="Sir Dandy" class="friend-avatar">
+                <span class="friend-status status-busy"></span>
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">Sir Dandy</span>
+                <span class="friend-role">UI/UX Designer</span>
+              </div>
+            </div>
+
+            <div class="friend-item" title="Jhon Tosan - QA Specialist">
+              <div class="friend-avatar-wrap">
+                <img src="assets/images/user_avatar.jpg" alt="Jhon Tosan" class="friend-avatar">
+                <span class="friend-status status-online"></span>
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">Jhon Tosan</span>
+                <span class="friend-role">QA Specialist</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar Footer: Role Switcher -->
+        <div class="sidebar-footer">
+          <div class="role-switcher-card">
+            <p><strong>Two-Sided Ecosystem</strong></p>
+            <button class="btn-switch-role" id="btn-toggle-business-mode">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+              <span>Partner Employer View</span>
+            </button>
+          </div>
+          <a class="nav-item" id="nav-settings" style="padding: 8px 12px; font-size: 0.85rem;">
+            <span class="nav-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </span>
+            <span>Settings</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- ====================================================================
+           CENTER COLUMN: Main Content Views
+           ==================================================================== -->
+      <section class="main-content" id="main-scroll-container">
+
+        <!-- Top Navigation & Search -->
+        <header class="top-nav">
+          <div class="search-container">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="global-search-input" class="search-input" placeholder="Search simulations, paid micro-gigs, partner tasks..." autocomplete="off">
+          </div>
+
+          <div class="top-actions">
+            <!-- SkillPoints Top Counter Pill -->
+            <div class="points-pill-top" id="btn-top-points" title="SkillPoints: Complete simulations to unlock paid gigs!">
+              <span>⚡</span>
+              <span id="top-sp-display">75 SP</span>
+            </div>
+
+            <!-- Messages button -->
+            <button class="icon-btn" id="btn-messages" title="Messages & Feedback">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </button>
+
+            <!-- Notifications button -->
+            <button class="icon-btn" id="btn-notifications" title="Notifications & Unlocks">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+              </svg>
+              <span class="notification-dot"></span>
+            </button>
+
+            <!-- Profile Quick Pill -->
+            <div class="user-quick-profile" id="btn-quick-profile" title="View Profile">
+              <img src="assets/images/user_avatar.jpg" alt="Jason Ranti" class="user-quick-avatar" id="top-user-avatar">
+              <span class="user-quick-name" id="top-user-name">Jason Ranti</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- VIEW 1: DASHBOARD (Default) -->
+        <div id="view-dashboard" class="content-view active">
+          
+          <!-- Hero Spotlight Banner -->
+          <div class="hero-banner">
+            <div class="hero-sparkle">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+              </svg>
+            </div>
+            <div class="hero-sparkle-sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+              </svg>
+            </div>
+
+            <div>
+              <div class="hero-pretitle">THE SKILLBRIDGE PROGRESSION ENGINE</div>
+              <h1 class="hero-title">Learn. Simulate. Earn Points. Unlock Real Gigs.</h1>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <button class="hero-cta-btn" id="hero-cta-start-sim">
+                <span>Start Job Simulation</span>
+                <span class="hero-cta-circle">+35 SP</span>
+              </button>
+              <button class="hero-cta-btn" id="hero-cta-guide-btn" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);">
+                <span>How It Works Guide</span>
+                <span class="hero-cta-circle">?</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               THE SKILLBRIDGE CYCLE PROGRESSION BANNER
+               ================================================================ -->
+          <div class="cycle-progression-card">
+            <div class="cycle-top-row">
+              <div class="cycle-title-wrap">
+                <div class="cycle-icon-spark">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="cycle-heading">Your Pathway: Complete Simulations to Unlock Real Gigs</h3>
+                  <p class="cycle-subtext" id="cycle-instruction-text">
+                    Earn <strong>100 SkillPoints (SP)</strong> through job simulations to unlock Tier 1 paid client tasks!
+                  </p>
+                </div>
+              </div>
+              <button class="btn-open-guide" id="btn-trigger-guide-modal">
+                <span>View 7-Step Cycle</span>
+                <span>➔</span>
+              </button>
+            </div>
+
+            <!-- Progress Bar towards unlocking Real Gigs -->
+            <div class="sp-meter-container">
+              <div class="sp-meter-labels">
+                <span class="sp-current-text">
+                  Current: <strong id="sp-meter-current">75 SP</strong>
+                </span>
+                <span class="sp-target-text" id="sp-meter-status">
+                  Need <strong>25 SP</strong> to unlock Tier 1 Real Money Gigs
+                </span>
+              </div>
+              <div class="sp-bar-track">
+                <div class="sp-bar-fill" id="sp-bar-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+
+            <!-- 7-Step Sequence Tracker -->
+            <div class="cycle-steps-pills">
+              <span class="cycle-step-item completed">1. Learn</span>
+              <span class="cycle-arrow">➔</span>
+              <span class="cycle-step-item active" id="pill-step-sim">2. Job Simulations (Current)</span>
+              <span class="cycle-arrow">➔</span>
+              <span class="cycle-step-item" id="pill-step-sp">3. Earn Points (75/100)</span>
+              <span class="cycle-arrow">➔</span>
+              <span class="cycle-step-item" id="pill-step-unlock">4. Unlock Real Gigs 🔒</span>
+              <span class="cycle-arrow">➔</span>
+              <span class="cycle-step-item">5. Complete Work</span>
+              <span class="cycle-arrow">➔</span>
+              <span class="cycle-step-item">6. Verified Portfolio</span>
+              <span class="cycle-arrow">➔</span>
+              <span class="cycle-step-item">7. Enterprise Jobs</span>
+            </div>
+          </div>
+
+          <!-- Category Progress Row (Matching Reference) -->
+          <div class="category-progress-grid" id="learning-progress-container">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- ================================================================
+               SECTION 1: JOB SIMULATIONS (Earn Points & Prove Skills)
+               ================================================================ -->
+          <section class="section-container" style="margin-top: 10px;">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">1. Job Simulations (Risk-Free • Earn SkillPoints)</h2>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                  Practice real workflows from partner companies. Earn SP to prove your competencies and unlock real paid gigs!
+                </p>
+              </div>
+              <span class="brand-badge" style="background: #fef3c7; color: #b45309; font-size: 0.75rem;">
+                No Risk • Practice Phase
+              </span>
+            </div>
+
+            <div class="tasks-grid" id="simulations-market-grid" style="margin-top: 12px;">
+              <!-- Simulation cards injected dynamically via app.js -->
+            </div>
+          </section>
+
+          <!-- ================================================================
+               SECTION 2: REAL-WORLD PAID GIGS (Escrow Paid • Unlocked at 100 SP)
+               ================================================================ -->
+          <section class="section-container" style="margin-top: 18px;">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">2. Real-World Paid Gigs & Remote Tasks</h2>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                  Pre-funded escrow tasks provided by vetted businesses. Real USD payouts direct to your wallet!
+                </p>
+              </div>
+              <div class="section-controls">
+                <button class="circle-nav-btn" id="btn-scroll-left" title="Previous page">‹</button>
+                <button class="circle-nav-btn primary" id="btn-scroll-right" title="Next page">›</button>
+              </div>
+            </div>
+
+            <!-- Dynamic Category Filters -->
+            <div class="filter-pills-row" id="task-filter-pills">
+              <!-- Filter chips injected dynamically -->
+            </div>
+
+            <!-- Gigs Grid (Displays locked overlays when SP < 100) -->
+            <div class="tasks-grid" id="tasks-market-grid">
+              <!-- Cards rendered dynamically via app.js -->
+            </div>
+          </section>
+
+          <!-- Bottom Section: Active Work & Lessons (Matching "Your Lesson" table in Mockup) -->
+          <section class="lesson-section" style="margin-top: 14px;">
+            <div class="section-header">
+              <h2 class="section-title">Your Work & Learning Milestones</h2>
+              <a class="section-link" id="link-see-all-lessons">See all</a>
+            </div>
+
+            <div class="work-table-container">
+              <table class="work-table" id="work-history-table">
+                <thead>
+                  <tr>
+                    <th>PARTNER / MENTOR</th>
+                    <th>COMPETENCY TYPE</th>
+                    <th>DELIVERABLE DESCRIPTION</th>
+                    <th>STATUS / ACTION</th>
+                  </tr>
+                </thead>
+                <tbody id="work-table-body">
+                  <!-- Injected dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- VIEW 2: FULL JOB SIMULATIONS VIEW -->
+        <div id="view-simulations" class="content-view" style="display: none;">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Job Simulations Catalog</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                Complete simulations to earn SkillPoints (SP). Reach 100 SP to unlock Tier 1 Paid Gigs and 250 SP for Tier 2 Enterprise tasks.
+              </p>
+            </div>
+          </div>
+          <div class="tasks-grid" id="full-simulations-grid" style="margin-top: 16px;"></div>
+        </div>
+
+        <!-- VIEW 3: FULL PAID GIGS MARKETPLACE -->
+        <div id="view-tasks" class="content-view" style="display: none;">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Paid Micro-Gigs Marketplace</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                Deliver verified work for global businesses and receive instant escrow payouts.
+              </p>
+            </div>
+          </div>
+          <div class="tasks-grid" id="full-tasks-grid" style="margin-top: 16px;"></div>
+        </div>
+
+        <!-- VIEW 4: SKILL ACADEMY -->
+        <div id="view-academy" class="content-view" style="display: none;">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">SkillBridge Academy: Micro-Learning</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                10-minute micro-learning modules designed to break down barriers to entry.
+              </p>
+            </div>
+          </div>
+          <div class="tasks-grid" id="academy-modules-grid" style="margin-top: 16px;"></div>
+        </div>
+
+        <!-- VIEW 5: VERIFIABLE PORTFOLIO -->
+        <div id="view-portfolio" class="content-view" style="display: none;">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Verifiable Digital Portfolio</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                Cryptographically validated work credentials, client testimonials, and proof of practical competence.
+              </p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-secondary-action" id="btn-share-portfolio">Share Portfolio Link</button>
+              <button class="btn-primary-action" id="btn-export-cv">Download Verified CV</button>
+            </div>
+          </div>
+          <div id="portfolio-container" style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;"></div>
+        </div>
+
+        <!-- VIEW 6: PARTNER EMPLOYER PORTAL -->
+        <div id="view-partner-portal" class="content-view" style="display: none;">
+          <div class="section-header">
+            <div>
+              <div style="font-size: 0.72rem; font-weight: 800; color: var(--primary); text-transform: uppercase;">PARTNER BUSINESS CONSOLE</div>
+              <h2 class="section-title">TechNova AI Labs — Employer Console</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                Post micro-tasks, deposit youth escrow funding, review completed deliverables, and recruit top junior talent.
+              </p>
+            </div>
+            <button class="btn-secondary-action" id="btn-exit-partner-mode">Back to Seeker View</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div style="background: #ffffff; border: 1px solid #eef2f7; border-radius: 20px; padding: 22px;">
+              <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 14px;">Post a Verified Micro-Task</h3>
+              <form id="form-post-task" style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                  <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Task Title</label>
+                  <input type="text" id="post-task-title" class="search-input" style="padding-left: 14px; border-radius: 10px;" placeholder="e.g. Validate 30 Medical Audio Transcripts" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div>
+                    <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Payout per Youth ($ USD)</label>
+                    <input type="number" id="post-task-reward" class="search-input" style="padding-left: 14px; border-radius: 10px;" value="25.00" step="0.5" required>
+                  </div>
+                  <div>
+                    <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Category</label>
+                    <select id="post-task-category" class="search-input" style="padding-left: 14px; border-radius: 10px; cursor: pointer;">
+                      <option value="ai-data">AI & Data Annotation</option>
+                      <option value="design-ui">UI/UX Design Review</option>
+                      <option value="web-dev">Web QA Testing</option>
+                      <option value="content">Content & Localization</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn-primary-action" style="justify-content: center;">
+                  Deposit Escrow & Publish Task ($25.00)
+                </button>
+              </form>
+            </div>
+
+            <div style="background: #ffffff; border: 1px solid #eef2f7; border-radius: 20px; padding: 22px;">
+              <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 14px;">Incoming Youth Submissions (Escrow QA)</h3>
+              <div id="partner-submissions-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           RIGHT SIDEBAR: Statistics, Radial Score, Bar Chart, Mentors & Wallet
+           ==================================================================== -->
+      <aside class="sidebar-right" aria-label="Personal Progress and Mentors">
+
+        <div class="right-section-header">
+          <h2 class="right-section-title">Statistic</h2>
+          <button class="more-btn" title="Statistic Options">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="5" r="2"/>
+              <circle cx="12" cy="12" r="2"/>
+              <circle cx="12" cy="19" r="2"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Radial Employability Readiness Gauge & Greeting -->
+        <div class="user-momentum-box">
+          <div class="radial-avatar-wrapper">
+            <svg class="radial-svg" viewBox="0 0 100 100">
+              <circle class="radial-bg-circle" cx="50" cy="50" r="42" />
+              <circle class="radial-progress-circle" id="radial-progress-bar" cx="50" cy="50" r="42" />
+            </svg>
+            <img src="assets/images/user_avatar.jpg" alt="Jason Ranti Profile" class="user-center-avatar" id="avatar-center-profile">
+            <span class="badge-percent-pill" id="badge-score-pill">84%</span>
+          </div>
+
+          <div>
+            <h3 class="greeting-title" id="sidebar-greeting-name">
+              Good Morning Jason 🔥
+            </h3>
+            <p class="greeting-subtitle" id="sidebar-greeting-sub">
+              Level 1 Trainee • Earn 25 more SP to unlock Paid Gigs!
+            </p>
+          </div>
+        </div>
+
+        <!-- Weekly Activity & Earnings Bar Chart -->
+        <div class="chart-widget-card">
+          <div class="chart-header">
+            <span class="chart-title">Weekly Productivity</span>
+            <span class="chart-total-pill" id="chart-earnings-pill">+ $295.50</span>
+          </div>
+
+          <div class="bars-container" id="bar-chart-container"></div>
+          <div class="chart-labels-row" id="bar-chart-labels"></div>
+        </div>
+
+        <!-- Mentors & Partner Businesses List -->
+        <div class="mentors-section">
+          <div class="right-section-header">
+            <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">Your mentor</h3>
+            <button class="circle-nav-btn" style="width: 24px; height: 24px; font-size: 1rem;" title="Explore More Mentors">+</button>
+          </div>
+
+          <div class="mentor-cards-list" id="mentors-list-container"></div>
+          <button class="btn-see-all-mentors" id="btn-see-all-mentors">See All</button>
+        </div>
+
+        <!-- Micro-Escrow Digital Wallet Card -->
+        <div class="wallet-quick-card">
+          <div class="wallet-card-header">
+            <div class="wallet-badge-shield">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Protected Escrow</span>
+            </div>
+            <span style="font-size: 0.72rem; opacity: 0.8;">Instant Pay</span>
+          </div>
+
+          <div>
+            <div class="wallet-balance-num" id="sidebar-wallet-balance">$295.50</div>
+            <div class="wallet-balance-label">Available for Direct Cash Out</div>
+          </div>
+
+          <button class="btn-cashout" id="btn-trigger-cashout">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <polyline points="19 12 12 19 5 12"/>
+            </svg>
+            <span>Withdraw to Mobile Money / Bank</span>
+          </button>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ====================================================================
+       INTERACTIVE MODAL: THE 7-STEP SKILLBRIDGE CYCLE GUIDE
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-cycle-guide">
+    <div class="modal-card" style="max-width: 780px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="background: var(--primary-light); color: var(--primary); padding: 6px; border-radius: 8px; display: inline-flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </span>
+          <span>SkillBridge Progression Engine: The 7-Step Cycle</span>
+        </div>
+        <button class="modal-close-btn" id="modal-guide-close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; border-radius: 16px; padding: 18px;">
+          <h4 style="font-size: 1rem; font-weight: 800; color: #1e3a8a;">From Unemployment to Sustainable Digital Livelihood</h4>
+          <p style="font-size: 0.82rem; color: #334155; margin-top: 4px; line-height: 1.5;">
+            SkillBridge removes traditional barriers to entry (no resume or degree required). You prove competencies through simulations, earn SkillPoints (SP), and unlock guaranteed pre-funded paid gigs!
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px;" id="guide-steps-container">
+          <!-- Injected dynamically via app.js -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div style="font-size: 0.8rem; color: var(--text-secondary);">
+          Your Current Status: <strong style="color: #b45309;" id="guide-user-sp-text">75 SkillPoints (25 SP to unlock Tier 1)</strong>
+        </div>
+        <button class="btn-primary-action" id="btn-guide-start-sim">
+          <span>Start a Simulation Now (+35 SP)</span>
+          <span>➔</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       INTERACTIVE MODAL: Micro-Task & Simulation Workspace Runner
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-task-runner">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="background: var(--primary-light); color: var(--primary); padding: 6px; border-radius: 8px; display: inline-flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </span>
+          <span id="modal-task-title">Workspace</span>
+        </div>
+        <button class="modal-close-btn" id="modal-task-close" title="Close Workspace">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid #eef2f7; padding: 12px 18px; border-radius: 14px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/images/user_avatar.jpg" alt="Partner" style="width: 32px; height: 32px; border-radius: 50%;">
+            <div>
+              <div style="font-size: 0.84rem; font-weight: 800;" id="modal-task-partner">TechNova AI Labs</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);" id="modal-task-badge-sub">Simulation • Earn SkillPoints</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 1.15rem; font-weight: 800; color: #ea580c;" id="modal-task-reward">+35 SP</div>
+            <div style="font-size: 0.72rem; color: var(--accent-emerald); font-weight: 700;" id="modal-task-guarantee">Skill Validation</div>
+          </div>
+        </div>
+
+        <div class="workspace-split">
+          <div class="interactive-canvas-box" id="task-interactive-canvas">
+            <img src="assets/images/task_ai.jpg" alt="Task Workspace Asset" id="modal-workspace-img">
+            <div class="bounding-box-demo" id="demo-bbox" title="Drag to adjust bounding box">
+              <span class="bbox-label" id="demo-bbox-label">Fashion Apparel</span>
+            </div>
+          </div>
+
+          <div class="workspace-controls">
+            <div>
+              <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Select Valid Object Tag</h4>
+              <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 12px;">
+                Identify the primary subject inside the marked bounding boundary.
+              </p>
+              
+              <div class="tag-options-grid" id="modal-tags-container">
+                <button class="tag-choice-btn selected" data-label="Fashion Apparel">Fashion Apparel</button>
+                <button class="tag-choice-btn" data-label="Footwear">Footwear</button>
+                <button class="tag-choice-btn" data-label="Handbag / Accessory">Handbag / Acc.</button>
+                <button class="tag-choice-btn" data-label="Outerwear Jacket">Outerwear</button>
+              </div>
+            </div>
+
+            <div>
+              <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Quality Checklist</h4>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-secondary); cursor: pointer; margin-bottom: 6px;">
+                <input type="checkbox" id="check-accuracy" checked>
+                <span>Bounding box tight around target object (&lt;5% padding)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-secondary); cursor: pointer;">
+                <input type="checkbox" id="check-resolution" checked>
+                <span>No partial occlusions or blurry background artifacts</span>
+              </label>
+            </div>
+
+            <div>
+              <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">Auditor Notes</label>
+              <input type="text" id="task-feedback-input" class="search-input" style="padding: 8px 12px; font-size: 0.78rem; border-radius: 8px;" placeholder="e.g. Validated with high confidence...">
+            </div>
+          </div>
+        </div>
+
+        <div id="submission-progress-row" style="display: none; flex-direction: column; gap: 8px; background: #f1f5f9; padding: 14px; border-radius: 12px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700;">
+            <span id="qa-status-text">Validating deliverable...</span>
+            <span id="qa-status-percent">40%</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+            <div id="qa-progress-bar" style="width: 40%; height: 100%; background: var(--primary); transition: width 0.4s ease;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          ID: <code id="modal-task-id" style="font-weight: 700; color: var(--text-main);">sim-01</code>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn-secondary-action" id="modal-task-cancel">Cancel</button>
+          <button class="btn-primary-action" id="modal-task-submit">
+            <span id="modal-submit-btn-text">Submit Simulation & Claim +35 SP</span>
+            <span style="font-size: 1rem;">➔</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       INTERACTIVE MODAL: Cash Out / Wallet Withdrawal
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-cashout">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">Withdraw Escrow Earnings</div>
+        <button class="modal-close-btn" id="modal-cashout-close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: #fff; padding: 20px; border-radius: 18px; text-align: center;">
+          <div style="font-size: 0.78rem; color: #c7d2fe; text-transform: uppercase;">Available Balance</div>
+          <div style="font-size: 2.2rem; font-weight: 800; margin: 4px 0;" id="cashout-available-display">$295.50</div>
+          <div style="font-size: 0.75rem; color: #a5b4fc;">Zero transaction fees for youth jobseekers • Instant settlement</div>
+        </div>
+
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 8px;">Select Payout Method</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button class="tag-choice-btn selected" data-method="Mobile Money (M-Pesa)">
+              <strong>📱 Mobile Money</strong>
+              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">M-Pesa / MTN / Airtel</div>
+            </button>
+            <button class="tag-choice-btn" data-method="Direct Bank Wire">
+              <strong>🏦 Direct Bank</strong>
+              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Local Wire / ACH</div>
+            </button>
+            <button class="tag-choice-btn" data-method="PayPal / Wise">
+              <strong>💳 PayPal / Wise</strong>
+              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Global Email Payout</div>
+            </button>
+            <button class="tag-choice-btn" data-method="USDC Crypto">
+              <strong>⚡ USDC Crypto</strong>
+              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Polygon / Stellar L2</div>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Recipient Details (Phone / Account)</label>
+          <input type="text" id="cashout-recipient" class="search-input" style="padding-left: 14px; border-radius: 10px;" value="+254 712 345 678" required>
+        </div>
+
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Withdrawal Amount ($ USD)</label>
+          <input type="number" id="cashout-amount" class="search-input" style="padding-left: 14px; border-radius: 10px;" value="150.00" min="5" max="295.50" step="1">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary-action" id="modal-cashout-cancel">Cancel</button>
+        <button class="btn-primary-action" id="btn-confirm-cashout">Confirm Instant Payout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share Portfolio Modal -->
+  <div class="modal-overlay" id="modal-share">
+    <div class="modal-card" style="max-width: 500px;">
+      <div class="modal-header">
+        <div class="modal-title">Share Verifiable Portfolio</div>
+        <button class="modal-close-btn" id="modal-share-close">✕</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 24px; display: inline-flex; flex-direction: column; align-items: center; gap: 12px; margin: 0 auto;">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#1e1b4b" stroke-width="1.8">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="4" y="4" width="4" height="4" fill="#5e48e8"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="16" y="4" width="4" height="4" fill="#5e48e8"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="4" y="16" width="4" height="4" fill="#5e48e8"/>
+            <path d="M14 14h2v2h-2zM18 14h4v2h-4zM14 18h4v4h-4zM20 20h2v2h-2z"/>
+          </svg>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">
+            VERIFIED PROOF OF WORK HASH: <br>
+            <code style="color: var(--primary);">0x7f4e912bc83a9f4d1</code>
+          </div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">
+          Anyone with this link can independently verify your completed partner micro-tasks, competency scores, and client reviews.
+        </p>
+
+        <div style="display: flex; gap: 8px; margin-top: 10px;">
+          <input type="text" id="share-link-input" class="search-input" value="https://skillbridge.org/p/jason-ranti-verified" readonly style="padding-left: 14px; border-radius: 10px; font-size: 0.82rem;">
+          <button class="btn-primary-action" id="btn-copy-share-link">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Area -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript dependencies -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
