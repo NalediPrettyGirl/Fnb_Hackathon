@@ -3,833 +3,2230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillBridge — Pathways to Sustainable Digital Livelihoods</title>
-  <meta name="description" content="SkillBridge combats youth unemployment through a structured pathway: Learn → Earn points → Prove your skills → Unlock gigs → Complete real work → Build your portfolio → Qualify for better gigs.">
-  <link rel="stylesheet" href="css/style.css">
+  <title>SkillBridge — Virtual Career Simulation & Freelance Marketplace</title>
+  <meta name="description" content="Develop enterprise data and business skills on real-world company simulations, and discover verified, paid online freelance gigs.">
+  
+  <!-- Modern Clean Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-  <!-- Main Viewport Shell -->
-  <main class="app-viewport">
-    <div class="app-layout">
-
-      <!-- ====================================================================
-           LEFT SIDEBAR: Brand, Navigation, Network, Role Switcher
-           ==================================================================== -->
-      <aside class="sidebar-left" aria-label="Main Navigation">
-        
-        <!-- Brand Logo -->
-        <a href="#" class="brand-header" id="brand-logo" title="SkillBridge Home">
-          <div class="brand-icon-wrapper">
-            <!-- Glowing Sparkle / Bridge SVG -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
-            </svg>
-          </div>
-          <div>
-            <div class="brand-title">
-              SkillBridge
-              <span class="brand-badge">Beta</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Section: Overview Navigation -->
-        <nav class="nav-section" aria-label="Primary Navigation">
-          <div class="section-label">Overview</div>
-          
-          <a class="nav-item active" id="nav-dashboard" data-view="dashboard">
-            <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="9" rx="1.5"/>
-                <rect x="14" y="3" width="7" height="5" rx="1.5"/>
-                <rect x="14" y="12" width="7" height="9" rx="1.5"/>
-                <rect x="3" y="16" width="7" height="5" rx="1.5"/>
-              </svg>
-            </span>
-            <span>Dashboard</span>
-          </a>
-
-          <a class="nav-item" id="nav-simulations" data-view="simulations">
-            <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
-            </span>
-            <span>Job Simulations</span>
-            <span class="nav-badge sp-badge" id="sidebar-sim-badge">Earn SP</span>
-          </a>
-
-          <a class="nav-item" id="nav-tasks" data-view="tasks">
-            <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                <rect x="8" y="2" width="8" height="4" rx="1"/>
-                <path d="m9 14 2 2 4-4"/>
-              </svg>
-            </span>
-            <span>Paid Micro-Gigs</span>
-            <span class="nav-badge accent" id="sidebar-task-count">6 Gigs</span>
-          </a>
-
-          <a class="nav-item" id="nav-academy" data-view="academy">
-            <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              </svg>
-            </span>
-            <span>Academy</span>
-            <span class="nav-badge live">Learn</span>
-          </a>
-
-          <a class="nav-item" id="nav-portfolio" data-view="portfolio">
-            <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
-            </span>
-            <span>Verified Portfolio</span>
-          </a>
-
-          <a class="nav-item" id="nav-wallet" data-view="wallet">
-            <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="14" x="2" y="5" rx="2"/>
-                <line x1="2" x2="22" y1="10" y2="10"/>
-              </svg>
-            </span>
-            <span>Wallet & Escrow</span>
-            <span class="nav-badge" id="nav-balance-badge">$295.50</span>
-          </a>
-        </nav>
-
-        <!-- Section: Network / Peers -->
-        <div class="nav-section">
-          <div class="section-label">Jobseeker Network</div>
-          <div class="friend-list">
-            
-            <div class="friend-item" title="Bagas Mahpie - AI Annotator">
-              <div class="friend-avatar-wrap">
-                <img src="assets/images/user_avatar.jpg" alt="Bagas Mahpie" class="friend-avatar">
-                <span class="friend-status status-online"></span>
-              </div>
-              <div class="friend-info">
-                <span class="friend-name">Bagas Mahpie</span>
-                <span class="friend-role">AI Annotator</span>
-              </div>
-            </div>
-
-            <div class="friend-item" title="Sir Dandy - UI/UX Designer">
-              <div class="friend-avatar-wrap">
-                <img src="assets/images/user_avatar.jpg" alt="Sir Dandy" class="friend-avatar">
-                <span class="friend-status status-busy"></span>
-              </div>
-              <div class="friend-info">
-                <span class="friend-name">Sir Dandy</span>
-                <span class="friend-role">UI/UX Designer</span>
-              </div>
-            </div>
-
-            <div class="friend-item" title="Jhon Tosan - QA Specialist">
-              <div class="friend-avatar-wrap">
-                <img src="assets/images/user_avatar.jpg" alt="Jhon Tosan" class="friend-avatar">
-                <span class="friend-status status-online"></span>
-              </div>
-              <div class="friend-info">
-                <span class="friend-name">Jhon Tosan</span>
-                <span class="friend-role">QA Specialist</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Sidebar Footer: Role Switcher -->
-        <div class="sidebar-footer">
-          <div class="role-switcher-card">
-            <p><strong>Two-Sided Ecosystem</strong></p>
-            <button class="btn-switch-role" id="btn-toggle-business-mode">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-              <span>Partner Employer View</span>
-            </button>
-          </div>
-          <a class="nav-item" id="nav-settings" style="padding: 8px 12px; font-size: 0.85rem;">
-            <span class="nav-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-              </svg>
-            </span>
-            <span>Settings</span>
-          </a>
-        </div>
-      </aside>
-
-      <!-- ====================================================================
-           CENTER COLUMN: Main Content Views
-           ==================================================================== -->
-      <section class="main-content" id="main-scroll-container">
-
-        <!-- Top Navigation & Search -->
-        <header class="top-nav">
-          <div class="search-container">
-            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" id="global-search-input" class="search-input" placeholder="Search simulations, paid micro-gigs, partner tasks..." autocomplete="off">
-          </div>
-
-          <div class="top-actions">
-            <!-- SkillPoints Top Counter Pill -->
-            <div class="points-pill-top" id="btn-top-points" title="SkillPoints: Complete simulations to unlock paid gigs!">
-              <span>⚡</span>
-              <span id="top-sp-display">75 SP</span>
-            </div>
-
-            <!-- Messages button -->
-            <button class="icon-btn" id="btn-messages" title="Messages & Feedback">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect width="20" height="16" x="2" y="4" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-            </button>
-
-            <!-- Notifications button -->
-            <button class="icon-btn" id="btn-notifications" title="Notifications & Unlocks">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
-                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
-              </svg>
-              <span class="notification-dot"></span>
-            </button>
-
-            <!-- Profile Quick Pill -->
-            <div class="user-quick-profile" id="btn-quick-profile" title="View Profile">
-              <img src="assets/images/user_avatar.jpg" alt="Jason Ranti" class="user-quick-avatar" id="top-user-avatar">
-              <span class="user-quick-name" id="top-user-name">Jason Ranti</span>
-            </div>
-          </div>
-        </header>
-
-        <!-- VIEW 1: DASHBOARD (Default) -->
-        <div id="view-dashboard" class="content-view active">
-          
-          <!-- Hero Spotlight Banner -->
-          <div class="hero-banner">
-            <div class="hero-sparkle">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="#ffffff">
-                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
-              </svg>
-            </div>
-            <div class="hero-sparkle-sm">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
-                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
-              </svg>
-            </div>
-
-            <div>
-              <div class="hero-pretitle">THE SKILLBRIDGE PROGRESSION ENGINE</div>
-              <h1 class="hero-title">Learn. Simulate. Earn Points. Unlock Real Gigs.</h1>
-            </div>
-
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <button class="hero-cta-btn" id="hero-cta-start-sim">
-                <span>Start Job Simulation</span>
-                <span class="hero-cta-circle">+35 SP</span>
-              </button>
-              <button class="hero-cta-btn" id="hero-cta-guide-btn" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);">
-                <span>How It Works Guide</span>
-                <span class="hero-cta-circle">?</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               THE SKILLBRIDGE CYCLE PROGRESSION BANNER
-               ================================================================ -->
-          <div class="cycle-progression-card">
-            <div class="cycle-top-row">
-              <div class="cycle-title-wrap">
-                <div class="cycle-icon-spark">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="cycle-heading">Your Pathway: Complete Simulations to Unlock Real Gigs</h3>
-                  <p class="cycle-subtext" id="cycle-instruction-text">
-                    Earn <strong>100 SkillPoints (SP)</strong> through job simulations to unlock Tier 1 paid client tasks!
-                  </p>
-                </div>
-              </div>
-              <button class="btn-open-guide" id="btn-trigger-guide-modal">
-                <span>View 7-Step Cycle</span>
-                <span>➔</span>
-              </button>
-            </div>
-
-            <!-- Progress Bar towards unlocking Real Gigs -->
-            <div class="sp-meter-container">
-              <div class="sp-meter-labels">
-                <span class="sp-current-text">
-                  Current: <strong id="sp-meter-current">75 SP</strong>
-                </span>
-                <span class="sp-target-text" id="sp-meter-status">
-                  Need <strong>25 SP</strong> to unlock Tier 1 Real Money Gigs
-                </span>
-              </div>
-              <div class="sp-bar-track">
-                <div class="sp-bar-fill" id="sp-bar-fill" style="width: 75%;"></div>
-              </div>
-            </div>
-
-            <!-- 7-Step Sequence Tracker -->
-            <div class="cycle-steps-pills">
-              <span class="cycle-step-item completed">1. Learn</span>
-              <span class="cycle-arrow">➔</span>
-              <span class="cycle-step-item active" id="pill-step-sim">2. Job Simulations (Current)</span>
-              <span class="cycle-arrow">➔</span>
-              <span class="cycle-step-item" id="pill-step-sp">3. Earn Points (75/100)</span>
-              <span class="cycle-arrow">➔</span>
-              <span class="cycle-step-item" id="pill-step-unlock">4. Unlock Real Gigs 🔒</span>
-              <span class="cycle-arrow">➔</span>
-              <span class="cycle-step-item">5. Complete Work</span>
-              <span class="cycle-arrow">➔</span>
-              <span class="cycle-step-item">6. Verified Portfolio</span>
-              <span class="cycle-arrow">➔</span>
-              <span class="cycle-step-item">7. Enterprise Jobs</span>
-            </div>
-          </div>
-
-          <!-- Category Progress Row (Matching Reference) -->
-          <div class="category-progress-grid" id="learning-progress-container">
-            <!-- Injected via JS -->
-          </div>
-
-          <!-- ================================================================
-               SECTION 1: JOB SIMULATIONS (Earn Points & Prove Skills)
-               ================================================================ -->
-          <section class="section-container" style="margin-top: 10px;">
-            <div class="section-header">
-              <div>
-                <h2 class="section-title">1. Job Simulations (Risk-Free • Earn SkillPoints)</h2>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
-                  Practice real workflows from partner companies. Earn SP to prove your competencies and unlock real paid gigs!
-                </p>
-              </div>
-              <span class="brand-badge" style="background: #fef3c7; color: #b45309; font-size: 0.75rem;">
-                No Risk • Practice Phase
-              </span>
-            </div>
-
-            <div class="tasks-grid" id="simulations-market-grid" style="margin-top: 12px;">
-              <!-- Simulation cards injected dynamically via app.js -->
-            </div>
-          </section>
-
-          <!-- ================================================================
-               SECTION 2: REAL-WORLD PAID GIGS (Escrow Paid • Unlocked at 100 SP)
-               ================================================================ -->
-          <section class="section-container" style="margin-top: 18px;">
-            <div class="section-header">
-              <div>
-                <h2 class="section-title">2. Real-World Paid Gigs & Remote Tasks</h2>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
-                  Pre-funded escrow tasks provided by vetted businesses. Real USD payouts direct to your wallet!
-                </p>
-              </div>
-              <div class="section-controls">
-                <button class="circle-nav-btn" id="btn-scroll-left" title="Previous page">‹</button>
-                <button class="circle-nav-btn primary" id="btn-scroll-right" title="Next page">›</button>
-              </div>
-            </div>
-
-            <!-- Dynamic Category Filters -->
-            <div class="filter-pills-row" id="task-filter-pills">
-              <!-- Filter chips injected dynamically -->
-            </div>
-
-            <!-- Gigs Grid (Displays locked overlays when SP < 100) -->
-            <div class="tasks-grid" id="tasks-market-grid">
-              <!-- Cards rendered dynamically via app.js -->
-            </div>
-          </section>
-
-          <!-- Bottom Section: Active Work & Lessons (Matching "Your Lesson" table in Mockup) -->
-          <section class="lesson-section" style="margin-top: 14px;">
-            <div class="section-header">
-              <h2 class="section-title">Your Work & Learning Milestones</h2>
-              <a class="section-link" id="link-see-all-lessons">See all</a>
-            </div>
-
-            <div class="work-table-container">
-              <table class="work-table" id="work-history-table">
-                <thead>
-                  <tr>
-                    <th>PARTNER / MENTOR</th>
-                    <th>COMPETENCY TYPE</th>
-                    <th>DELIVERABLE DESCRIPTION</th>
-                    <th>STATUS / ACTION</th>
-                  </tr>
-                </thead>
-                <tbody id="work-table-body">
-                  <!-- Injected dynamically -->
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-        </div>
-
-        <!-- VIEW 2: FULL JOB SIMULATIONS VIEW -->
-        <div id="view-simulations" class="content-view" style="display: none;">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Job Simulations Catalog</h2>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
-                Complete simulations to earn SkillPoints (SP). Reach 100 SP to unlock Tier 1 Paid Gigs and 250 SP for Tier 2 Enterprise tasks.
-              </p>
-            </div>
-          </div>
-          <div class="tasks-grid" id="full-simulations-grid" style="margin-top: 16px;"></div>
-        </div>
-
-        <!-- VIEW 3: FULL PAID GIGS MARKETPLACE -->
-        <div id="view-tasks" class="content-view" style="display: none;">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Paid Micro-Gigs Marketplace</h2>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
-                Deliver verified work for global businesses and receive instant escrow payouts.
-              </p>
-            </div>
-          </div>
-          <div class="tasks-grid" id="full-tasks-grid" style="margin-top: 16px;"></div>
-        </div>
-
-        <!-- VIEW 4: SKILL ACADEMY -->
-        <div id="view-academy" class="content-view" style="display: none;">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">SkillBridge Academy: Micro-Learning</h2>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
-                10-minute micro-learning modules designed to break down barriers to entry.
-              </p>
-            </div>
-          </div>
-          <div class="tasks-grid" id="academy-modules-grid" style="margin-top: 16px;"></div>
-        </div>
-
-        <!-- VIEW 5: VERIFIABLE PORTFOLIO -->
-        <div id="view-portfolio" class="content-view" style="display: none;">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Verifiable Digital Portfolio</h2>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
-                Cryptographically validated work credentials, client testimonials, and proof of practical competence.
-              </p>
-            </div>
-            <div style="display: flex; gap: 10px;">
-              <button class="btn-secondary-action" id="btn-share-portfolio">Share Portfolio Link</button>
-              <button class="btn-primary-action" id="btn-export-cv">Download Verified CV</button>
-            </div>
-          </div>
-          <div id="portfolio-container" style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;"></div>
-        </div>
-
-        <!-- VIEW 6: PARTNER EMPLOYER PORTAL -->
-        <div id="view-partner-portal" class="content-view" style="display: none;">
-          <div class="section-header">
-            <div>
-              <div style="font-size: 0.72rem; font-weight: 800; color: var(--primary); text-transform: uppercase;">PARTNER BUSINESS CONSOLE</div>
-              <h2 class="section-title">TechNova AI Labs — Employer Console</h2>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
-                Post micro-tasks, deposit youth escrow funding, review completed deliverables, and recruit top junior talent.
-              </p>
-            </div>
-            <button class="btn-secondary-action" id="btn-exit-partner-mode">Back to Seeker View</button>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-            <div style="background: #ffffff; border: 1px solid #eef2f7; border-radius: 20px; padding: 22px;">
-              <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 14px;">Post a Verified Micro-Task</h3>
-              <form id="form-post-task" style="display: flex; flex-direction: column; gap: 14px;">
-                <div>
-                  <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Task Title</label>
-                  <input type="text" id="post-task-title" class="search-input" style="padding-left: 14px; border-radius: 10px;" placeholder="e.g. Validate 30 Medical Audio Transcripts" required>
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                  <div>
-                    <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Payout per Youth ($ USD)</label>
-                    <input type="number" id="post-task-reward" class="search-input" style="padding-left: 14px; border-radius: 10px;" value="25.00" step="0.5" required>
-                  </div>
-                  <div>
-                    <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Category</label>
-                    <select id="post-task-category" class="search-input" style="padding-left: 14px; border-radius: 10px; cursor: pointer;">
-                      <option value="ai-data">AI & Data Annotation</option>
-                      <option value="design-ui">UI/UX Design Review</option>
-                      <option value="web-dev">Web QA Testing</option>
-                      <option value="content">Content & Localization</option>
-                    </select>
-                  </div>
-                </div>
-                <button type="submit" class="btn-primary-action" style="justify-content: center;">
-                  Deposit Escrow & Publish Task ($25.00)
-                </button>
-              </form>
-            </div>
-
-            <div style="background: #ffffff; border: 1px solid #eef2f7; border-radius: 20px; padding: 22px;">
-              <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 14px;">Incoming Youth Submissions (Escrow QA)</h3>
-              <div id="partner-submissions-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ====================================================================
-           RIGHT SIDEBAR: Statistics, Radial Score, Bar Chart, Mentors & Wallet
-           ==================================================================== -->
-      <aside class="sidebar-right" aria-label="Personal Progress and Mentors">
-
-        <div class="right-section-header">
-          <h2 class="right-section-title">Statistic</h2>
-          <button class="more-btn" title="Statistic Options">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="12" cy="5" r="2"/>
-              <circle cx="12" cy="12" r="2"/>
-              <circle cx="12" cy="19" r="2"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Radial Employability Readiness Gauge & Greeting -->
-        <div class="user-momentum-box">
-          <div class="radial-avatar-wrapper">
-            <svg class="radial-svg" viewBox="0 0 100 100">
-              <circle class="radial-bg-circle" cx="50" cy="50" r="42" />
-              <circle class="radial-progress-circle" id="radial-progress-bar" cx="50" cy="50" r="42" />
-            </svg>
-            <img src="assets/images/user_avatar.jpg" alt="Jason Ranti Profile" class="user-center-avatar" id="avatar-center-profile">
-            <span class="badge-percent-pill" id="badge-score-pill">84%</span>
-          </div>
-
-          <div>
-            <h3 class="greeting-title" id="sidebar-greeting-name">
-              Good Morning Jason 🔥
-            </h3>
-            <p class="greeting-subtitle" id="sidebar-greeting-sub">
-              Level 1 Trainee • Earn 25 more SP to unlock Paid Gigs!
-            </p>
-          </div>
-        </div>
-
-        <!-- Weekly Activity & Earnings Bar Chart -->
-        <div class="chart-widget-card">
-          <div class="chart-header">
-            <span class="chart-title">Weekly Productivity</span>
-            <span class="chart-total-pill" id="chart-earnings-pill">+ $295.50</span>
-          </div>
-
-          <div class="bars-container" id="bar-chart-container"></div>
-          <div class="chart-labels-row" id="bar-chart-labels"></div>
-        </div>
-
-        <!-- Mentors & Partner Businesses List -->
-        <div class="mentors-section">
-          <div class="right-section-header">
-            <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">Your mentor</h3>
-            <button class="circle-nav-btn" style="width: 24px; height: 24px; font-size: 1rem;" title="Explore More Mentors">+</button>
-          </div>
-
-          <div class="mentor-cards-list" id="mentors-list-container"></div>
-          <button class="btn-see-all-mentors" id="btn-see-all-mentors">See All</button>
-        </div>
-
-        <!-- Micro-Escrow Digital Wallet Card -->
-        <div class="wallet-quick-card">
-          <div class="wallet-card-header">
-            <div class="wallet-badge-shield">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-              <span>Protected Escrow</span>
-            </div>
-            <span style="font-size: 0.72rem; opacity: 0.8;">Instant Pay</span>
-          </div>
-
-          <div>
-            <div class="wallet-balance-num" id="sidebar-wallet-balance">$295.50</div>
-            <div class="wallet-balance-label">Available for Direct Cash Out</div>
-          </div>
-
-          <button class="btn-cashout" id="btn-trigger-cashout">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <polyline points="19 12 12 19 5 12"/>
-            </svg>
-            <span>Withdraw to Mobile Money / Bank</span>
-          </button>
-        </div>
-
-      </aside>
-
-    </div>
-  </main>
-
+<body class="app-body">
   <!-- ====================================================================
-       INTERACTIVE MODAL: THE 7-STEP SKILLBRIDGE CYCLE GUIDE
+       SMART PROTOTYPE SIGN-UP / ONBOARDING OVERLAY
        ==================================================================== -->
-  <div class="modal-overlay" id="modal-cycle-guide">
-    <div class="modal-card" style="max-width: 780px;">
-      <div class="modal-header">
-        <div class="modal-title">
-          <span style="background: var(--primary-light); color: var(--primary); padding: 6px; border-radius: 8px; display: inline-flex;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+  <div class="signup-overlay" id="signupOverlay">
+    <div class="signup-backdrop"></div>
+    <div class="signup-card" id="signupCard">
+      <!-- Top Logo -->
+      <div class="signup-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span>SkillBridge</span>
+      </div>
+
+      <!-- Step Progress -->
+      <div class="signup-steps-bar">
+        <div class="signup-step-indicator active" data-step="1"><span>1</span><small>Account</small></div>
+        <div class="signup-step-line"></div>
+        <div class="signup-step-indicator" data-step="2"><span>2</span><small>Role</small></div>
+        <div class="signup-step-line"></div>
+        <div class="signup-step-indicator" data-step="3"><span>3</span><small>Skills</small></div>
+      </div>
+
+      <!-- STEP 1: Account Info -->
+      <div class="signup-step-panel active" id="signupStep1">
+        <h2>Create Your Account</h2>
+        <p class="signup-subtitle">Join 12,000+ professionals building real-world skills</p>
+        <div class="signup-form-group">
+          <label for="signupFullName">Full Name</label>
+          <input type="text" id="signupFullName" placeholder="e.g. John Doe" autocomplete="name" />
+        </div>
+        <div class="signup-form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" placeholder="you@company.com" autocomplete="email" />
+        </div>
+        <div class="signup-form-group">
+          <label for="signupPassword">Password</label>
+          <div class="signup-password-wrap">
+            <input type="password" id="signupPassword" placeholder="Min 8 characters" />
+            <button type="button" class="signup-eye-btn" id="signupEyeBtn" title="Toggle visibility">👁</button>
+          </div>
+          <div class="signup-password-strength" id="passwordStrengthBar">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <span class="strength-label" id="strengthLabel"></span>
+        </div>
+        <button class="btn btn-primary signup-next-btn" id="signupNext1">Continue →</button>
+        <p class="signup-footer-text">Already have an account? <a href="#" id="signupLoginLink">Log in</a></p>
+      </div>
+
+      <!-- STEP 2: Role Selection -->
+      <div class="signup-step-panel" id="signupStep2">
+        <h2>Choose Your Path</h2>
+        <p class="signup-subtitle">Pick the role that best describes your goals</p>
+        <div class="signup-role-grid">
+          <div class="signup-role-card selected" data-role="data-analyst">
+            <span class="role-emoji">📊</span>
+            <h4>Data Analyst</h4>
+            <p>SQL, dashboards, KPI reporting</p>
+          </div>
+          <div class="signup-role-card" data-role="business-analyst">
+            <span class="role-emoji">💼</span>
+            <h4>UI/UX Designer</h4>
+            <p>UI, UX, Research, Wireframes, </p>
+          </div>
+          <div class="signup-role-card" data-role="freelancer">
+            <span class="role-emoji">🚀</span>
+            <h4>Content Writer / Journalist</h4>
+            <p>Remote gigs, client proposals, rate setting</p>
+          </div>
+          <div class="signup-role-card" data-role="career-changer">
+            <span class="role-emoji">🔄</span>
+            <h4>Software Engineer</h4>
+            <p>Guided upskilling, portfolio building</p>
+          </div>
+        </div>
+        <div class="signup-btn-row">
+          <button class="btn btn-secondary signup-back-btn" id="signupBack2">← Back</button>
+          <button class="btn btn-primary signup-next-btn" id="signupNext2">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Skill Assessment -->
+      <div class="signup-step-panel" id="signupStep3">
+        <h2>Quick Skill Check</h2>
+        <p class="signup-subtitle">Rate your confidence — we'll tailor your dashboard</p>
+        <div class="signup-skill-list" id="signupSkillList">
+          <div class="signup-skill-row">
+            <span class="skill-name">SQL & Databases</span>
+            <div class="skill-stars" data-skill="sql">
+              <span class="star" data-val="1">★</span><span class="star" data-val="2">★</span><span class="star" data-val="3">★</span><span class="star" data-val="4">★</span><span class="star" data-val="5">★</span>
+            </div>
+          </div>
+          <div class="signup-skill-row">
+            <span class="skill-name">Data Visualization</span>
+            <div class="skill-stars" data-skill="viz">
+              <span class="star" data-val="1">★</span><span class="star" data-val="2">★</span><span class="star" data-val="3">★</span><span class="star" data-val="4">★</span><span class="star" data-val="5">★</span>
+            </div>
+          </div>
+          <div class="signup-skill-row">
+            <span class="skill-name">Business Communication</span>
+            <div class="skill-stars" data-skill="comm">
+              <span class="star" data-val="1">★</span><span class="star" data-val="2">★</span><span class="star" data-val="3">★</span><span class="star" data-val="4">★</span><span class="star" data-val="5">★</span>
+            </div>
+          </div>
+          <div class="signup-skill-row">
+            <span class="skill-name">Project Management</span>
+            <div class="skill-stars" data-skill="pm">
+              <span class="star" data-val="1">★</span><span class="star" data-val="2">★</span><span class="star" data-val="3">★</span><span class="star" data-val="4">★</span><span class="star" data-val="5">★</span>
+            </div>
+          </div>
+        </div>
+        <div class="signup-btn-row">
+          <button class="btn btn-secondary signup-back-btn" id="signupBack3">← Back</button>
+          <button class="btn btn-primary signup-next-btn" id="signupLaunchBtn">🚀 Launch My Dashboard</button>
+        </div>
+      </div>
+
+      <!-- Success Animation (hidden) -->
+      <div class="signup-step-panel" id="signupStepSuccess">
+        <div class="signup-success-anim">
+          <div class="success-check">✓</div>
+          <h2>Welcome aboard!</h2>
+          <p class="signup-subtitle">Personalizing your workspace…</p>
+          <div class="signup-loading-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App Shell -->
+  <div class="app-container" id="appContainer">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="app-sidebar" id="appSidebar">
+      <!-- Sidebar Header & Unique Brand -->
+      <div class="sidebar-header">
+        <a href="#dashboard" class="sidebar-brand">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
-          </span>
-          <span>SkillBridge Progression Engine: The 7-Step Cycle</span>
-        </div>
-        <button class="modal-close-btn" id="modal-guide-close">✕</button>
-      </div>
-
-      <div class="modal-body">
-        <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; border-radius: 16px; padding: 18px;">
-          <h4 style="font-size: 1rem; font-weight: 800; color: #1e3a8a;">From Unemployment to Sustainable Digital Livelihood</h4>
-          <p style="font-size: 0.82rem; color: #334155; margin-top: 4px; line-height: 1.5;">
-            SkillBridge removes traditional barriers to entry (no resume or degree required). You prove competencies through simulations, earn SkillPoints (SP), and unlock guaranteed pre-funded paid gigs!
-          </p>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 12px;" id="guide-steps-container">
-          <!-- Injected dynamically via app.js -->
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <div style="font-size: 0.8rem; color: var(--text-secondary);">
-          Your Current Status: <strong style="color: #b45309;" id="guide-user-sp-text">75 SkillPoints (25 SP to unlock Tier 1)</strong>
-        </div>
-        <button class="btn-primary-action" id="btn-guide-start-sim">
-          <span>Start a Simulation Now (+35 SP)</span>
-          <span>➔</span>
+          </div>
+          <span class="brand-name">Skill<span class="brand-accent">Bridge</span></span>
+        </a>
+        <button class="sidebar-collapse-btn" id="collapseSidebarBtn" title="Toggle Sidebar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
         </button>
       </div>
-    </div>
-  </div>
 
-  <!-- ====================================================================
-       INTERACTIVE MODAL: Micro-Task & Simulation Workspace Runner
-       ==================================================================== -->
-  <div class="modal-overlay" id="modal-task-runner">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title">
-          <span style="background: var(--primary-light); color: var(--primary); padding: 6px; border-radius: 8px; display: inline-flex;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-              <polyline points="2 17 12 22 22 17"/>
-              <polyline points="2 12 12 17 22 12"/>
-            </svg>
-          </span>
-          <span id="modal-task-title">Workspace</span>
+      <!-- Personalized User Profile Card (Click to Edit "Make it Mine") -->
+      <div class="user-profile-card" id="userProfileCard" title="Click to customize your profile & identity">
+        <div class="user-avatar-row">
+          <div class="user-avatar" id="sidebarAvatar">YC</div>
+          <div class="user-info">
+            <div class="user-name-title">
+              <span class="user-name" id="userNameDisplay">Your Career Identity</span>
+              <button class="edit-profile-icon-btn" id="editProfileBtn" title="Customize name & role">✎</button>
+            </div>
+            <div class="user-badges">
+              <span class="badge badge-rank" id="userRankDisplay">Junior Analyst</span>
+              <span class="badge badge-tier verified" id="userPlanDisplay">Verified</span>
+            </div>
+          </div>
         </div>
-        <button class="modal-close-btn" id="modal-task-close" title="Close Workspace">✕</button>
+        <div class="user-progress-box">
+          <div class="user-progress-labels">
+            <span class="progress-role" id="progressRoleLabel">Junior Analyst</span>
+            <span class="progress-xp" id="progressXpLabel"><strong id="currentXpText">340</strong> / 1,500 XP</span>
+          </div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="sidebarXpBar" style="width: 23%;"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="modal-body">
-        <div style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid #eef2f7; padding: 12px 18px; border-radius: 14px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <img src="assets/images/user_avatar.jpg" alt="Partner" style="width: 32px; height: 32px; border-radius: 50%;">
-            <div>
-              <div style="font-size: 0.84rem; font-weight: 800;" id="modal-task-partner">TechNova AI Labs</div>
-              <div style="font-size: 0.72rem; color: var(--text-muted);" id="modal-task-badge-sub">Simulation • Earn SkillPoints</div>
-            </div>
+      <!-- Streamlined Navigation Links (Focused: Dashboard, Work Desk, Jobs Desk) -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">YOUR WORK</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#dashboard" class="nav-link active" data-view="dashboard" id="nav-dashboard">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span class="nav-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#work-desk" class="nav-link" data-view="work-desk" id="nav-work-desk">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span class="nav-label">Skill Arena</span>
+              <span class="nav-chip hot">Simulations</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#jobs-desk" class="nav-link" data-view="jobs-desk" id="nav-jobs-desk">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <span class="nav-label">Gig Hub</span>
+              <span class="nav-chip gig-count" id="activeGigsCount">28 Gigs</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#track-guide" class="nav-link" data-view="track-guide" id="nav-track-guide">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span class="nav-label">Track Guides</span>
+              <span class="nav-chip" style="background: rgba(135,151,123,0.2); color: #43543d;">Roadmaps</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer (Upgrade to Pro removed) -->
+      <div class="sidebar-footer">
+        <button class="footer-btn" id="feedbackBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Feedback</span>
+        </button>
+
+        <button class="sign-out-btn" id="signOutBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sign out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT VIEWPORT -->
+    <main class="app-main" id="appMain">
+      
+      <!-- Top App Header Bar -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open navigation menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="globalSearchInput" class="search-input" placeholder="Search simulations, SQL queries, or paid gigs...">
+            <span class="search-kbd">Ctrl K</span>
           </div>
-          <div style="text-align: right;">
-            <div style="font-size: 1.15rem; font-weight: 800; color: #ea580c;" id="modal-task-reward">+35 SP</div>
-            <div style="font-size: 0.72rem; color: var(--accent-emerald); font-weight: 700;" id="modal-task-guarantee">Skill Validation</div>
+
+          <div class="track-selector">
+            <span class="track-label">Track:</span>
+            <select id="careerTrackSelect" class="track-select" title="Switch career track roadmap & guide">
+              <option value="data-analyst">Certified Data Analyst</option>
+              <option value="bi-consultant">Business Intelligence Consultant</option>
+              <option value="growth-freelance">Freelance Growth Strategist</option>
+            </select>
+            <button class="claim-rec-btn" id="openClaimRecBtn" title="Claim Letter of Recommendation, Working Hours & Certificate">📜 Claim Recommendation</button>
           </div>
         </div>
 
-        <div class="workspace-split">
-          <div class="interactive-canvas-box" id="task-interactive-canvas">
-            <img src="assets/images/task_ai.jpg" alt="Task Workspace Asset" id="modal-workspace-img">
-            <div class="bounding-box-demo" id="demo-bbox" title="Drag to adjust bounding box">
-              <span class="bbox-label" id="demo-bbox-label">Fashion Apparel</span>
+        <div class="topbar-right">
+
+          <!-- Notification Bell -->
+          <div class="notif-wrapper">
+            <button class="icon-circle-btn" id="notifBellBtn" title="Notifications">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge-dot"></span>
+            </button>
+            <div class="notif-dropdown" id="notifDropdown">
+              <div class="notif-dropdown-header">
+                <h4>Notifications</h4>
+                <button class="btn-text-sm" id="markAllReadBtn">Mark all read</button>
+              </div>
+              <ul class="notif-list" id="notifList">
+                <li class="notif-item unread">
+                  <div class="notif-icon-circle green">💼</div>
+                  <div class="notif-info">
+                    <p class="notif-text"><strong>New Gig Match:</strong> Aura Commerce posted $1,450 SQL Retention Dashboard project.</p>
+                    <span class="notif-time">15 mins ago</span>
+                  </div>
+                </li>
+                <li class="notif-item unread">
+                  <div class="notif-icon-circle terracotta">⭐</div>
+                  <div class="notif-info">
+                    <p class="notif-text"><strong>Simulation Graded:</strong> Your submission for Veloce Freight scored <strong>95/100</strong> (+45 XP).</p>
+                    <span class="notif-time">2 hours ago</span>
+                  </div>
+                </li>
+                <li class="notif-item">
+                  <div class="notif-icon-circle sage">💬</div>
+                  <div class="notif-info">
+                    <p class="notif-text"><strong>Mentor Evaluation:</strong> "Clean query optimization on the cohort grouping."</p>
+                    <span class="notif-time">Yesterday</span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div class="workspace-controls">
-            <div>
-              <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Select Valid Object Tag</h4>
-              <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 12px;">
-                Identify the primary subject inside the marked bounding boundary.
-              </p>
-              
-              <div class="tag-options-grid" id="modal-tags-container">
-                <button class="tag-choice-btn selected" data-label="Fashion Apparel">Fashion Apparel</button>
-                <button class="tag-choice-btn" data-label="Footwear">Footwear</button>
-                <button class="tag-choice-btn" data-label="Handbag / Accessory">Handbag / Acc.</button>
-                <button class="tag-choice-btn" data-label="Outerwear Jacket">Outerwear</button>
+          <!-- Quick User Menu with Profile Customizer Trigger -->
+          <div class="topbar-user-pill" id="userPillBtn" title="Click to customize profile">
+            <div class="user-avatar-sm" id="topbarAvatarSm">YC</div>
+            <span class="user-pill-name" id="topbarUserName">Profile</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT PANES -->
+      <div class="content-viewport">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: DASHBOARD                          -->
+        <!-- ========================================== -->
+        <section class="view-panel active" id="view-dashboard">
+          <div class="view-header">
+            <div class="view-header-titles">
+              <h1 class="view-title">Dashboard</h1>
+              <p class="view-subtitle">Pick up where you left off.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-secondary" id="exploreSimsBtn">Explore Simulations</button>
+              <button class="btn btn-primary" id="dashBrowseGigsBtn">Browse Paid Gigs ($)</button>
+            </div>
+          </div>
+
+          <!-- Smooth Sliding Skills Bridge & Unemployment Impact Banner -->
+          <div class="smooth-banner-slider-container" id="smoothBannerSlider">
+            <div class="smooth-slider-header">
+              <div class="smooth-header-badge">
+                <span class="pulse-sparkle">🌱</span>
+                <span class="badge-text">SKILLS BRIDGE INITIATIVE</span>
+                <span class="badge-separator">•</span>
+                <span class="badge-sub">Solving Global Unemployment & Underemployment</span>
+              </div>
+              <div class="smooth-controls">
+                <span class="smooth-counter" id="smoothSlideCounter">01 / 04</span>
+                <div class="smooth-btn-group">
+                  <button class="smooth-nav-btn prev" id="smoothPrevBtn" aria-label="Previous Slide">‹</button>
+                  <button class="smooth-nav-btn next" id="smoothNextBtn" aria-label="Next Slide">›</button>
+                  <button class="smooth-play-btn" id="smoothPlayBtn" title="Pause / Resume auto-play" aria-label="Toggle auto-play">
+                    <span id="smoothPlayIcon">⏸</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div>
-              <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Quality Checklist</h4>
-              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-secondary); cursor: pointer; margin-bottom: 6px;">
-                <input type="checkbox" id="check-accuracy" checked>
-                <span>Bounding box tight around target object (&lt;5% padding)</span>
-              </label>
-              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-secondary); cursor: pointer;">
-                <input type="checkbox" id="check-resolution" checked>
-                <span>No partial occlusions or blurry background artifacts</span>
-              </label>
+            <div class="smooth-slider-viewport">
+              <div class="smooth-slider-track" id="smoothSliderTrack">
+                
+                <!-- Slide 1: Skills Bridge to Employment -->
+                <div class="smooth-slide" data-index="0">
+                  <div class="smooth-slide-content">
+                    <div class="smooth-slide-left">
+                      <div class="smooth-pill-row">
+                        <span class="smooth-pill terracotta">Skills Bridge</span>
+                        <span class="smooth-tag">Theory → Verifiable Competence</span>
+                      </div>
+                      <h2 class="smooth-headline">Bridging the Global Unemployment & Underemployment Chasm</h2>
+                      <p class="smooth-desc">
+                        Over 73 million graduates and career changers worldwide face unemployment or underemployment—not due to lack of aptitude, but because traditional universities teach static theory without enterprise context. SkillBridge acts as the active skills bridge: replacing passive lectures with live corporate data sandboxes so you graduate with actual proof of competence.
+                      </p>
+                      <div class="smooth-cta-row">
+                        <a href="#work-desk" class="btn btn-primary-sm">Start Free Enterprise Simulation →</a>
+                        <span class="smooth-note">100% Free Foundation • 0% Tuition Debt</span>
+                      </div>
+                    </div>
+                    <div class="smooth-slide-right">
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">64%</span>
+                        <span class="stat-caption">Faster transition to first paid engagement</span>
+                      </div>
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">3.8x</span>
+                        <span class="stat-caption">Higher interview-to-offer response rate</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Shattering the Experience Paradox -->
+                <div class="smooth-slide" data-index="1">
+                  <div class="smooth-slide-content">
+                    <div class="smooth-slide-left">
+                      <div class="smooth-pill-row">
+                        <span class="smooth-pill sage">Zero Barrier</span>
+                        <span class="smooth-tag">Overcoming The Catch-22</span>
+                      </div>
+                      <h2 class="smooth-headline">No 3-Year Resume Needed When You Have Verifiable Work</h2>
+                      <p class="smooth-desc">
+                        Shatter the paradox of "needing experience to get a job, but needing a job to get experience." When you diagnose customer churn for Aura Commerce or route bottlenecks for Veloce Freight, your code is independently graded and stored as a tamper-proof competency credential that hiring clients evaluate directly—skipping automated ATS gatekeepers entirely.
+                      </p>
+                      <div class="smooth-cta-row">
+                        <a href="#work-desk" class="btn btn-primary-sm">Launch Skill Arena →</a>
+                        <span class="smooth-note">8 Production Company Sandboxes</span>
+                      </div>
+                    </div>
+                    <div class="smooth-slide-right">
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">100%</span>
+                        <span class="stat-caption">Merit-based code scoring (0–100)</span>
+                      </div>
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">Direct</span>
+                        <span class="stat-caption">Bypass arbitrary resume filters</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Sustainable Digital Livelihoods -->
+                <div class="smooth-slide" data-index="2">
+                  <div class="smooth-slide-content">
+                    <div class="smooth-slide-left">
+                      <div class="smooth-pill-row">
+                        <span class="smooth-pill forest">Digital Livelihood</span>
+                        <span class="smooth-tag">From Learning to Direct Earning</span>
+                      </div>
+                      <h2 class="smooth-headline">Connecting Verified Talent to Paid Freelance Gigs ($65–$95/hr)</h2>
+                      <p class="smooth-desc">
+                        Learning without earning leaves talent stranded. Completing an enterprise simulation immediately qualifies you for verified client contracts on the Gig Hub paying $65–$95/hr or $1,400+ fixed deliverables. Freelancers from developing regions and non-traditional backgrounds turn verified simulation scores into sustainable income in under 14 days.
+                      </p>
+                      <div class="smooth-cta-row">
+                        <a href="#jobs-desk" class="btn btn-primary-sm">Browse Gig Hub ($) →</a>
+                        <span class="smooth-note">$34,500+ Active Contract Pool</span>
+                      </div>
+                    </div>
+                    <div class="smooth-slide-right">
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">$1,450</span>
+                        <span class="stat-caption">Average fixed milestone project value</span>
+                      </div>
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">Direct</span>
+                        <span class="stat-caption">Escrow payouts with zero bidding fees</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4: Equal Economic Mobility -->
+                <div class="smooth-slide" data-index="3">
+                  <div class="smooth-slide-content">
+                    <div class="smooth-slide-left">
+                      <div class="smooth-pill-row">
+                        <span class="smooth-pill terracotta">Global Mobility</span>
+                        <span class="smooth-tag">Democratizing Global Talent Access</span>
+                      </div>
+                      <h2 class="smooth-headline">Leveling the Playing Field for Underserved Global Talent</h2>
+                      <p class="smooth-desc">
+                        Geography, university prestige, or socio-economic background should never cap your earning potential. SkillBridge delivers equal access to top-tier enterprise challenges, peer collaboration, and verified recruiter introductions—empowering career changers, young parents, and rural talent to compete and thrive in remote digital careers.
+                      </p>
+                      <div class="smooth-cta-row">
+                        <a href="#jobs-desk" class="btn btn-primary-sm">Explore Verified Client Gigs →</a>
+                        <span class="smooth-note">$34,500+ Active Contract Pool</span>
+                      </div>
+                    </div>
+                    <div class="smooth-slide-right">
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">140+</span>
+                        <span class="stat-caption">Global cities represented on the floor</span>
+                      </div>
+                      <div class="smooth-stat-card">
+                        <span class="stat-big-num">Open</span>
+                        <span class="stat-caption">Meritocracy for global remote careers</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
-            <div>
-              <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">Auditor Notes</label>
-              <input type="text" id="task-feedback-input" class="search-input" style="padding: 8px 12px; font-size: 0.78rem; border-radius: 8px;" placeholder="e.g. Validated with high confidence...">
+            <!-- Bottom Progress Track & Interactive Dots -->
+            <div class="smooth-slider-footer">
+              <div class="smooth-progress-track">
+                <div class="smooth-progress-bar" id="smoothProgressBar" style="width: 25%;"></div>
+              </div>
+              <div class="smooth-dots" id="smoothDots">
+                <button class="smooth-dot active" data-slide="0">
+                  <span class="dot-index">01</span>
+                  <span>Skills Bridge</span>
+                </button>
+                <button class="smooth-dot" data-slide="1">
+                  <span class="dot-index">02</span>
+                  <span>Zero Barrier</span>
+                </button>
+                <button class="smooth-dot" data-slide="2">
+                  <span class="dot-index">03</span>
+                  <span>Paid Contracts</span>
+                </button>
+                <button class="smooth-dot" data-slide="3">
+                  <span class="dot-index">04</span>
+                  <span>Global Mobility</span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div id="submission-progress-row" style="display: none; flex-direction: column; gap: 8px; background: #f1f5f9; padding: 14px; border-radius: 12px;">
-          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700;">
-            <span id="qa-status-text">Validating deliverable...</span>
-            <span id="qa-status-percent">40%</span>
+          <!-- Dashboard Two-Column Grid -->
+          <div class="dashboard-grid">
+            
+            <!-- Left Main Column -->
+            <div class="dashboard-main-col">
+              
+              <!-- Metrics Cards Row -->
+              <div class="stats-row">
+                <!-- Level Metric Card -->
+                <div class="stat-card stat-level-card">
+                  <div class="stat-card-top">
+                    <span class="badge badge-rank-purple" id="dashRankBadge">Junior Analyst</span>
+                    <div class="level-indicator">
+                      <span>Lvl 1</span>
+                      <div class="mini-bar-track">
+                        <div class="mini-bar-fill" style="width: 45%;"></div>
+                      </div>
+                      <span>Lvl 2</span>
+                    </div>
+                  </div>
+                  <div class="stat-card-bottom">
+                    <div class="stat-meta">
+                      <span class="stat-sub">Current Rank: Junior Data Analyst</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- XP This Week -->
+                <div class="stat-card">
+                  <div class="stat-icon-wrapper terracotta">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  </div>
+                  <div class="stat-body">
+                    <span class="stat-label">XP this week</span>
+                    <div class="stat-value-row">
+                      <span class="stat-value" id="dashWeekXp">140</span>
+                      <span class="stat-delta positive">+45% vs last wk</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Streak -->
+                <div class="stat-card">
+                  <div class="stat-icon-wrapper terracotta">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                    </svg>
+                  </div>
+                  <div class="stat-body">
+                    <span class="stat-label">Streak</span>
+                    <div class="stat-value-row">
+                      <span class="stat-value" id="dashStreakDays">4 days</span>
+                      <span class="streak-emoji">🔥</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tasks Completed -->
+                <div class="stat-card">
+                  <div class="stat-icon-wrapper green">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <div class="stat-body">
+                    <span class="stat-label">Tasks completed</span>
+                    <div class="stat-value-row">
+                      <span class="stat-value" id="dashTasksCompleted">6</span>
+                      <span class="stat-sub-mini">1 pending review</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Active Simulation Continue Card (Unique Company: Aura Commerce Global) -->
+              <div class="resume-simulation-card">
+                <div class="resume-card-left">
+                  <div class="resume-company-icon">🛍️</div>
+                  <div class="resume-details">
+                    <div class="resume-eyebrow">CONTINUE ENTERPRISE SIMULATION</div>
+                    <h3 class="resume-title">Aura Commerce Global — Episode 2: Customer Retention & Order Status Analysis</h3>
+                    <p class="resume-desc">Investigate why 14% of customers stop ordering after 60 days using SQL query aggregation and cohort retention modeling.</p>
+                    <div class="resume-pills">
+                      <span class="pill">SQL</span>
+                      <span class="pill">Omnichannel E-Commerce</span>
+                      <span class="pill-verified">Unlocks 30+ Freelance Gigs</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="resume-card-right">
+                  <button class="btn btn-primary" id="resumeSimActionBtn">Resume Simulation →</button>
+                  <span class="resume-est-time">Est. 20 mins remaining</span>
+                </div>
+              </div>
+
+              <!-- Certification Roadmap Box -->
+              <div class="cert-roadmap-card">
+                <div class="cert-card-header">
+                  <div>
+                    <h3 class="cert-card-title">Certified Data Analyst</h3>
+                    <p class="cert-card-desc">Earned through a body of independently graded analyst work and verified enterprise deliverables.</p>
+                  </div>
+                  <span class="cert-percentage-pill" id="certRoadmapPct">60%</span>
+                </div>
+
+                <div class="cert-card-progress">
+                  <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="certRoadmapBar" style="width: 60%;"></div>
+                  </div>
+                  <span class="cert-count-label" id="certRoadmapCount">3 of 5 requirements met</span>
+                </div>
+
+                <div class="cert-checklist" id="certChecklistContainer">
+                  <!-- Checklist Items -->
+                  <div class="cert-check-item completed">
+                    <span class="check-icon">✓</span>
+                    <div class="check-content">
+                      <span class="check-title">Aura Commerce Global Episode 1 (SQL Schema & Statuses)</span>
+                      <span class="check-sub">Passed with 98/100 • Graded independently</span>
+                    </div>
+                    <span class="check-status-badge">Completed</span>
+                  </div>
+
+                  <div class="cert-check-item completed">
+                    <span class="check-icon">✓</span>
+                    <div class="check-content">
+                      <span class="check-title">Live Desk Emergency Ticket: Supply Chain Route Bottleneck</span>
+                      <span class="check-sub">Resolved in 18 minutes • Client SLA met</span>
+                    </div>
+                    <span class="check-status-badge">Completed</span>
+                  </div>
+
+                  <div class="cert-check-item completed">
+                    <span class="check-icon">✓</span>
+                    <div class="check-content">
+                      <span class="check-title">Intern Desk: Client Communications & Scope Management</span>
+                      <span class="check-sub">Passed 5/5 scenario questions</span>
+                    </div>
+                    <span class="check-status-badge">Completed</span>
+                  </div>
+
+                  <div class="cert-check-item in-progress">
+                    <span class="check-icon circle"></span>
+                    <div class="check-content">
+                      <span class="check-title">Reach Senior Analyst XP Threshold (1,500 XP)</span>
+                      <span class="check-sub">Current: 340 / 1,500 XP (1,160 XP remaining)</span>
+                    </div>
+                    <span class="check-status-badge pending">In Progress</span>
+                  </div>
+
+                  <div class="cert-check-item">
+                    <span class="check-icon circle"></span>
+                    <div class="check-content">
+                      <span class="check-title">Submit 1 Verified Freelance Proposal on Jobs Desk</span>
+                      <span class="check-sub">Apply to an open client gig using your simulation credentials</span>
+                    </div>
+                    <span class="check-status-badge open">Open</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- High-Paying Gigs Teaser for User -->
+              <div class="featured-gigs-teaser">
+                <div class="teaser-header">
+                  <div>
+                    <h3 class="teaser-title">Paid Freelance Gigs You Currently Qualify For</h3>
+                    <p class="teaser-subtitle">Based on your completed simulations and verified SQL scorecards.</p>
+                  </div>
+                  <button class="btn-text-sm" id="viewAllQualifiedGigsBtn">View all qualified gigs →</button>
+                </div>
+                <div class="teaser-gigs-grid" id="dashTeaserGigsGrid">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div style="width: 100%; height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
-            <div id="qa-progress-bar" style="width: 40%; height: 100%; background: var(--primary); transition: width 0.4s ease;"></div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: WORK DESK (Unique Companies)       -->
+        <!-- ========================================== -->
+        <section class="view-panel" id="view-work-desk">
+          <div class="view-header">
+            <div class="view-header-titles">
+              <h1 class="view-title">Skill Arena</h1>
+              <p class="view-subtitle">Level up with hands-on company challenges and qualify for verified freelance gigs.</p>
+            </div>
+            <div class="view-header-actions">
+              <div class="filter-pills-bar">
+                <button class="pill-btn active" data-filter="all">All Tech</button>
+                <button class="pill-btn" data-filter="SQL">SQL</button>
+                <button class="pill-btn" data-filter="Power BI">Power BI</button>
+                <button class="pill-btn" data-filter="Excel">Excel</button>
+                <button class="pill-btn" data-filter="Python">Python</button>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <!-- Company Simulations Grid (Unique Brandings) -->
+          <div class="simulations-grid" id="simulationsGrid">
+            
+            <!-- 1. Aura Commerce Global -->
+            <div class="sim-card" data-company="auracommerce" data-tech="SQL,Power BI" data-pro="false">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-retail">🛍️</div>
+                <div class="sim-status-badge free-badge">Free Access</div>
+              </div>
+              <h3 class="sim-company-name">Aura Commerce Global</h3>
+              <p class="sim-company-industry">Retail / Direct-to-Consumer Omnichannel</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>32 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Senior CPFR Analyst Walmart at Unilever</li>
+                  <li>Growth Strategy Analyst, Performance & Creative</li>
+                  <li>Analyst - Loyalty Management & Marketing Retention</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="Aura">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Power BI</span>
+                  <span class="tag-score-earned">Score: 98/100</span>
+                </div>
+                <button class="btn btn-primary-sm open-sim-btn" data-sim-id="auracommerce">Launch Sandbox</button>
+              </div>
+            </div>
+
+            <!-- 2. Veloce Freight Systems -->
+            <div class="sim-card" data-company="veloce" data-tech="SQL,Excel" data-pro="false">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-logistics">🚚</div>
+                <div class="sim-status-badge free-badge">Free Access</div>
+              </div>
+              <h3 class="sim-company-name">Veloce Freight Systems</h3>
+              <p class="sim-company-industry">Logistics / Cross-Dock & Last-Mile Telematics</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>16 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Senior Financial Analyst - Operational Logistics</li>
+                  <li>Last-Mile Dispatch Route Optimization Lead</li>
+                  <li>Carrier SLA Compliance Specialist at Maersk</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="Veloce">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Excel</span>
+                  <span class="tag-score-earned">Score: 95/100</span>
+                </div>
+                <button class="btn btn-primary-sm open-sim-btn" data-sim-id="veloce">Launch Sandbox</button>
+              </div>
+            </div>
+
+            <!-- 3. Aegis Health Group (Pro) -->
+            <div class="sim-card" data-company="aegis" data-tech="SQL,Python" data-pro="true">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-health">🏥</div>
+                <div class="sim-status-badge pro-badge">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Pro</span>
+                </div>
+              </div>
+              <h3 class="sim-company-name">Aegis Health Group</h3>
+              <p class="sim-company-industry">Healthcare · Multi-state Hospital Revenue Cycle Audit</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>11 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Sr. Healthcare Claims Data Analyst | Remote</li>
+                  <li>Inpatient Modifier Coding Auditor</li>
+                  <li>Clinical Telehealth Performance Consultant</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="Aegis">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Python</span>
+                </div>
+                <button class="btn btn-secondary-sm open-sim-btn" data-sim-id="aegis">Preview Pro Simulation</button>
+              </div>
+            </div>
+
+            <!-- 4. Solon Capital & Risk (Pro) -->
+            <div class="sim-card" data-company="solon" data-tech="SQL,Python,Power BI" data-pro="true">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-finance">🏛️</div>
+                <div class="sim-status-badge pro-badge">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Pro</span>
+                </div>
+              </div>
+              <h3 class="sim-company-name">Solon Capital & Risk</h3>
+              <p class="sim-company-industry">Fintech / Fraud Prevention & Real-Time Stress Testing</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>48 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Senior FP&A Analyst at Paddle</li>
+                  <li>Senior Financial Insights Analyst at Instacart</li>
+                  <li>Chargeback Velocity & Fraud Risk Modeler</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="Solon">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Power BI</span>
+                  <span class="tag-badge">Python</span>
+                </div>
+                <button class="btn btn-secondary-sm open-sim-btn" data-sim-id="solon">Preview Pro Simulation</button>
+              </div>
+            </div>
+
+            <!-- 5. Vanguard Athletics Co. -->
+            <div class="sim-card" data-company="vanguard" data-tech="SQL,Excel" data-pro="false">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-sports">⚽</div>
+                <div class="sim-status-badge free-badge">Free Access</div>
+              </div>
+              <h3 class="sim-company-name">Vanguard Athletics Co.</h3>
+              <p class="sim-company-industry">Sports / Matchday Fan Merchandising Analytics</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>29 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Senior Merchandising Analyst at Fanatics</li>
+                  <li>Fan Revenue Monetization Specialist</li>
+                  <li>Matchday Concession & Kit Inventory Modeler</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="Vanguard">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Excel</span>
+                </div>
+                <button class="btn btn-primary-sm open-sim-btn" data-sim-id="vanguard">Launch Sandbox</button>
+              </div>
+            </div>
+
+            <!-- 6. Helios BioPharma Labs -->
+            <div class="sim-card" data-company="helios" data-tech="Excel,Power BI" data-pro="true">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-pharma">💊</div>
+                <div class="sim-status-badge pro-badge">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Pro</span>
+                </div>
+              </div>
+              <h3 class="sim-company-name">Helios BioPharma Labs</h3>
+              <p class="sim-company-industry">Biotech / Cold-Chain Clinical Supply Logistics</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>14 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Clinical Trials Logistics Analyst at Pfizer Partner</li>
+                  <li>Vaccine Cold-Chain Temperature Variance Auditor</li>
+                  <li>Pharma Regulatory Reporting Consultant</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="Helios">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">Excel</span>
+                  <span class="tag-badge">Power BI</span>
+                </div>
+                <button class="btn btn-secondary-sm open-sim-btn" data-sim-id="helios">Preview Pro Simulation</button>
+              </div>
+            </div>
+
+            <!-- 7. TerraVolt Clean Grid -->
+            <div class="sim-card" data-company="terravolt" data-tech="SQL,Python" data-pro="true">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-energy">⚡</div>
+                <div class="sim-status-badge pro-badge">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Pro</span>
+                </div>
+              </div>
+              <h3 class="sim-company-name">TerraVolt Clean Grid</h3>
+              <p class="sim-company-industry">Clean Energy / Smart Grid Peak-Demand Modeling</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>54 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Lead Financial Analyst, Renewable Energy Strategy</li>
+                  <li>Battery Storage Capacity & Dispatch Modeler</li>
+                  <li>Microgrid Telemetry Engineer at Schneider Partner</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="TerraVolt">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Python</span>
+                </div>
+                <button class="btn btn-secondary-sm open-sim-btn" data-sim-id="terravolt">Preview Pro Simulation</button>
+              </div>
+            </div>
+
+            <!-- 8. PulsePoint Cloud SaaS -->
+            <div class="sim-card" data-company="pulsepoint" data-tech="SQL,Excel" data-pro="false">
+              <div class="sim-card-header">
+                <div class="sim-company-icon icon-saas">☁️</div>
+                <div class="sim-status-badge free-badge">Free Access</div>
+              </div>
+              <h3 class="sim-company-name">PulsePoint Cloud SaaS</h3>
+              <p class="sim-company-industry">B2B SaaS / Product-Led Growth & LTV Retention</p>
+
+              <div class="sim-roles-box">
+                <div class="sim-roles-count">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span><strong>24 open roles & gigs</strong> use this kind of work</span>
+                </div>
+                <ul class="sim-roles-list">
+                  <li>Product Growth Analyst at Notion Partner</li>
+                  <li>Customer Retention Data Specialist</li>
+                  <li>SaaS Unit Economics & Cohort Consultant</li>
+                </ul>
+                <button class="sim-jobs-link" data-company-filter="PulsePoint">See them on the Jobs Desk →</button>
+              </div>
+
+              <div class="sim-card-footer">
+                <div class="sim-tags">
+                  <span class="tag-badge">SQL</span>
+                  <span class="tag-badge">Excel</span>
+                </div>
+                <button class="btn btn-primary-sm open-sim-btn" data-sim-id="pulsepoint">Launch Sandbox</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: JOBS DESK — FREELANCE MARKETPLACE  -->
+        <!-- ========================================== -->
+        <section class="view-panel" id="view-jobs-desk">
+          <div class="view-header">
+            <div class="view-header-titles">
+              <div class="badge-tag-row">
+                <span class="badge-pill-green">Verified Paid Contracts</span>
+                <span class="badge-pill-terracotta">Direct Online Payouts</span>
+              </div>
+              <h1 class="view-title">Gig Hub — Freelance Marketplace</h1>
+              <p class="view-subtitle">Real, paid freelance gigs & remote contracts. Complete enterprise simulations to automatically verify your skills and win clients with higher bids.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-secondary" id="myProposalsBtn">My Proposals (<span id="myProposalsCount">1</span>)</button>
+              <button class="btn btn-primary" id="freelancerRateCalcBtn">Rate Calculator 🧮</button>
+            </div>
+          </div>
+
+          <!-- Jobs Search & Filters Toolbar -->
+          <div class="jobs-toolbar">
+            <div class="jobs-search-box">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="gigSearchInput" placeholder="Filter by skill, client, or keyword (e.g. 'Power BI', 'SQL', 'Aura', 'Retention')...">
+            </div>
+
+            <div class="jobs-filter-group">
+              <select id="gigTypeFilter" class="filter-dropdown">
+                <option value="all">All Contract Types</option>
+                <option value="fixed">Fixed Price Project</option>
+                <option value="hourly">Hourly Contract ($/hr)</option>
+              </select>
+
+              <select id="gigBudgetFilter" class="filter-dropdown">
+                <option value="all">Any Budget</option>
+                <option value="under-1000">&lt; $1,000</option>
+                <option value="1000-2500">$1,000 - $2,500</option>
+                <option value="over-2500">$2,500+</option>
+              </select>
+
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="onlyQualifiedCheckbox" checked>
+                <span>Only Show Gigs I Qualify For</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Gigs List Container -->
+          <div class="gigs-container" id="gigsListContainer">
+            <!-- Dynamically populated via script.js -->
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: CAREER TRACK GUIDES & ROADMAPS     -->
+        <!-- ========================================== -->
+        <section class="view-panel" id="view-track-guide">
+          <div class="view-header">
+            <div class="view-header-titles">
+              <div class="badge-tag-row">
+                <span class="badge-pill-green">Verified Roadmaps</span>
+                <span class="badge-pill-terracotta">Direct Career Acceleration</span>
+              </div>
+              <h1 class="view-title">Career Track Guides & Roadmaps</h1>
+              <p class="view-subtitle">End-to-end master blueprints, essential toolkits, guided simulations, and direct freelance contracts tailored to your chosen path.</p>
+            </div>
+            <div class="view-header-actions">
+              <a href="#work-desk" class="btn btn-secondary">Go to Skill Arena ⚡</a>
+              <a href="#jobs-desk" class="btn btn-primary">Browse Paid Gigs 💰</a>
+            </div>
+          </div>
+
+          <!-- Track Switcher Tabs -->
+          <div class="track-guide-tabs-bar">
+            <button class="track-tab-btn active" data-track="data-analyst">
+              <span class="tab-icon">📊</span>
+              <span class="tab-text">
+                <strong>Certified Data Analyst</strong>
+                <small>SQL • Tableau • KPI Metrics</small>
+              </span>
+            </button>
+            <button class="track-tab-btn" data-track="bi-consultant">
+              <span class="tab-icon">💼</span>
+              <span class="tab-text">
+                <strong>Business Intelligence Consultant</strong>
+                <small>Power BI • Star Schema • Data Modeling</small>
+              </span>
+            </button>
+            <button class="track-tab-btn" data-track="growth-freelance">
+              <span class="tab-icon">🚀</span>
+              <span class="tab-text">
+                <strong>Freelance Growth Strategist</strong>
+                <small>A/B Testing • Funnels • Client Retainers</small>
+              </span>
+            </button>
+          </div>
+
+          <!-- TRACK 1: DATA ANALYST GUIDE -->
+          <div class="track-guide-panel active" id="guide-panel-data-analyst">
+            <!-- Hero Stats Card -->
+            <div class="guide-hero-card">
+              <div class="guide-hero-info">
+                <span class="guide-badge green">Enterprise Core Track</span>
+                <h2 class="guide-hero-title">Certified Data Analyst Roadmap</h2>
+                <p class="guide-hero-desc">
+                  Transform raw transactional databases into actionable executive insights. You'll master production SQL querying, cohort retention modeling, customer churn diagnostics, and automated visual dashboards that enterprises rely on to steer business growth.
+                </p>
+                <div class="guide-tags-row">
+                  <span class="guide-tag">PostgreSQL / BigQuery</span>
+                  <span class="guide-tag">Tableau & Power BI</span>
+                  <span class="guide-tag">Cohort & Churn Analytics</span>
+                  <span class="guide-tag">Python (Pandas)</span>
+                  <span class="guide-tag">Executive Presentation</span>
+                </div>
+              </div>
+              <div class="guide-stats-grid">
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">$55 – $85</span>
+                  <span class="guide-stat-label">Hourly Freelance Rate</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">$74,500</span>
+                  <span class="guide-stat-label">Avg. Base Salary</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">14 Gigs</span>
+                  <span class="guide-stat-label">Active on Platform</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">2–3 Wks</span>
+                  <span class="guide-stat-label">Time to First Paid Client</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4-Phase Interactive Roadmap -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">Milestone Execution Blueprint</h3>
+                  <p class="guide-section-subtitle">Complete each phase through simulations to unlock verified contract eligibility.</p>
+                </div>
+                <span class="guide-phase-counter">4 Progressive Phases</span>
+              </div>
+
+              <div class="guide-roadmap-timeline">
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">1</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Week 1 • Foundations</span>
+                      <h4 class="step-title">Advanced SQL & Complex Data Wrangling</h4>
+                    </div>
+                    <p class="step-desc">Master multi-table JOINs, subqueries, Common Table Expressions (CTEs), and Window Functions (`RANK()`, `LAG()`, `LEAD()`, `PARTITION BY`) on million-row e-commerce datasets.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox" checked> <span>Write queries utilizing CTEs and multiple JOIN types</span></label>
+                      <label class="step-check-label"><input type="checkbox" checked> <span>Calculate moving averages and running totals with Window Functions</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Optimize query indexing and execution plan time</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">2</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Week 2 • Business Metrics</span>
+                      <h4 class="step-title">Unit Economics & Churn / Cohort Modeling</h4>
+                    </div>
+                    <p class="step-desc">Calculate true net churn, monthly recurring revenue (MRR), Customer Lifetime Value (LTV), Customer Acquisition Cost (CAC) payback periods, and multi-month cohort retention curves.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox" checked> <span>Build automated monthly cohort retention matrices</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Diagnose drop-off bottlenecks in product checkout funnels</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Calculate blended CAC and LTV:CAC ratios</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">3</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Week 3 • Visual Storytelling</span>
+                      <h4 class="step-title">Executive Dashboards & Stakeholder Storytelling</h4>
+                    </div>
+                    <p class="step-desc">Design clean, interactive executive dashboards in Tableau or Power BI. Present findings concisely to VP/C-suite decision makers with clear operational recommendations.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Build interactive drill-down executive KPI summaries</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Synthesize complex statistical findings into 3 actionable bullets</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">4</span>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Week 4 • Direct Earning</span>
+                      <h4 class="step-title">Live Client Scoping & Verified Freelance Delivery</h4>
+                    </div>
+                    <p class="step-desc">Scope deliverables, structure milestone contracts, and execute verified client work on SkillBridge's Gig Hub with guaranteed escrow payouts.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Submit winning proposal with attached simulation scorecards</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Deliver verified deliverables and collect 5-star client ratings</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Curated Simulations in Skill Arena -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">Recommended Simulations in Skill Arena</h3>
+                  <p class="guide-section-subtitle">Complete these real company challenges to qualify for client contracts.</p>
+                </div>
+                <a href="#work-desk" class="guide-view-all-link">Open All Simulations →</a>
+              </div>
+              <div class="guide-cards-grid">
+                <div class="guide-card-item">
+                  <div class="guide-card-badge">E-Commerce</div>
+                  <h4 class="guide-card-title">Aura Health — User Churn Deep Dive</h4>
+                  <p class="guide-card-desc">Query 85,000 subscriber records to isolate why 18% of iOS subscribers drop after Month 2.</p>
+                  <div class="guide-card-meta">
+                    <span>Tech: SQL, Cohort Analysis</span>
+                    <strong>+45 XP</strong>
+                  </div>
+                  <a href="#work-desk" class="btn btn-primary-sm guide-card-btn">Launch in Skill Arena →</a>
+                </div>
+
+                <div class="guide-card-item">
+                  <div class="guide-card-badge">Logistics</div>
+                  <h4 class="guide-card-title">Veloce Freight — Bottleneck Routing</h4>
+                  <p class="guide-card-desc">Optimize shipment route latency data to eliminate $340k in annual delivery delays.</p>
+                  <div class="guide-card-meta">
+                    <span>Tech: SQL, Window Functions</span>
+                    <strong>+50 XP</strong>
+                  </div>
+                  <a href="#work-desk" class="btn btn-primary-sm guide-card-btn">Launch in Skill Arena →</a>
+                </div>
+
+                <div class="guide-card-item">
+                  <div class="guide-card-badge">FinTech</div>
+                  <h4 class="guide-card-title">Apex FinTech — Fraud Risk Scoring</h4>
+                  <p class="guide-card-desc">Detect anomalous wire transaction clusters and calculate risk severity indicators.</p>
+                  <div class="guide-card-meta">
+                    <span>Tech: SQL, Risk Metrics</span>
+                    <strong>+60 XP</strong>
+                  </div>
+                  <a href="#work-desk" class="btn btn-primary-sm guide-card-btn">Launch in Skill Arena →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Matching Paid Gigs in Gig Hub -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">Live Freelance Gigs You Can Win in This Track</h3>
+                  <p class="guide-section-subtitle">Verified simulation credentials give you automatic pre-qualification.</p>
+                </div>
+                <a href="#jobs-desk" class="guide-view-all-link">Browse All Gigs →</a>
+              </div>
+              <div class="guide-cards-grid">
+                <div class="guide-gig-card">
+                  <div class="guide-gig-payout">$1,450 <small>Fixed Milestone</small></div>
+                  <h4 class="guide-gig-title">E-Commerce Customer Retention & Cohort Dashboard</h4>
+                  <p class="guide-gig-client">Client: Aura Commerce • Remote • Verified Escrow</p>
+                  <span class="guide-gig-req">Requires: Aura Health Simulation (Score 80+)</span>
+                  <a href="#jobs-desk" class="btn btn-secondary-sm guide-gig-btn">Apply in Gig Hub →</a>
+                </div>
+
+                <div class="guide-gig-card">
+                  <div class="guide-gig-payout">$65 / hr <small>20 hrs/week • 6 wks</small></div>
+                  <h4 class="guide-gig-title">PostgreSQL Query Optimization & Weekly KPI Automation</h4>
+                  <p class="guide-gig-client">Client: Horizon SaaS • Remote • Direct Payout</p>
+                  <span class="guide-gig-req">Requires: Veloce Freight Simulation</span>
+                  <a href="#jobs-desk" class="btn btn-secondary-sm guide-gig-btn">Apply in Gig Hub →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TRACK 2: BUSINESS INTELLIGENCE CONSULTANT GUIDE -->
+          <div class="track-guide-panel" id="guide-panel-bi-consultant">
+            <!-- Hero Stats Card -->
+            <div class="guide-hero-card">
+              <div class="guide-hero-info">
+                <span class="guide-badge terracotta">Strategic Architecture Track</span>
+                <h2 class="guide-hero-title">Business Intelligence Consultant Roadmap</h2>
+                <p class="guide-hero-desc">
+                  Bridge the gap between raw data engineering and executive strategy. You'll architect star schemas, engineer scalable DAX pipelines in Power BI, implement enterprise governance, and advise leadership on high-impact business decisions.
+                </p>
+                <div class="guide-tags-row">
+                  <span class="guide-tag">Power BI & DAX</span>
+                  <span class="guide-tag">Star Schema / Kimbal</span>
+                  <span class="guide-tag">Snowflake / dbt</span>
+                  <span class="guide-tag">Row-Level Security</span>
+                  <span class="guide-tag">Executive Consulting</span>
+                </div>
+              </div>
+              <div class="guide-stats-grid">
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">$70 – $110</span>
+                  <span class="guide-stat-label">Hourly Freelance Rate</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">$88,000</span>
+                  <span class="guide-stat-label">Avg. Base Salary</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">8 Gigs</span>
+                  <span class="guide-stat-label">Active on Platform</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">3–4 Wks</span>
+                  <span class="guide-stat-label">Time to First Paid Client</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4-Phase Roadmap -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">Milestone Execution Blueprint</h3>
+                  <p class="guide-section-subtitle">Develop high-ticket enterprise business intelligence competencies.</p>
+                </div>
+                <span class="guide-phase-counter">4 Progressive Phases</span>
+              </div>
+
+              <div class="guide-roadmap-timeline">
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">1</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 1 • Data Architecture</span>
+                      <h4 class="step-title">Dimensional Modeling & Enterprise Star Schema</h4>
+                    </div>
+                    <p class="step-desc">Design scalable fact and dimension tables, handle slowly changing dimensions (SCD Type 1 & 2), and build clean transformation pipelines using dbt and Snowflake.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox" checked> <span>Construct Kimball star schema models from normalized OLTP data</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Define shared conformed dimensions across marketing and finance</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">2</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 2 • Advanced Modeling</span>
+                      <h4 class="step-title">High-Performance DAX & Calculation Groups</h4>
+                    </div>
+                    <p class="step-desc">Master filter context transitions, `CALCULATE()` modifiers, semi-additive measures, dynamic currency conversion, and composite tabular data models.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Build time-intelligence logic with custom fiscal calendars</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Optimize query folding and eliminate bidirectional relationship bottlenecks</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">3</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 3 • Security & Operations</span>
+                      <h4 class="step-title">Enterprise Governance & Row-Level Security (RLS)</h4>
+                    </div>
+                    <p class="step-desc">Implement dynamic role-based data security, incremental refresh policies, tenant isolation, and automated gateway refresh schedules.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Deploy dynamic RLS with Azure AD / user principal name mapping</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Audit dashboard render speeds to sub-2 second response times</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">4</span>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 4 • High-Ticket Advisory</span>
+                      <h4 class="step-title">BI Consulting Scopes & Retainer Deliverables</h4>
+                    </div>
+                    <p class="step-desc">Deliver fixed-fee architecture audits ($2,500+) and long-term reporting advisory retainers for mid-market clients.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Conduct formal BI data maturity audit with recommendation deck</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Deliver executive-ready semantic layer with full data dictionary</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recommended Simulations & Gigs for BI -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">Recommended BI Simulations & Matching Gigs</h3>
+                  <p class="guide-section-subtitle">Real-world enterprise architecture challenges.</p>
+                </div>
+              </div>
+              <div class="guide-cards-grid">
+                <div class="guide-card-item">
+                  <div class="guide-card-badge">Logistics</div>
+                  <h4 class="guide-card-title">CloudScale Networks — Real-Time Pipeline</h4>
+                  <p class="guide-card-desc">Architect dynamic latency monitoring with Power BI semantic layer and star schema.</p>
+                  <div class="guide-card-meta">
+                    <span>Tech: Power BI, DAX, Star Schema</span>
+                    <strong>+55 XP</strong>
+                  </div>
+                  <a href="#work-desk" class="btn btn-primary-sm guide-card-btn">Launch in Skill Arena →</a>
+                </div>
+
+                <div class="guide-gig-card">
+                  <div class="guide-gig-payout">$850 <small>Fixed Milestone</small></div>
+                  <h4 class="guide-gig-title">Power BI Logistics & Delivery Health Dashboard</h4>
+                  <p class="guide-gig-client">Client: Veloce Global • Remote • Escrow Guaranteed</p>
+                  <span class="guide-gig-req">Requires: Veloce Freight Simulation</span>
+                  <a href="#jobs-desk" class="btn btn-secondary-sm guide-gig-btn">Apply in Gig Hub →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TRACK 3: FREELANCE GROWTH STRATEGIST GUIDE -->
+          <div class="track-guide-panel" id="guide-panel-growth-freelance">
+            <!-- Hero Stats Card -->
+            <div class="guide-hero-card">
+              <div class="guide-hero-info">
+                <span class="guide-badge gold">High-Yield Freelance Track</span>
+                <h2 class="guide-hero-title">Freelance Growth Strategist Roadmap</h2>
+                <p class="guide-hero-desc">
+                  Pair analytical rigour with direct revenue generation. You'll master acquisition funnels, conversion rate optimization (CRO), statistical A/B experimentation, and client retainer pitches to command premium freelance rates.
+                </p>
+                <div class="guide-tags-row">
+                  <span class="guide-tag">Funnel Analytics</span>
+                  <span class="guide-tag">A/B Testing & Statistics</span>
+                  <span class="guide-tag">Google Analytics 4 / Mixpanel</span>
+                  <span class="guide-tag">Unit Economics & ROAS</span>
+                  <span class="guide-tag">Client Retainers</span>
+                </div>
+              </div>
+              <div class="guide-stats-grid">
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">$80 – $135</span>
+                  <span class="guide-stat-label">Hourly Freelance Rate</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">$95,000</span>
+                  <span class="guide-stat-label">Avg. Base Salary</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">6 Gigs</span>
+                  <span class="guide-stat-label">Active on Platform</span>
+                </div>
+                <div class="guide-stat-tile">
+                  <span class="guide-stat-val">1–2 Wks</span>
+                  <span class="guide-stat-label">Time to First Paid Client</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4-Phase Roadmap -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">Milestone Execution Blueprint</h3>
+                  <p class="guide-section-subtitle">The rapid path to high-earning freelance independence.</p>
+                </div>
+                <span class="guide-phase-counter">4 Progressive Phases</span>
+              </div>
+
+              <div class="guide-roadmap-timeline">
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">1</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 1 • Funnel Diagnostics</span>
+                      <h4 class="step-title">Full-Funnel Instrumentation & Drop-off Audits</h4>
+                    </div>
+                    <p class="step-desc">Audit conversion funnels from top-of-funnel traffic through activation and repeat purchase using Mixpanel, GA4, and customer journey SQL queries.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox" checked> <span>Map out multi-step user onboarding and checkout funnels</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Identify highest-impact churn stages with drop-off quantification</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">2</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 2 • Experimentation</span>
+                      <h4 class="step-title">Hypothesis-Driven A/B Testing & Statistical Rigour</h4>
+                    </div>
+                    <p class="step-desc">Formulate high-conviction test hypotheses, calculate minimum detectable effect (MDE) and sample sizes, and analyze lift with statistical significance.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Calculate required sample size and statistical power (95% confidence)</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Design and document 3 high-impact landing page experiments</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">3</span>
+                    <div class="marker-line"></div>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 3 • Monetization</span>
+                      <h4 class="step-title">Unit Economics, Blended ROAS & Payback Velocity</h4>
+                    </div>
+                    <p class="step-desc">Align paid acquisition channels (Meta, Google, LinkedIn) with net margin contribution, payback periods, and payback velocity modeling.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Calculate channel-by-channel payback velocity and net contribution</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Identify organic growth loops and referral viral coefficients</span></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-step-item">
+                  <div class="timeline-step-marker">
+                    <span class="marker-dot">4</span>
+                  </div>
+                  <div class="timeline-step-content">
+                    <div class="timeline-step-head">
+                      <span class="step-timing">Phase 4 • Freelance Retainers</span>
+                      <h4 class="step-title">High-Ticket Freelance Pitching & Retainers ($3k-$5k/mo)</h4>
+                    </div>
+                    <p class="step-desc">Transition from one-off projects to recurring monthly advisory retainers by positioning yourself as a revenue growth partner rather than an hourly contractor.</p>
+                    <div class="step-checklist">
+                      <label class="step-check-label"><input type="checkbox"> <span>Draft value-based proposal with projected revenue ROI</span></label>
+                      <label class="step-check-label"><input type="checkbox"> <span>Close first verified client on SkillBridge's Gig Hub</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Matching Gigs for Growth -->
+            <div class="guide-section-block">
+              <div class="guide-section-header">
+                <div>
+                  <h3 class="guide-section-title">High-Ticket Growth Gigs in Gig Hub</h3>
+                  <p class="guide-section-subtitle">Direct client contracts actively seeking verified growth talent.</p>
+                </div>
+              </div>
+              <div class="guide-cards-grid">
+                <div class="guide-gig-card">
+                  <div class="guide-gig-payout">$950 <small>Fixed Milestone</small></div>
+                  <h4 class="guide-gig-title">FinTech Application Onboarding Funnel Optimization</h4>
+                  <p class="guide-gig-client">Client: Finova Capital • Remote • Direct Payout</p>
+                  <span class="guide-gig-req">Requires: Aura Health or FinTech Simulation</span>
+                  <a href="#jobs-desk" class="btn btn-secondary-sm guide-gig-btn">Apply in Gig Hub →</a>
+                </div>
+
+                <div class="guide-gig-card">
+                  <div class="guide-gig-payout">$95 / hr <small>15 hrs/week • Ongoing</small></div>
+                  <h4 class="guide-gig-title">A/B Testing Experimentation Framework & Analytics</h4>
+                  <p class="guide-gig-client">Client: HyperGrowth Lab • Remote • Escrow Guaranteed</p>
+                  <span class="guide-gig-req">Requires: Verified Data Modeling Badge</span>
+                  <a href="#jobs-desk" class="btn btn-secondary-sm guide-gig-btn">Apply in Gig Hub →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </div>
+    </main>
+  </div>
 
-      <div class="modal-footer">
-        <div style="font-size: 0.8rem; color: var(--text-muted);">
-          ID: <code id="modal-task-id" style="font-weight: 700; color: var(--text-main);">sim-01</code>
+  <!-- ========================================== -->
+  <!-- SIMULATION SANDBOX MODAL (Interactive)     -->
+  <!-- ========================================== -->
+  <div class="modal-backdrop" id="simSandboxModal">
+    <div class="modal-container modal-xl">
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <div class="modal-company-logo" id="simModalLogo">🛍️</div>
+          <div>
+            <h2 class="modal-title" id="simModalTitle">Aura Commerce Global — Enterprise Sandbox</h2>
+            <p class="modal-subtitle" id="simModalSubtitle">Episode 1: Schema Investigation & Customer Order Status Breakdown</p>
+          </div>
         </div>
-        <div style="display: flex; gap: 10px;">
-          <button class="btn-secondary-action" id="modal-task-cancel">Cancel</button>
-          <button class="btn-primary-action" id="modal-task-submit">
-            <span id="modal-submit-btn-text">Submit Simulation & Claim +35 SP</span>
-            <span style="font-size: 1rem;">➔</span>
-          </button>
+        <button class="modal-close-btn" id="closeSimModalBtn">✕</button>
+      </div>
+
+      <div class="modal-body-sandbox">
+        <!-- Sandbox Left: Brief & Scenario -->
+        <div class="sandbox-sidebar">
+          <div class="sandbox-brief-box">
+            <h4 class="box-heading">The Client Brief</h4>
+            <p id="simBriefText">
+              Aura Commerce's VP of Merchandising needs to understand how orders flow through their omnichannel fulfillment pipeline. Several customers complain of delayed orders that still show as "Processing". 
+            </p>
+            <div class="brief-deliverables">
+              <strong>Your Deliverable:</strong>
+              <ul id="simDeliverablesList">
+                <li>Write a SQL query grouping orders by <code>order_status</code>.</li>
+                <li>Calculate total orders count and total gross merchandise value (GMV).</li>
+                <li>Filter out test orders where <code>customer_id = 9999</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sandbox-hints-box">
+            <h4 class="box-heading">Available Tables in Database</h4>
+            <div class="schema-tree">
+              <div class="schema-table">
+                <strong>orders</strong>
+                <span class="schema-cols">order_id (INT), customer_id (INT), order_date (DATE), order_status (VARCHAR), order_amount (DECIMAL), region (VARCHAR)</span>
+              </div>
+              <div class="schema-table">
+                <strong>customers</strong>
+                <span class="schema-cols">customer_id (INT), name (VARCHAR), cohort_month (DATE), country (VARCHAR)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="simulation-job-link-box">
+            <span class="link-label">Qualifies for:</span>
+            <span class="link-role">Senior CPFR Retail Analyst ($1,450 Gig)</span>
+          </div>
+        </div>
+
+        <!-- Sandbox Right: Interactive SQL Editor & Data Preview -->
+        <div class="sandbox-main">
+          <div class="sandbox-toolbar">
+            <div class="sandbox-tabs">
+              <button class="s-tab active" id="tabSqlEditor">SQL Query Editor</button>
+              <button class="s-tab" id="tabSampleData">Data Table Preview</button>
+            </div>
+            <div class="sandbox-actions-top">
+              <button class="btn-text-sm" id="resetSimQueryBtn">Reset to Default</button>
+              <button class="btn btn-secondary-sm" id="runSimQueryBtn">▶ Run Query</button>
+            </div>
+          </div>
+
+          <!-- Tab Content 1: Editor -->
+          <div class="sandbox-tab-pane active" id="paneSqlEditor">
+            <textarea id="simSqlTextarea" class="sql-code-area" rows="8">-- Write your query below:
+SELECT 
+    order_status, 
+    COUNT(*) AS total_orders, 
+    ROUND(SUM(order_amount), 2) AS total_gmv 
+FROM orders 
+WHERE customer_id != 9999 
+GROUP BY order_status 
+ORDER BY total_gmv DESC;</textarea>
+          </div>
+
+          <!-- Tab Content 2: Sample Data View -->
+          <div class="sandbox-tab-pane" id="paneSampleData">
+            <div class="table-scroll" id="simSampleDataTable">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Query Execution Output -->
+          <div class="sandbox-output-section">
+            <div class="output-header">
+              <span>Query Results Output</span>
+              <span class="output-status" id="simOutputStatus">Ready to execute</span>
+            </div>
+            <div class="output-table-scroll" id="simQueryOutputArea">
+              <div class="empty-state-output">Click <strong>"Run Query"</strong> to test your SQL against the Aura Commerce database.</div>
+            </div>
+          </div>
+
+          <!-- Bottom Evaluation & Submission Bar -->
+          <div class="sandbox-footer">
+            <div class="sandbox-footer-info">
+              <span class="evaluation-note">Automated grading checks aggregate accuracy and column aliasing.</span>
+            </div>
+            <div class="sandbox-footer-buttons">
+              <button class="btn btn-secondary" id="cancelSimModalBtn">Close</button>
+              <button class="btn btn-primary" id="submitSimSolutionBtn">Submit Solution & Grade (+50 XP)</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====================================================================
-       INTERACTIVE MODAL: Cash Out / Wallet Withdrawal
-       ==================================================================== -->
-  <div class="modal-overlay" id="modal-cashout">
-    <div class="modal-card" style="max-width: 520px;">
+  <!-- ========================================== -->
+  <!-- SUBMIT PROPOSAL MODAL                      -->
+  <!-- ========================================== -->
+  <div class="modal-backdrop" id="proposalModal">
+    <div class="modal-container modal-md">
       <div class="modal-header">
-        <div class="modal-title">Withdraw Escrow Earnings</div>
-        <button class="modal-close-btn" id="modal-cashout-close">✕</button>
+        <div>
+          <h2 class="modal-title" id="proposalModalTitle">Submit Proposal for Gig</h2>
+          <p class="modal-subtitle" id="proposalModalClient">Client: Aura Commerce Partner Agency • Budget: $1,450</p>
+        </div>
+        <button class="modal-close-btn" id="closeProposalModalBtn">✕</button>
+      </div>
+
+      <form id="proposalForm" class="modal-body">
+        <div class="proposal-match-banner">
+          <div class="match-score">98% Match</div>
+          <div class="match-desc">
+            Your verified <strong>Aura Commerce Simulation score (98/100)</strong> will be attached automatically to this proposal. Clients prioritize verified candidates!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="proposedRateInput">Your Proposed Bid / Price ($ USD):</label>
+          <input type="number" id="proposedRateInput" class="form-input" value="1450" required>
+        </div>
+
+        <div class="form-group">
+          <label for="proposedTurnaround">Estimated Delivery Timeline:</label>
+          <select id="proposedTurnaround" class="form-select">
+            <option value="3-5 days">3 - 5 business days (Fast track)</option>
+            <option value="1-2 weeks" selected>1 - 2 weeks</option>
+            <option value="3 weeks">3 weeks</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="proposalCoverLetter">Cover Note & Methodology:</label>
+            <button type="button" class="btn-text-sm" id="autoGeneratePitchBtn">⚡ Auto-Generate from Simulation Credentials</button>
+          </div>
+          <textarea id="proposalCoverLetter" class="form-textarea" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="attachCertCheckbox" checked>
+            <span>Attach my SkillBridge Certified Grade Card & Code Samples</span>
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelProposalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="sendProposalSubmitBtn">Send Verified Proposal →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- CUSTOMIZE PROFILE MODAL ("MAKE IT MINE")   -->
+  <!-- ========================================== -->
+  <div class="modal-backdrop" id="customizeProfileModal">
+    <div class="modal-container modal-md">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-rank">Personal Profile</span>
+          <h2 class="modal-title">Customize Your Identity</h2>
+          <p class="modal-subtitle">Make this platform 100% yours with your name and career focus.</p>
+        </div>
+        <button class="modal-close-btn" id="closeProfileModalBtn">✕</button>
+      </div>
+
+      <form id="customizeProfileForm" class="modal-body">
+        <div class="form-group">
+          <label for="inputUserName">Your Full Name:</label>
+          <input type="text" id="inputUserName" class="form-input" placeholder="e.g. Jordan Smith or your name" value="Jordan Vance" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputUserRole">Current Title / Target Role:</label>
+          <select id="inputUserRole" class="form-select">
+            <option value="Junior Analyst" selected>Junior Data Analyst</option>
+            <option value="BI Specialist">Business Intelligence Specialist</option>
+            <option value="Growth Strategist">Growth & Analytics Consultant</option>
+            <option value="Senior Analyst">Senior Enterprise Analyst</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="inputUserInitials">Avatar Initials (2 Letters):</label>
+          <input type="text" id="inputUserInitials" class="form-input" maxlength="3" value="JV" required>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelProfileModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveProfileBtn">Save & Apply to My Platform ✓</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- FREELANCE RATE CALCULATOR MODAL            -->
+  <!-- ========================================== -->
+  <div class="modal-backdrop" id="rateCalcModal">
+    <div class="modal-container modal-md">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-rank">Pricing Engine</span>
+          <h2 class="modal-title">Freelance Rate & Value Pricing</h2>
+          <p class="modal-subtitle">Calculate what you should charge per hour and per enterprise contract.</p>
+        </div>
+        <button class="modal-close-btn" id="closeRateCalcModalBtn">✕</button>
       </div>
 
       <div class="modal-body">
-        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: #fff; padding: 20px; border-radius: 18px; text-align: center;">
-          <div style="font-size: 0.78rem; color: #c7d2fe; text-transform: uppercase;">Available Balance</div>
-          <div style="font-size: 2.2rem; font-weight: 800; margin: 4px 0;" id="cashout-available-display">$295.50</div>
-          <div style="font-size: 0.75rem; color: #a5b4fc;">Zero transaction fees for youth jobseekers • Instant settlement</div>
-        </div>
+        <div class="calc-form">
+          <div class="calc-field">
+            <label for="desiredIncome">Target Monthly Income ($ USD):</label>
+            <input type="range" id="desiredIncome" min="3000" max="15000" step="500" value="7000">
+            <span class="calc-val-display" id="incomeValDisplay">$7,000 / month</span>
+          </div>
 
-        <div>
-          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 8px;">Select Payout Method</label>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <button class="tag-choice-btn selected" data-method="Mobile Money (M-Pesa)">
-              <strong>📱 Mobile Money</strong>
-              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">M-Pesa / MTN / Airtel</div>
-            </button>
-            <button class="tag-choice-btn" data-method="Direct Bank Wire">
-              <strong>🏦 Direct Bank</strong>
-              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Local Wire / ACH</div>
-            </button>
-            <button class="tag-choice-btn" data-method="PayPal / Wise">
-              <strong>💳 PayPal / Wise</strong>
-              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Global Email Payout</div>
-            </button>
-            <button class="tag-choice-btn" data-method="USDC Crypto">
-              <strong>⚡ USDC Crypto</strong>
-              <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 2px;">Polygon / Stellar L2</div>
-            </button>
+          <div class="calc-field">
+            <label for="billableHours">Billable Hours Per Week:</label>
+            <input type="range" id="billableHours" min="10" max="40" step="2" value="25">
+            <span class="calc-val-display" id="hoursValDisplay">25 hours / week</span>
+          </div>
+
+          <div class="calc-field">
+            <label for="businessOverhead">Taxes & Software Overhead (%):</label>
+            <input type="range" id="businessOverhead" min="10" max="40" step="5" value="25">
+            <span class="calc-val-display" id="overheadValDisplay">25% buffer</span>
+          </div>
+
+          <div class="calc-results-box">
+            <div class="rate-result-item">
+              <span class="rate-label">Recommended Hourly Rate:</span>
+              <span class="rate-number" id="calcHourlyRate">$87.50 / hr</span>
+            </div>
+            <div class="rate-result-item">
+              <span class="rate-label">Standard Fixed Project (2-wk sprint):</span>
+              <span class="rate-number highlight" id="calcProjectRate">$3,500</span>
+            </div>
+            <div class="rate-result-item">
+              <span class="rate-label">Annual Gross Freelance Revenue:</span>
+              <span class="rate-number" id="calcAnnualRevenue">$112,000</span>
+            </div>
           </div>
         </div>
-
-        <div>
-          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Recipient Details (Phone / Account)</label>
-          <input type="text" id="cashout-recipient" class="search-input" style="padding-left: 14px; border-radius: 10px;" value="+254 712 345 678" required>
-        </div>
-
-        <div>
-          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Withdrawal Amount ($ USD)</label>
-          <input type="number" id="cashout-amount" class="search-input" style="padding-left: 14px; border-radius: 10px;" value="150.00" min="5" max="295.50" step="1">
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn-secondary-action" id="modal-cashout-cancel">Cancel</button>
-        <button class="btn-primary-action" id="btn-confirm-cashout">Confirm Instant Payout</button>
       </div>
     </div>
   </div>
 
-  <!-- Share Portfolio Modal -->
-  <div class="modal-overlay" id="modal-share">
-    <div class="modal-card" style="max-width: 500px;">
+  <!-- ========================================== -->
+  <!-- UPGRADE TO PRO MODAL                       -->
+  <!-- ========================================== -->
+  <div class="modal-backdrop" id="upgradeProModal">
+    <div class="modal-container modal-md">
       <div class="modal-header">
-        <div class="modal-title">Share Verifiable Portfolio</div>
-        <button class="modal-close-btn" id="modal-share-close">✕</button>
-      </div>
-      <div class="modal-body" style="text-align: center;">
-        <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 24px; display: inline-flex; flex-direction: column; align-items: center; gap: 12px; margin: 0 auto;">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#1e1b4b" stroke-width="1.8">
-            <rect x="2" y="2" width="8" height="8" rx="1"/>
-            <rect x="4" y="4" width="4" height="4" fill="#5e48e8"/>
-            <rect x="14" y="2" width="8" height="8" rx="1"/>
-            <rect x="16" y="4" width="4" height="4" fill="#5e48e8"/>
-            <rect x="2" y="14" width="8" height="8" rx="1"/>
-            <rect x="4" y="16" width="4" height="4" fill="#5e48e8"/>
-            <path d="M14 14h2v2h-2zM18 14h4v2h-4zM14 18h4v4h-4zM20 20h2v2h-2z"/>
-          </svg>
-          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">
-            VERIFIED PROOF OF WORK HASH: <br>
-            <code style="color: var(--primary);">0x7f4e912bc83a9f4d1</code>
-          </div>
+        <div>
+          <span class="badge badge-tier pro">SkillBridge Pro</span>
+          <h2 class="modal-title">Unlock Full Enterprise Career Suite</h2>
+          <p class="modal-subtitle">Accelerate your transition into high-paying remote analytics and consulting.</p>
         </div>
+        <button class="modal-close-btn" id="closeUpgradeModalBtn">✕</button>
+      </div>
 
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">
-          Anyone with this link can independently verify your completed partner micro-tasks, competency scores, and client reviews.
-        </p>
+      <div class="modal-body">
+        <div class="pricing-card-pro">
+          <div class="price-header">
+            <div class="price-tag">
+              <span class="currency">$</span>
+              <span class="amount">29</span>
+              <span class="period">/ month</span>
+            </div>
+            <span class="badge badge-rank">Cancel anytime</span>
+          </div>
 
-        <div style="display: flex; gap: 8px; margin-top: 10px;">
-          <input type="text" id="share-link-input" class="search-input" value="https://skillbridge.org/p/jason-ranti-verified" readonly style="padding-left: 14px; border-radius: 10px; font-size: 0.82rem;">
-          <button class="btn-primary-action" id="btn-copy-share-link">Copy</button>
+          <ul class="pro-perks-list">
+            <li>✓ Full access to all 8 enterprise company sandboxes (Fintech, Healthcare, Energy)</li>
+            <li>✓ Direct verified client introductions on the Jobs Desk</li>
+            <li>✓ Priority proposal placement with "Certified Pro" badge</li>
+            <li>✓ 1-on-1 asynchronous code and portfolio reviews by senior staff</li>
+            <li>✓ Access to proprietary production datasets & Power BI starter templates</li>
+          </ul>
+
+          <button class="btn btn-primary full-width" id="confirmUpgradeBtn">Upgrade to Pro Now</button>
+          <p class="modal-footnote">100% money-back guarantee within 14 days if not satisfied.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification Area -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- ========================================== -->
+  <!-- CERTIFICATION CHECKLIST MODAL              -->
+  <!-- ========================================== -->
+  <div class="modal-backdrop" id="certModal">
+    <div class="modal-container modal-md">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title">Certified Data Analyst Status</h2>
+          <p class="modal-subtitle">Official industry badge backed by verified simulation milestones.</p>
+        </div>
+        <button class="modal-close-btn" id="closeCertModalBtn">✕</button>
+      </div>
 
-  <!-- JavaScript dependencies -->
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+      <div class="modal-body">
+        <div class="cert-modal-summary">
+          <div class="cert-badge-visual">
+            <div class="cert-shield">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#243D32" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="cert-badge-details">
+              <h4 id="certCandidateName">Candidate: Jordan Vance</h4>
+              <p>Specialization: Enterprise SQL, Cohort Modeling & Client Dashboards</p>
+              <div class="badge-progress-line">Progress: <strong>60% Complete (3 of 5)</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-modal-steps" id="certModalStepsList">
+          <!-- Step 1 -->
+          <div class="cert-step-row done">
+            <span class="step-icon">✓</span>
+            <div class="step-info">
+              <h5>Aura Commerce Global Simulation</h5>
+              <p>Scored 98/100 on SQL aggregation & schema inquiry</p>
+            </div>
+            <span class="step-tag verified">Verified</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="cert-step-row done">
+            <span class="step-icon">✓</span>
+            <div class="step-info">
+              <h5>Live Desk Emergency Sprint</h5>
+              <p>Resolved supply chain bottleneck ticket under 20 mins</p>
+            </div>
+            <span class="step-tag verified">Verified</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="cert-step-row done">
+            <span class="step-icon">✓</span>
+            <div class="step-info">
+              <h5>Client Communication & Scoping</h5>
+              <p>Passed Intern Desk client expectation review</p>
+            </div>
+            <span class="step-tag verified">Verified</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="cert-step-row current">
+            <span class="step-icon">⏳</span>
+            <div class="step-info">
+              <h5>Reach Senior Analyst XP (1,500 XP)</h5>
+              <p>Current: 340 / 1,500 XP (Complete more sandboxes)</p>
+            </div>
+            <span class="step-tag in-prog">In Progress</span>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="cert-step-row pending">
+            <span class="step-icon">○</span>
+            <div class="step-info">
+              <h5>Submit 1 Verified Freelance Proposal</h5>
+              <p>Apply to any active client gig on Jobs Desk</p>
+            </div>
+            <span class="step-tag needed">Required</span>
+          </div>
+        </div>
+
+        <div class="cert-modal-footer">
+          <button class="btn btn-secondary full-width" id="closeCertModalFooterBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- CLAIM LETTER OF RECOMMENDATION & WORKING HOURS MODAL                      -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="claimRecModal">
+    <div class="modal-container modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <div class="rec-modal-icon">📜</div>
+          <div>
+            <span class="badge-tag-rec">Profile Boost & Career Capital</span>
+            <h2 class="modal-title">Letter of Recommendation & Verified Hours</h2>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeClaimRecModalBtn">✕</button>
+      </div>
+
+      <div class="modal-body rec-modal-scrollable">
+        <!-- Explanatory Banner: How to Boost Your Profile -->
+        <div class="rec-explainer-banner">
+          <div class="rec-banner-icon">🚀</div>
+          <div class="rec-banner-content">
+            <h4>How Consistency & Streaks Unlock Industry Credibility</h4>
+            <p>Every active day on SkillBridge converts into <strong>verified working hours</strong> and <strong>XP credits</strong>. Complete tasks in your track to earn an <strong>Enterprise Certificate</strong>, and maintain a <strong>3-month (90-day) streak</strong> to unlock a formal, signed <strong>Letter of Recommendation</strong> from simulated enterprise leaders.</p>
+          </div>
+        </div>
+
+        <!-- 3 Feature Cards (Streak=Hours, Tasks=Cert, 3-Mo=Letter) -->
+        <div class="rec-mechanics-grid">
+          <div class="rec-mechanic-card">
+            <div class="mech-icon">🔥</div>
+            <h5>Streak = Working Hours</h5>
+            <p>Each active day logs <strong>+4 verified remote working hours</strong> on your profile. Freelance clients see verifiable proof of discipline.</p>
+            <div class="mech-status-pill green">Active: <span id="mechStreakDisplay">4-Day Streak</span> (<span id="mechHoursDisplay">16 hrs</span> logged)</div>
+          </div>
+
+          <div class="rec-mechanic-card">
+            <div class="mech-icon">🎓</div>
+            <h5>Tasks = Certificate</h5>
+            <p>Complete all 5 core track tasks with passing code tests (SQL, modeling, dashboards) to unlock your <strong>Track Certificate</strong>.</p>
+            <div class="mech-status-pill green" id="certEligibleBadge">✓ 6/5 Tasks Done • Unlocked!</div>
+          </div>
+
+          <div class="rec-mechanic-card highlight">
+            <div class="mech-icon">📜</div>
+            <h5>3-Month Streak = Recommendation</h5>
+            <p>Hit a <strong>90-day streak</strong> to qualify for an official signed Letter of Recommendation detailing your technical consistency.</p>
+            <div class="mech-status-pill highlight-pill" id="recEligibleBadge">90 / 90 Days • Ready to Claim!</div>
+          </div>
+        </div>
+
+        <!-- Live Eligibility Tracker -->
+        <div class="rec-progress-box">
+          <div class="rec-progress-header">
+            <div>
+              <span class="rec-progress-sub">Live Milestones & Profile Status</span>
+              <h4 class="rec-progress-title">Your Path to the Official Recommendation</h4>
+            </div>
+            <!-- Quick Demo Toggle Button for Hackathon Presentation! -->
+            <button type="button" class="btn-demo-toggle" id="demoFastTrackRecBtn" title="Click during presentation to toggle 90-day streak state!">
+              ⚡ Demo: Toggle 90-Day Streak (Active)
+            </button>
+          </div>
+
+          <div class="rec-bars-list">
+            <div class="rec-bar-item">
+              <div class="rec-bar-labels">
+                <span><strong>Daily Streak:</strong> <span id="recStreakVal">90</span> / 90 Days (3 Months)</span>
+                <span class="rec-bar-pct" id="recStreakPct">100% (Eligible!)</span>
+              </div>
+              <div class="rec-track-bar">
+                <div class="rec-track-fill" id="recStreakFill" style="width: 100%;"></div>
+              </div>
+            </div>
+
+            <div class="rec-bar-item">
+              <div class="rec-bar-labels">
+                <span><strong>Verified Working Hours Logged:</strong> <span id="recHoursVal">360</span> / 360 Hours</span>
+                <span class="rec-bar-pct" id="recHoursPct">100%</span>
+              </div>
+              <div class="rec-track-bar">
+                <div class="rec-track-fill hours" id="recHoursFill" style="width: 100%;"></div>
+              </div>
+            </div>
+
+            <div class="rec-bar-item">
+              <div class="rec-bar-labels">
+                <span><strong>Track Tasks Completed:</strong> <span id="recTasksVal">6</span> / 5 Tasks</span>
+                <span class="rec-bar-pct" id="recTasksPct">100% Complete</span>
+              </div>
+              <div class="rec-track-bar">
+                <div class="rec-track-fill green" id="recTasksFill" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Official Letter of Recommendation Document Preview -->
+        <div class="rec-letter-paper" id="recLetterPaper">
+          <div class="rec-letter-watermark">SKILLBRIDGE VERIFIED</div>
+          
+          <div class="rec-letter-head">
+            <div class="rec-letter-logo">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span>Skill<strong>Bridge</strong></span>
+            </div>
+            <div class="rec-letter-meta">
+              <span class="rec-meta-date" id="recLetterDate">October 17, 2026</span>
+              <span class="rec-meta-id">Credential ID: SKB-REC-2026-98421</span>
+            </div>
+          </div>
+
+          <div class="rec-letter-recipient">
+            <strong>TO WHOM IT MAY CONCERN / PROSPECTIVE CLIENTS & HIRING PARTNERS</strong><br>
+            <span>Subject: Official Letter of Recommendation & Verified Technical Competency for <strong id="recLetterCandidateName">Jordan Vance</strong></span>
+          </div>
+
+          <div class="rec-letter-body">
+            <p>
+              It is our privilege to formally recommend <strong><span id="recLetterCandidateName2">Jordan Vance</span></strong> for mid-level freelance contracts, enterprise data analytics roles, and strategic client engagements.
+            </p>
+            <p>
+              Through SkillBridge's simulated enterprise environments, <strong><span id="recLetterCandidateName3">Jordan</span></strong> has demonstrated exceptional technical proficiency and remarkable consistency, maintaining an unbroken <strong>3-Month Active Streak (90 Days)</strong> and accumulating over <strong>360+ verified working hours</strong> on real-world enterprise data challenges.
+            </p>
+            <p>
+              Specifically, the candidate independently delivered production-grade solutions across complex company scenarios:
+            </p>
+            <ul class="rec-letter-highlights">
+              <li><strong>Aura Health Global:</strong> Diagnosed and mitigated multi-cohort churn metrics using advanced PostgreSQL Window Functions and CTEs (Graded 98/100).</li>
+              <li><strong>Veloce Freight Logistics:</strong> Architected optimized supply chain delivery routes, eliminating simulated logistics bottlenecks with high algorithmic efficiency.</li>
+              <li><strong>Client Communication & Scoping:</strong> Successfully prepared milestone proposals and data dictionaries meeting rigorous enterprise governance standards.</li>
+            </ul>
+            <p>
+              Candidate demonstrates the rare combination of technical rigour, autonomous execution, and unwavering daily work discipline. We hold their abilities in the highest regard and unconditionally recommend them for remote digital contracts and enterprise roles.
+            </p>
+          </div>
+
+          <div class="rec-letter-signatures">
+            <div class="rec-sig-block">
+              <div class="rec-signature-script">Dr. Aris Thorne</div>
+              <div class="rec-sig-title">Dr. Aris Thorne</div>
+              <div class="rec-sig-role">Chair, SkillBridge Industry Advisory Council<br>Former VP of Analytics, Aura Global</div>
+            </div>
+            <div class="rec-sig-block">
+              <div class="rec-signature-script">Elena Rostova</div>
+              <div class="rec-sig-title">Elena Rostova</div>
+              <div class="rec-sig-role">Director of Enterprise Simulations<br>SkillBridge Merit Verification Board</div>
+            </div>
+          </div>
+
+          <div class="rec-letter-foot">
+            <div class="rec-qr-box">
+              <div class="rec-qr-fake"></div>
+              <span>Scan or verify online: skillbridge.org/verify/SKB-REC-2026-98421</span>
+            </div>
+            <div class="rec-seal-badge">
+              <span>★ OFFICIAL MERIT SEAL ★</span>
+              <small>Verified Tamper-Proof</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer rec-modal-footer">
+        <div class="rec-footer-left">
+          <button type="button" class="btn btn-secondary" id="claimRecCopyLinkBtn">🔗 Copy Verification Link</button>
+        </div>
+        <div class="rec-footer-right">
+          <button type="button" class="btn btn-secondary" id="claimRecViewCertBtn">🎓 View Certificate</button>
+          <button type="button" class="btn btn-primary" id="claimRecDownloadBtn">📥 Download Official Letter (PDF)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main Application Script -->
+  <script src="script.js"></script>
 </body>
 </html>
