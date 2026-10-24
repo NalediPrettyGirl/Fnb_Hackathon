@@ -1,11 +1,5 @@
-const express = require('express');
-const Submission = require('../models/Submission');
+const router = require('express').Router();
+const controller = require('../controllers/simulationController');
 const { requireAuth } = require('../middleware/auth');
-const router = express.Router();
-router.get('/me', requireAuth, async (req, res, next) => {
-  try {
-    const projects = await Submission.find({ userId: req.user._id }).populate('simulationId', 'title brief skillTrack xpReward').sort({ completedAt: -1 });
-    res.json({ count: projects.length, projects });
-  } catch (error) { next(error); }
-});
+router.get('/me', requireAuth, controller.portfolio);
 module.exports = router;
