@@ -1,0 +1,4 @@
+exclude:
+  - Server/node_modules
+  - Server/.env
+  - Server/package-lock.json
