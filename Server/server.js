@@ -19,6 +19,7 @@ const dashboardRoutes = require('./routes/dashboard');
 const portfolioRoutes = require('./routes/portfolio');
 const guideRoutes = require('./routes/guides');
 
+
 // --------------------------------------------------
 // Environment validation
 // --------------------------------------------------
@@ -92,6 +93,7 @@ app.use('/api/simulations', simulationRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/guides', guideRoutes);
+app.use('/api/skillmatch', require('./routes/skillMatch'));
 
 // Handle unknown API endpoints.
 app.use('/api', (req, res) => {
