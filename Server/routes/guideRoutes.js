@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const controller = require('../controllers/guideController');
+const { requireAuth, allowRoles } = require('../middleware/auth');
+const requireAdmin = require('../middleware/requireAdmin');
+router.get('/', controller.list);
+router.get('/:id', controller.getById);
+router.post('/', requireAuth, controller.create);
+router.patch('/:id', requireAuth, controller.update);
+router.delete('/:id', requireAuth, controller.remove);
+module.exports = router;
