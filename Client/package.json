@@ -1,13 +1,14 @@
 {
-  "name": "2",
+  "name": "skillbridge-client",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --check js/main.js && node --check js/api.js && node --check js/auth.js && node --check js/dashboard.js && node --check js/simulations.js && node --check js/portfolio.js && node --check js/gigs.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module",
+  "private": true
 }
