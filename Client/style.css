@@ -5364,3 +5364,47 @@ body.app-body {
     flex-direction: column;
   }
 }
+
+
+/* ==========================================================================
+   API-driven SkillBridge feature modules
+   These additions reuse the existing palette and component language.
+   ========================================================================== */
+.api-empty-state {
+  grid-column: 1 / -1;
+  padding: 24px;
+  border: 1px dashed var(--color-beige-border);
+  border-radius: var(--radius-md);
+  color: var(--color-charcoal-muted);
+  background: var(--color-cream-card);
+}
+.api-status-message { color: var(--color-charcoal-muted); margin-top: 10px; }
+.portfolio-section { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--color-beige); }
+.portfolio-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+.portfolio-section-heading h2 { color: var(--color-forest); font-size: 1.25rem; margin-bottom: 4px; }
+.portfolio-section-heading p { color: var(--color-charcoal-muted); }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.portfolio-card { min-width: 0; padding: 18px; background: var(--color-white); border: 1px solid var(--color-beige); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.portfolio-card h3 { margin: 12px 0 8px; color: var(--color-forest); font-size: 1rem; }
+.portfolio-card p { white-space: pre-wrap; overflow-wrap: anywhere; color: var(--color-charcoal-muted); margin-bottom: 12px; }
+.portfolio-card small { color: var(--color-charcoal-subtle); }
+.portfolio-card-top, .gig-card-header, .gig-card-footer, .sim-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.portfolio-xp { font-weight: 700; color: var(--color-terracotta); }
+.gig-card { background: var(--color-white); border: 1px solid var(--color-beige); border-radius: var(--radius-lg); padding: 20px; margin: 0 0 16px; box-shadow: var(--shadow-card); }
+.gig-card h3 { margin-top: 10px; color: var(--color-forest); font-size: 1.05rem; }
+.gig-card p { margin: 12px 0; color: var(--color-charcoal-muted); }
+.gig-budget { white-space: nowrap; color: var(--color-forest); font-size: 1.05rem; }
+.gig-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.gig-card-footer { border-top: 1px solid var(--color-cream); padding-top: 14px; color: var(--color-charcoal-muted); font-size: .85rem; }
+.sim-card h3 { color: var(--color-forest); margin: 12px 0 8px; }
+.sim-card p { color: var(--color-charcoal-muted); }
+.sim-card-footer { margin-top: 18px; }
+.toast { padding: 12px 16px; margin-top: 8px; border-radius: var(--radius-sm); background: var(--color-forest); color: white; box-shadow: var(--shadow-card); max-width: 360px; }
+.toast-error { background: #8f382c; }
+.toast-success { background: var(--color-forest); }
+.sim-launch-btn { white-space: nowrap; }
+.signup-overlay.hidden { display: none !important; }
+@media (max-width: 700px) {
+  .gig-card-header, .gig-card-footer { align-items: flex-start; flex-direction: column; }
+  .portfolio-section-heading { align-items: flex-start; flex-direction: column; }
+}
