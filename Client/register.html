@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create your account — SkillBridge</title>
+  <meta name="description" content="Join SkillBridge as a freelancer or client.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="app-body">
+  <div class="signup-overlay">
+    <div class="signup-backdrop"></div>
+    <div class="signup-card" id="signupCard">
+      <a class="signup-logo" href="index.html" aria-label="SkillBridge home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span>SkillBridge</span>
+      </a>
+
+      <div class="signup-steps-bar">
+        <div class="signup-step-indicator active" data-step="1"><span>1</span><small>Account</small></div>
+        <div class="signup-step-line"></div>
+        <div class="signup-step-indicator" data-step="2"><span>2</span><small>Role</small></div>
+        <div class="signup-step-line"></div>
+        <div class="signup-step-indicator" data-step="3"><span>3</span><small>Skills</small></div>
+      </div>
+
+      <!-- STEP 1: Account -->
+      <div class="signup-step-panel active" id="signupStep1">
+        <h2>Create Your Account</h2>
+        <p class="signup-subtitle">Build practical skills and connect with freelance opportunities.</p>
+        <div class="signup-form-group">
+          <label for="signupFullName">Full Name</label>
+          <input type="text" id="signupFullName" placeholder="e.g. Thandi Mokoena" autocomplete="name">
+        </div>
+        <div class="signup-form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" placeholder="you@company.com" autocomplete="email">
+        </div>
+        <div class="signup-form-group">
+          <label for="signupPassword">Password</label>
+          <div class="signup-password-wrap">
+            <input type="password" id="signupPassword" placeholder="Min 8 characters" autocomplete="new-password">
+            <button type="button" class="signup-eye-btn" id="togglePasswordBtn" title="Toggle visibility" aria-label="Show or hide password">👁</button>
+          </div>
+          <div class="signup-password-strength"><div class="strength-fill" id="strengthFill"></div></div>
+          <span class="strength-label" id="strengthLabel"></span>
+        </div>
+        <p class="form-error" id="registerError" role="alert" hidden></p>
+        <button class="btn btn-primary signup-next-btn" id="signupNext1" type="button">Continue →</button>
+        <p class="signup-footer-text">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+
+      <!-- STEP 2: Role -->
+      <div class="signup-step-panel" id="signupStep2">
+        <h2>Choose Your Path</h2>
+        <p class="signup-subtitle">Pick the role that best describes your goals</p>
+        <div class="signup-role-grid">
+          <div class="signup-role-card selected" data-role="freelancer" tabindex="0" role="button">
+            <span class="role-emoji">📊</span>
+            <h4>Freelancer</h4>
+            <p>Practise skills, build a portfolio and apply for freelance gigs</p>
+          </div>
+          <div class="signup-role-card" data-role="client" tabindex="0" role="button">
+            <span class="role-emoji">💼</span>
+            <h4>Client</h4>
+            <p>Post projects and review applications</p>
+          </div>
+        </div>
+        <div class="signup-btn-row">
+          <button class="btn btn-secondary signup-back-btn" id="signupBack2" type="button">← Back</button>
+          <button class="btn btn-primary signup-next-btn" id="signupNext2" type="button">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Skills -->
+      <div class="signup-step-panel" id="signupStep3">
+        <h2>Quick Skill Check</h2>
+        <p class="signup-subtitle">Rate your confidence — skills rated 3★ or more are added to your profile</p>
+        <div class="signup-skill-list" id="signupSkillList"></div>
+        <p class="form-error" id="registerFinalError" role="alert" hidden></p>
+        <div class="signup-btn-row">
+          <button class="btn btn-secondary signup-back-btn" id="signupBack3" type="button">← Back</button>
+          <button class="btn btn-primary signup-next-btn" id="signupLaunchBtn" type="button">🚀 Create my account</button>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="signup-step-panel" id="signupStepSuccess">
+        <div class="signup-success-anim">
+          <div class="success-check">✓</div>
+          <h2>Welcome aboard!</h2>
+          <p class="signup-subtitle">Personalizing your workspace…</p>
+          <div class="signup-loading-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="js/pages/register.js"></script>
+</body>
+</html>

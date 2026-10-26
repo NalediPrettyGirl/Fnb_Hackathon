@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in — SkillBridge</title>
+  <meta name="description" content="Log in to SkillBridge to continue your simulations, applications and portfolio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="app-body">
+  <div class="signup-overlay">
+    <div class="signup-backdrop"></div>
+    <div class="signup-card">
+      <a class="signup-logo" href="index.html" aria-label="SkillBridge home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span>SkillBridge</span>
+      </a>
+
+      <form class="signup-step-panel active" id="loginForm" novalidate>
+        <h2>Welcome Back</h2>
+        <p class="signup-subtitle">Log in to continue your SkillBridge journey.</p>
+        <div class="signup-form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="you@company.com" autocomplete="email" required>
+        </div>
+        <div class="signup-form-group">
+          <label for="loginPassword">Password</label>
+          <div class="signup-password-wrap">
+            <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password" required>
+            <button type="button" class="signup-eye-btn" id="togglePasswordBtn" title="Toggle visibility" aria-label="Show or hide password">👁</button>
+          </div>
+        </div>
+        <p class="form-error" id="loginError" role="alert" hidden></p>
+        <button class="btn btn-primary signup-next-btn" id="loginSubmit" type="submit">Log in</button>
+        <p class="signup-footer-text">New to SkillBridge? <a href="register.html">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="js/pages/login.js"></script>
+</body>
+</html>

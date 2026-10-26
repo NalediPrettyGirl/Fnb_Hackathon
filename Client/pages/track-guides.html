@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Guides — SkillBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/skill-arena.css">
+  <link rel="stylesheet" href="../css/gig-hub.css">
+  <link rel="stylesheet" href="../css/modals.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/track-guides.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar and top bar are injected by js/components/shell.js -->
+  <div class="app-container" id="appContainer">
+    <main class="app-main" id="appMain">
+      <div class="content-viewport">
+        <section class="view-panel active">
+          <div class="view-header">
+            <div class="view-header-titles">
+              <div class="badge-tag-row"><span class="badge-pill-green">Roadmaps</span></div>
+              <h1 class="view-title">Career Track Guides & Roadmaps</h1>
+              <p class="view-subtitle">Step-by-step roadmaps for different career paths.</p>
+            </div>
+            <div class="view-header-actions"><a class="btn btn-secondary" id="guideArenaLink" href="skill-arena.html">Go to Skill Arena ⚡</a><a class="btn btn-primary" href="gig-hub.html">Browse Gigs 💼</a></div>
+          </div>
+          <div class="track-guide-tabs-bar" id="guideTabs"></div>
+          <div id="guidePanel"><p class="api-empty-state">Loading guides…</p></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="../js/pages/track-guides.js"></script>
+</body>
+</html>

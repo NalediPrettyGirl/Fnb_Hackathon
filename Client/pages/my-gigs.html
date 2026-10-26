@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Gigs — SkillBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/skill-arena.css">
+  <link rel="stylesheet" href="../css/gig-hub.css">
+  <link rel="stylesheet" href="../css/modals.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/track-guides.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar and top bar are injected by js/components/shell.js -->
+  <div class="app-container" id="appContainer">
+    <main class="app-main" id="appMain">
+      <div class="content-viewport">
+        <section class="view-panel active">
+          <div class="view-header">
+            <div class="view-header-titles">
+              
+              <h1 class="view-title">My Gigs</h1>
+              <p class="view-subtitle">Manage the gigs you posted and review who applied.</p>
+            </div>
+            <div class="view-header-actions"><a class="btn btn-primary" href="post-gig.html">Post a Gig</a></div>
+          </div>
+          <div class="gigs-container" id="myGigsList"><p class="api-empty-state">Loading your gigs…</p></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="../js/pages/my-gigs.js"></script>
+</body>
+</html>

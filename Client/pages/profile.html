@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — SkillBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/skill-arena.css">
+  <link rel="stylesheet" href="../css/gig-hub.css">
+  <link rel="stylesheet" href="../css/modals.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/track-guides.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar and top bar are injected by js/components/shell.js -->
+  <div class="app-container" id="appContainer">
+    <main class="app-main" id="appMain">
+      <div class="content-viewport">
+        <section class="view-panel active">
+          <div class="view-header">
+            <div class="view-header-titles">
+              
+              <h1 class="view-title">Your Profile</h1>
+              <p class="view-subtitle">This is what clients and the community see about you.</p>
+            </div>
+            <div class="view-header-actions"><span class="badge badge-rank" id="profileRoleBadge"></span><span class="badge badge-tier verified" id="profileXpBadge"></span></div>
+          </div>
+          <form class="form-card" id="profileForm" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="profileName">Full name</label><input type="text" id="profileName" class="form-input" maxlength="80" required></div>
+              <div class="form-group"><label for="profileEmail">Email</label><input type="email" id="profileEmail" class="form-input" disabled></div>
+            </div>
+            <div class="form-group"><label for="profileHeadline">Headline</label><input type="text" id="profileHeadline" class="form-input" maxlength="120" placeholder="e.g. Data analyst with web development skills"></div>
+            <div class="form-group"><label for="profileBio">Bio</label><textarea id="profileBio" class="form-textarea" rows="5" maxlength="500" placeholder="Tell people about yourself (max 500 characters)."></textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label for="profileLocation">Location</label><input type="text" id="profileLocation" class="form-input" maxlength="100"></div>
+              <div class="form-group"><label for="profileWebsite">Website</label><input type="url" id="profileWebsite" class="form-input" placeholder="https://"></div>
+            </div>
+            <div class="form-group"><label for="profileSkills">Skills</label><input type="text" id="profileSkills" class="form-input" placeholder="SQL, Excel, JavaScript"><p class="form-hint">Separate with commas (max 30).</p></div>
+            <p class="form-error on-light" id="profileError" role="alert" hidden></p>
+            <div class="modal-footer"><button type="submit" class="btn btn-primary" id="profileSaveBtn">Save changes</button></div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="../js/pages/profile.js"></script>
+</body>
+</html>
