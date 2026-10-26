@@ -1,0 +1,209 @@
+/* ==========================================================================
+   VIEW 2: WORK DESK STYLES (Direct match to Screenshot 1)
+   ========================================================================== */
+.filter-pills-bar {
+  display: flex;
+  gap: 8px;
+  background-color: var(--color-white);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-beige);
+}
+
+.pill-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  color: var(--color-charcoal-muted);
+  transition: all var(--transition-fast);
+}
+
+.pill-btn:hover {
+  color: var(--color-forest);
+}
+
+.pill-btn.active {
+  background-color: var(--color-forest);
+  color: var(--color-white);
+}
+
+.simulations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 22px;
+}
+
+.sim-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.sim-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-sage-border);
+}
+
+.sim-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.sim-company-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.sim-status-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.free-badge {
+  background-color: var(--color-forest-surface);
+  color: var(--color-forest);
+  border: 1px solid var(--color-sage-border);
+}
+
+.pro-badge {
+  background-color: #6a4f91;
+  color: var(--color-white);
+}
+
+.sim-company-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  margin-bottom: 2px;
+}
+
+.sim-company-industry {
+  font-size: 0.8rem;
+  color: var(--color-charcoal-subtle);
+  margin-bottom: 16px;
+}
+
+.sim-roles-box {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.sim-roles-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.sim-roles-count svg {
+  stroke: var(--color-terracotta);
+}
+
+.sim-roles-list {
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--color-charcoal-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sim-roles-list li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  padding-left: 10px;
+}
+
+.sim-roles-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-sage);
+}
+
+.sim-jobs-link {
+  background: transparent;
+  border: none;
+  color: var(--color-forest);
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 0;
+  display: block;
+  transition: color var(--transition-fast);
+}
+
+.sim-jobs-link:hover {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+}
+
+.sim-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--color-cream);
+  padding-top: 14px;
+}
+
+.sim-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tag-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-beige);
+  color: var(--color-charcoal);
+}
+
+.tag-score-earned {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  background-color: #e2ede5;
+  color: var(--color-forest);
+}
+

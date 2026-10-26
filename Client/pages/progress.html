@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress — SkillBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/skill-arena.css">
+  <link rel="stylesheet" href="../css/gig-hub.css">
+  <link rel="stylesheet" href="../css/modals.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/track-guides.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar and top bar are injected by js/components/shell.js -->
+  <div class="app-container" id="appContainer">
+    <main class="app-main" id="appMain">
+      <div class="content-viewport">
+        <section class="view-panel active">
+          <div class="view-header">
+            <div class="view-header-titles">
+              
+              <h1 class="view-title">Your Progress</h1>
+              <p class="view-subtitle">XP, simulations and applications at a glance.</p>
+            </div>
+            <div class="view-header-actions"></div>
+          </div>
+          <div class="stats-row" id="progressStats"></div>
+          <div class="panel"><h3>Skill tracks practised</h3><div class="gig-tags-group" id="progressTracks"></div></div>
+          <div class="panel"><h3>Recent submissions</h3><div id="progressRecent"></div></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="../js/pages/progress.js"></script>
+</body>
+</html>

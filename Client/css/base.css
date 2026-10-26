@@ -1,0 +1,106 @@
+/* ==========================================================================
+   DataSimHQ — Core Design System & Styling
+   Strict Palette:
+     - Forest green: #243D32
+     - Sage green:   #87977B
+     - Warm beige:   #E8DFD0
+     - Cream:        #F8F6F0
+     - Terracotta:   #B86F52
+     - Charcoal:     #252923
+     - White:        #FFFFFF
+   ========================================================================== */
+
+:root {
+  /* Core Palette Tokens */
+  --color-forest: #243D32;
+  --color-forest-dark: #192d24;
+  --color-forest-light: #2d4c3f;
+  --color-forest-surface: rgba(36, 61, 50, 0.08);
+
+  --color-sage: #87977B;
+  --color-sage-light: #edf2ea;
+  --color-sage-subtle: rgba(135, 151, 123, 0.2);
+  --color-sage-border: #cad3c6;
+
+  --color-beige: #E8DFD0;
+  --color-beige-light: #f5f0e8;
+  --color-beige-border: #dcd2c0;
+
+  --color-cream: #F8F6F0;
+  --color-cream-card: #fcfbf9;
+
+  --color-terracotta: #B86F52;
+  --color-terracotta-hover: #a15d42;
+  --color-terracotta-light: #faeee9;
+  --color-terracotta-subtle: rgba(184, 111, 82, 0.15);
+
+  --color-charcoal: #252923;
+  --color-charcoal-muted: #575e53;
+  --color-charcoal-subtle: #8a9285;
+
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Borders & Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 3px rgba(37, 41, 35, 0.04), 0 2px 6px rgba(37, 41, 35, 0.03);
+  --shadow-card: 0 2px 8px rgba(36, 61, 50, 0.06), 0 1px 2px rgba(36, 61, 50, 0.04);
+  --shadow-hover: 0 8px 24px rgba(36, 61, 50, 0.1), 0 2px 6px rgba(36, 61, 50, 0.04);
+  --shadow-modal: 0 20px 48px rgba(37, 41, 35, 0.22), 0 8px 16px rgba(37, 41, 35, 0.12);
+
+  /* Dimensions */
+  --sidebar-width: 256px;
+  --sidebar-collapsed-width: 76px;
+  --topbar-height: 64px;
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body.app-body {
+  font-family: var(--font-main);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Short aliases referenced by the auth and track-guide styles (they were previously undefined,
+   which made e.g. the roadmap step numbers render white-on-white). */
+:root {
+  --forest: var(--color-forest);
+  --sage: var(--color-sage);
+  --terracotta: var(--color-terracotta);
+  --cream: var(--color-cream);
+  --charcoal: var(--color-charcoal);
+  --charcoal-muted: var(--color-charcoal-muted);
+  --charcoal-subtle: var(--color-charcoal-subtle);
+  --border-color: var(--color-beige);
+  --shadow-sm: var(--shadow-subtle);
+  --shadow-md: var(--shadow-card);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gig Hub — SkillBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/skill-arena.css">
+  <link rel="stylesheet" href="../css/gig-hub.css">
+  <link rel="stylesheet" href="../css/modals.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/track-guides.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar and top bar are injected by js/components/shell.js -->
+  <div class="app-container" id="appContainer">
+    <main class="app-main" id="appMain">
+      <div class="content-viewport">
+        <section class="view-panel active">
+          <div class="view-header">
+            <div class="view-header-titles">
+              <div class="badge-tag-row"><span class="badge-pill-green">Open opportunities</span></div>
+              <h1 class="view-title">Gig Hub — Freelance Marketplace</h1>
+              <p class="view-subtitle">Browse open freelance gigs and apply with a short cover note.</p>
+            </div>
+            <div class="view-header-actions"><a class="btn btn-secondary" id="myApplicationsLink" href="my-applications.html" hidden>My Applications</a><a class="btn btn-primary" id="postGigLink" href="post-gig.html" hidden>Post a Gig</a></div>
+          </div>
+          <div class="jobs-toolbar">
+            <div class="jobs-search-box">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="gigSearchInput" placeholder="Filter by skill, title or keyword (e.g. 'SQL', 'landing page')…" aria-label="Search gigs">
+            </div>
+            <div class="jobs-filter-group"><span class="card-meta" id="gigCount"></span></div>
+          </div>
+          <div class="gigs-container" id="gigsListContainer"><p class="api-empty-state">Loading gigs…</p></div>
+          <div class="pagination" id="gigPagination" hidden>
+            <button class="btn btn-secondary-sm" id="gigPrev" type="button">← Previous</button>
+            <span id="gigPageLabel"></span>
+            <button class="btn btn-secondary-sm" id="gigNext" type="button">Next →</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="applyModal">
+    <div class="modal-container modal-md">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="applyModalTitle">Apply for gig</h2>
+          <p class="modal-subtitle" id="applyModalSubtitle"></p>
+        </div>
+        <button class="modal-close-btn" type="button" data-close-modal="applyModal" aria-label="Close">✕</button>
+      </div>
+      <form id="applyForm" class="modal-body">
+        <div class="proposal-match-banner" id="applyMatchBanner" hidden>
+          <div class="match-score" id="applyMatchScore"></div>
+          <div class="match-desc" id="applyMatchDesc"></div>
+        </div>
+        <div class="form-group">
+          <div class="form-label-row"><label for="applyCoverNote">Cover note</label></div>
+          <textarea id="applyCoverNote" class="form-textarea" rows="6" maxlength="2000" placeholder="Introduce yourself and explain why you're a good fit (optional, up to 2000 characters)."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close-modal="applyModal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="applySubmitBtn">Send application →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="../js/pages/gig-hub.js"></script>
+</body>
+</html>

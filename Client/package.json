@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node --check js/main.js && node --check js/api.js && node --check js/auth.js && node --check js/dashboard.js && node --check js/simulations.js && node --check js/portfolio.js && node --check js/gigs.js"
+    "test": "node scripts/check-client.mjs"
   },
   "keywords": [],
   "author": "",

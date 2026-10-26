@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — SkillBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/skill-arena.css">
+  <link rel="stylesheet" href="../css/gig-hub.css">
+  <link rel="stylesheet" href="../css/modals.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/track-guides.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="app-body">
+  <!-- Sidebar and top bar are injected by js/components/shell.js -->
+  <div class="app-container" id="appContainer">
+    <main class="app-main" id="appMain">
+      <div class="content-viewport">
+        <section class="view-panel active">
+          <div class="view-header">
+            <div class="view-header-titles">
+              
+              <h1 class="view-title">Administration</h1>
+              <p class="view-subtitle">Platform overview and user management (administrator only).</p>
+            </div>
+            <div class="view-header-actions"></div>
+          </div>
+          <div class="stats-row" id="adminOverview"><p class="api-empty-state">Loading overview…</p></div>
+          <div class="panel">
+            <h3>Users</h3>
+            <div class="jobs-toolbar">
+              <div class="jobs-search-box"><input type="text" id="adminSearch" placeholder="Search by name or email…" aria-label="Search users"></div>
+              <div class="jobs-filter-group">
+                <select id="adminRoleFilter" class="filter-dropdown"><option value="">All roles</option><option value="freelancer">Freelancers</option><option value="client">Clients</option></select>
+              </div>
+            </div>
+            <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th>Change role</th></tr></thead><tbody id="adminUsersBody"></tbody></table></div>
+            <div class="pagination" id="adminPagination" hidden>
+              <button class="btn btn-secondary-sm" id="adminPrev" type="button">← Previous</button>
+              <span id="adminPageLabel"></span>
+              <button class="btn btn-secondary-sm" id="adminNext" type="button">Next →</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="../js/pages/admin.js"></script>
+</body>
+</html>
