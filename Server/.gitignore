@@ -1,0 +1,8 @@
+
+# Dependencies and downloaded test binaries
+node_modules/
+**/node_modules/
+
+node_modules/
+**/node_modules/
+.env
