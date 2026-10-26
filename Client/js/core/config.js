@@ -1,6 +1,6 @@
 
  // Central API configuration
-export const API_BASE = 'https://skillbridge-hackathon-api.onrender.com';
+export const API_BASE = 'https://skillbridge-hackathon-api.onrender.com/api';
 
 export const STORAGE_KEYS = {
   token: 'skillbridge_token',
