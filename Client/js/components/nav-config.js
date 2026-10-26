@@ -12,8 +12,6 @@ export const NAV_SECTIONS = [
       { id: 'dashboard', label: 'Dashboard', href: routes.dashboard, icon: icons.dashboard, roles: [FREELANCER, CLIENT] },
       { id: 'skill-arena', label: 'Skill Arena', href: routes.skillArena, icon: icons.arena, chip: { text: 'Simulations', cls: 'hot' }, roles: [FREELANCER] },
       { id: 'gig-hub', label: 'Gig Hub', href: routes.gigHub, icon: icons.gigs, roles: [FREELANCER, CLIENT] },
-      { id: 'my-applications', label: 'My Applications', href: routes.myApplications, icon: icons.applications, roles: [FREELANCER] },
-      { id: 'skill-match', label: 'Skill Match', href: routes.skillMatch, icon: icons.match, roles: [FREELANCER] },
       { id: 'my-gigs', label: 'My Gigs', href: routes.myGigs, icon: icons.myGigs, roles: [CLIENT] },
       { id: 'post-gig', label: 'Post a Gig', href: routes.postGig, icon: icons.postGig, roles: [CLIENT] }
     ]
@@ -21,8 +19,7 @@ export const NAV_SECTIONS = [
   {
     label: 'GROW',
     items: [
-      { id: 'portfolio', label: 'Portfolio', href: routes.portfolio, icon: icons.portfolio, roles: [FREELANCER] },
-      { id: 'progress', label: 'Progress', href: routes.progress, icon: icons.progress, roles: [FREELANCER] },
+      { id: 'portfolio', label: 'Portfolio / Certs', href: routes.portfolio, icon: icons.portfolio, roles: [FREELANCER] },
       { id: 'track-guides', label: 'Track Guides', href: routes.trackGuides, icon: icons.guides, chip: { text: 'Roadmaps', cls: 'roadmaps' }, roles: [FREELANCER, CLIENT] }
     ]
   },

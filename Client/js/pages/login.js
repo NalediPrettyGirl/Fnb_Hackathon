@@ -31,6 +31,11 @@ form.addEventListener('submit', async event => {
     errorBox.hidden = false;
     return;
   }
+  if (!email.includes('@')) {
+    errorBox.textContent = 'Please enter a valid email address (e.g. you@company.com).';
+    errorBox.hidden = false;
+    return;
+  }
   const button = $('#loginSubmit');
   setBusy(button, true, 'Logging in…');
   try {
@@ -38,7 +43,10 @@ form.addEventListener('submit', async event => {
     notify('You are now logged in.', 'success');
     window.location.href = nextDestination();
   } catch (error) {
-    errorBox.textContent = error.message;
+    const isNetwork = error.status === 0 || /Cannot reach/i.test(error.message);
+    errorBox.textContent = isNetwork
+      ? 'Cannot reach API. The cloud server may be waking up from sleep — please retry in a few seconds.'
+      : error.message;
     errorBox.hidden = false;
     setBusy(button, false);
   }

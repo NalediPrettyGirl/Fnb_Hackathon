@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node serve.js",
     "test": "node scripts/check-client.mjs"
   },
   "keywords": [],

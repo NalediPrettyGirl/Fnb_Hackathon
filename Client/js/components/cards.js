@@ -47,31 +47,63 @@ export function gigCardMarkup(gig, { actions = '', match = null, status = false 
     </article>`;
 }
 
-/** Simulation card for the Skill Arena. */
+/** Simulation card for the Skill Arena — matches Enterprise Sandbox Card format */
 export function simulationCardMarkup(sim, { completed = false, canSubmit = true } = {}) {
+  const company = sim.company || sim.skillTrack;
+  const industry = sim.industry || sim.skillTrack;
+  const icon = sim.icon || trackIcon(sim.skillTrack);
+  const isPro = Boolean(sim.isPro);
+  const access = sim.access || (isPro ? '🔒 Pro' : 'Free Access');
+  const accessClass = isPro ? 'access-pro' : 'access-free';
+  const openRoles = sim.openRoles || 25;
+  const roles = sim.roles || [
+    'Senior Analyst at Top Enterprise',
+    'Performance & Optimization Specialist',
+    'Growth Strategy & Retention Lead'
+  ];
+  const tags = sim.tags || [sim.skillTrack || 'SQL'];
+  const score = sim.score || (isPro ? null : '95/100');
+
   const action = completed
-    ? '<button class="btn btn-secondary-sm" type="button" disabled>Completed ✓</button>'
-    : canSubmit
-      ? `<button class="btn btn-primary-sm" type="button" data-launch-simulation="${escapeHtml(sim._id)}">Start challenge</button>`
-      : '';
+    ? '<button class="btn btn-secondary-sm sim-launch-btn" type="button" disabled>Completed ✓</button>'
+    : isPro
+      ? `<button class="btn btn-secondary-sm sim-preview-btn" type="button" data-launch-simulation="${escapeHtml(sim._id)}">Preview Pro Simulation</button>`
+      : `<button class="btn btn-primary-sm sim-launch-btn" type="button" data-launch-simulation="${escapeHtml(sim._id)}">Launch Sandbox</button>`;
+
+  const rolesListHtml = roles.map(r => `<li>${escapeHtml(r)}</li>`).join('');
+  const tagsHtml = tags.map(t => `<span class="sim-tech-pill">${escapeHtml(t)}</span>`).join('');
+  const scoreHtml = score ? `<span class="sim-score-pill">Score: ${escapeHtml(score)}</span>` : '';
+
   return `
-    <div class="sim-card" data-track="${escapeHtml(sim.skillTrack)}">
+    <div class="sim-card" data-track="${escapeHtml(sim.skillTrack || 'SQL')}">
       <div class="sim-card-header">
-        <div class="sim-company-icon">${trackIcon(sim.skillTrack)}</div>
-        <div class="sim-status-badge free-badge">+${Number(sim.xpReward) || 0} XP</div>
+        <div class="sim-company-icon">${icon}</div>
+        <span class="sim-access-pill ${accessClass}">${escapeHtml(access)}</span>
       </div>
-      <h3 class="sim-company-name">${escapeHtml(sim.title)}</h3>
-      <p class="sim-company-industry">${escapeHtml(sim.skillTrack)}</p>
-      <p class="sim-brief">${escapeHtml(sim.brief)}</p>
+      <h3 class="sim-company-name">${escapeHtml(company)}</h3>
+      <p class="sim-company-industry">${escapeHtml(industry)}</p>
+
+      <div class="sim-roles-box">
+        <div class="sim-roles-header">
+          <span class="sim-briefcase-icon">👜</span>
+          <strong>${openRoles} open roles &amp; gigs</strong> use this kind of work
+        </div>
+        <ul class="sim-roles-list">
+          ${rolesListHtml}
+        </ul>
+        <a href="../pages/gig-hub.html" class="sim-roles-link">See them on the Jobs Desk →</a>
+      </div>
+
       <div class="sim-card-footer">
-        <div class="sim-tags">
-          <span class="tag-badge">${escapeHtml(sim.skillTrack)}</span>
-          ${completed ? '<span class="tag-score-earned">Done</span>' : ''}
+        <div class="sim-footer-tags">
+          ${tagsHtml}
+          ${scoreHtml}
         </div>
         ${action}
       </div>
     </div>`;
 }
+
 
 /** Portfolio card (a completed submission). */
 export function portfolioCardMarkup(project) {

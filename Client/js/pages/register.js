@@ -6,15 +6,42 @@ import { setBusy, $, $$ } from '../core/dom.js';
 
 redirectIfSignedIn();
 
-// Self-assessed skills collected in step 3 (saved to the profile after sign-up).
-const SKILLS = [
-  { key: 'sql', label: 'SQL & Databases' },
-  { key: 'viz', label: 'Data Visualization' },
-  { key: 'comm', label: 'Business Communication' },
-  { key: 'web', label: 'Web Development' },
-  { key: 'design', label: 'UI/UX Design' }
-];
+// Tailored skills per career path
+const PATH_SKILLS = {
+  'Data Analyst': [
+    { key: 'sql', label: 'SQL & Databases', defaultVal: 4 },
+    { key: 'viz', label: 'Data Visualization', defaultVal: 3 },
+    { key: 'comm', label: 'Business Communication', defaultVal: 4 },
+    { key: 'pm', label: 'Project Management', defaultVal: 3 }
+  ],
+  'UI/UX Designer': [
+    { key: 'figma', label: 'Wireframing & Figma', defaultVal: 4 },
+    { key: 'research', label: 'User Research & Personas', defaultVal: 4 },
+    { key: 'proto', label: 'Interactive Prototyping', defaultVal: 3 },
+    { key: 'designsys', label: 'Design Systems', defaultVal: 3 }
+  ],
+  'Content Writer / Journalist': [
+    { key: 'copy', label: 'Copywriting & Narrative', defaultVal: 4 },
+    { key: 'seo', label: 'SEO & Content Strategy', defaultVal: 4 },
+    { key: 'editing', label: 'Editing & Fact-Checking', defaultVal: 4 },
+    { key: 'research', label: 'Research & Interviewing', defaultVal: 3 }
+  ],
+  'Software Engineer': [
+    { key: 'frontend', label: 'Frontend Development', defaultVal: 4 },
+    { key: 'backend', label: 'Backend & REST APIs', defaultVal: 4 },
+    { key: 'database', label: 'Database & SQL', defaultVal: 3 },
+    { key: 'git', label: 'Git & Version Control', defaultVal: 4 }
+  ],
+  'Client': [
+    { key: 'hiring', label: 'Talent Sourcing', defaultVal: 4 },
+    { key: 'scoping', label: 'Project Scoping & Briefs', defaultVal: 4 },
+    { key: 'budget', label: 'Milestone & Budget Planning', defaultVal: 3 },
+    { key: 'comm', label: 'Stakeholder Communication', defaultVal: 4 }
+  ]
+};
+
 const ratings = {};
+let selectedPath = 'Data Analyst';
 let role = 'freelancer';
 
 const showError = (id, message) => {
@@ -32,23 +59,32 @@ function showStep(step) {
   });
 }
 
-function renderSkills() {
-  $('#signupSkillList').innerHTML = SKILLS.map(skill => `
-    <div class="signup-skill-row">
-      <span class="skill-name">${skill.label}</span>
-      <div class="skill-stars" data-skill="${skill.key}">
-        ${[1, 2, 3, 4, 5].map(value => `<span class="star" data-val="${value}">★</span>`).join('')}
-      </div>
-    </div>`).join('');
+function getActiveSkills() {
+  return PATH_SKILLS[selectedPath] || PATH_SKILLS['Data Analyst'];
+}
 
-  $('#signupSkillList').addEventListener('click', event => {
-    const star = event.target.closest('.star');
-    if (!star) return;
-    const holder = star.parentElement;
-    const value = Number(star.dataset.val);
-    ratings[holder.dataset.skill] = value;
-    $$('.star', holder).forEach(item => item.classList.toggle('lit', Number(item.dataset.val) <= value));
+function renderSkills() {
+  const skills = getActiveSkills();
+  const listEl = $('#signupSkillList');
+  if (!listEl) return;
+
+  // Initialize ratings for any new skills
+  skills.forEach(skill => {
+    if (ratings[skill.key] === undefined) {
+      ratings[skill.key] = skill.defaultVal || 3;
+    }
   });
+
+  listEl.innerHTML = skills.map(skill => {
+    const val = ratings[skill.key] || 0;
+    return `
+      <div class="signup-skill-row">
+        <span class="skill-name">${skill.label}</span>
+        <div class="skill-stars" data-skill="${skill.key}">
+          ${[1, 2, 3, 4, 5].map(v => `<span class="star ${v <= val ? 'lit' : ''}" data-val="${v}">★</span>`).join('')}
+        </div>
+      </div>`;
+  }).join('');
 }
 
 function scorePassword(password) {
@@ -101,10 +137,15 @@ async function createAccount() {
       role
     });
 
-    // Save confident skills to the new profile. Failure here must not block sign-up.
-    const skills = SKILLS.filter(skill => (ratings[skill.key] || 0) >= 3).map(skill => skill.label);
-    if (skills.length) {
-      try { await profileService.update({ skills }); } catch { /* optional */ }
+    // Save confident skills and career path headline to the new profile.
+    const activeSkills = getActiveSkills();
+    const skills = activeSkills.filter(skill => (ratings[skill.key] || 0) >= 3).map(skill => skill.label);
+    const headline = selectedPath;
+    localStorage.setItem('skillbridge_career_path', selectedPath);
+    try {
+      await profileService.update({ skills, headline });
+    } catch {
+      /* optional */
     }
 
     $$('.signup-steps-bar').forEach(bar => { bar.hidden = true; });
@@ -129,23 +170,54 @@ function bindEvents() {
     showError('#registerError', problem);
     if (!problem) showStep(2);
   });
-  $('#signupNext2').addEventListener('click', () => showStep(3));
+  $('#signupNext2').addEventListener('click', () => {
+    renderSkills();
+    showStep(3);
+  });
   $('#signupBack2').addEventListener('click', () => showStep(1));
   $('#signupBack3').addEventListener('click', () => showStep(2));
   $('#signupLaunchBtn').addEventListener('click', createAccount);
 
+  // Star rating clicks
+  $('#signupSkillList')?.addEventListener('click', event => {
+    const star = event.target.closest('.star');
+    if (!star) return;
+    const holder = star.parentElement;
+    const value = Number(star.dataset.val);
+    ratings[holder.dataset.skill] = value;
+    $$('.star', holder).forEach(item => item.classList.toggle('lit', Number(item.dataset.val) <= value));
+  });
+
+  // Career path selection (Data Analyst, UI/UX Designer, etc.)
   $$('.signup-role-card').forEach(card => {
     const select = () => {
       $$('.signup-role-card').forEach(item => item.classList.remove('selected'));
+      $('#clientToggleBtn')?.classList.remove('active');
       card.classList.add('selected');
-      role = card.dataset.role;
-      // Skill ratings only matter for freelancers.
-      $('#signupStep3 .signup-subtitle').textContent = role === 'freelancer'
-        ? 'Rate your confidence — skills rated 3★ or more are added to your profile'
-        : 'Optional — tell us which skills you usually hire for (3★ or more are saved to your profile)';
+      role = 'freelancer';
+      selectedPath = card.dataset.path || 'Data Analyst';
+      localStorage.setItem('skillbridge_career_path', selectedPath);
+      $('#signupStep3 .signup-subtitle').textContent = "Rate your confidence — we'll tailor your dashboard";
+      renderSkills();
     };
     card.addEventListener('click', select);
-    card.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); select(); } });
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        select();
+      }
+    });
+  });
+
+  // Client toggle button
+  $('#clientToggleBtn')?.addEventListener('click', () => {
+    $$('.signup-role-card').forEach(item => item.classList.remove('selected'));
+    $('#clientToggleBtn')?.classList.add('active');
+    role = 'client';
+    selectedPath = 'Client';
+    localStorage.setItem('skillbridge_career_path', 'Client');
+    $('#signupStep3 .signup-subtitle').textContent = "Tell us what skills you're looking to hire for";
+    renderSkills();
   });
 
   $$('#signupStep1 input').forEach(input => input.addEventListener('keydown', event => {

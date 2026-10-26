@@ -6,8 +6,9 @@ import { readFileSync, readdirSync, statSync, existsSync, writeFileSync, mkdtemp
 import { join, dirname, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 
-const root = resolve(dirname(new URL(import.meta.url).pathname), '..');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const walk = dir => readdirSync(dir).flatMap(name => {
   if (name === 'node_modules') return [];
   const full = join(dir, name);

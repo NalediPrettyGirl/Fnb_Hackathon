@@ -16,7 +16,8 @@ function fill(profile) {
   $('#profileLocation').value = profile.location || '';
   $('#profileWebsite').value = profile.website || '';
   $('#profileSkills').value = (profile.skills || []).join(', ');
-  $('#profileRoleBadge').textContent = profile.role === 'client' ? 'Client' : 'Freelancer';
+  const career = profile.headline || (typeof localStorage !== 'undefined' ? localStorage.getItem('skillbridge_career_path') : null) || 'Data Analyst';
+  $('#profileRoleBadge').textContent = profile.role === 'client' ? 'Client' : career;
   $('#profileXpBadge').textContent = profile.role === 'client' ? 'Hiring' : `${profile.xp || 0} XP`;
 }
 
@@ -44,7 +45,10 @@ $('#profileForm').addEventListener('submit', async event => {
   setBusy(button, true, 'Saving…');
   try {
     const profile = await profileService.update(fields);
+    if (profile.headline) localStorage.setItem('skillbridge_career_path', profile.headline);
     fill(profile);
+    const careerBadge = $('#userCareerBadge');
+    if (careerBadge && profile.role !== 'client' && profile.headline) careerBadge.textContent = profile.headline;
     document.querySelectorAll('.user-name').forEach(node => { node.textContent = profile.name; });
     document.querySelectorAll('#sidebarAvatar, #topbarAvatarSm').forEach(node => { node.textContent = initials(profile.name); });
     notify('Profile updated successfully.', 'success');

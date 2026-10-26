@@ -66,16 +66,29 @@
         <h2>Choose Your Path</h2>
         <p class="signup-subtitle">Pick the role that best describes your goals</p>
         <div class="signup-role-grid">
-          <div class="signup-role-card selected" data-role="freelancer" tabindex="0" role="button">
+          <div class="signup-role-card selected" data-role="freelancer" data-path="Data Analyst" tabindex="0" role="button">
             <span class="role-emoji">📊</span>
-            <h4>Freelancer</h4>
-            <p>Practise skills, build a portfolio and apply for freelance gigs</p>
+            <h4>Data Analyst</h4>
+            <p>SQL, dashboards, KPI reporting</p>
           </div>
-          <div class="signup-role-card" data-role="client" tabindex="0" role="button">
-            <span class="role-emoji">💼</span>
-            <h4>Client</h4>
-            <p>Post projects and review applications</p>
+          <div class="signup-role-card" data-role="freelancer" data-path="UI/UX Designer" tabindex="0" role="button">
+            <span class="role-emoji">🎨</span>
+            <h4>UI/UX Designer</h4>
+            <p>UI, UX, Research, Wireframes</p>
           </div>
+          <div class="signup-role-card" data-role="freelancer" data-path="Content Writer / Journalist" tabindex="0" role="button">
+            <span class="role-emoji">🚀</span>
+            <h4>Content Writer / Journalist</h4>
+            <p>Remote gigs, client proposals, rate setting</p>
+          </div>
+          <div class="signup-role-card" data-role="freelancer" data-path="Software Engineer" tabindex="0" role="button">
+            <span class="role-emoji">🔄</span>
+            <h4>Software Engineer</h4>
+            <p>Guided upskilling, portfolio building</p>
+          </div>
+        </div>
+        <div class="signup-client-toggle-wrap">
+          <button type="button" class="signup-client-toggle-btn" id="clientToggleBtn">Looking to hire talent? Register as a Client instead →</button>
         </div>
         <div class="signup-btn-row">
           <button class="btn btn-secondary signup-back-btn" id="signupBack2" type="button">← Back</button>
@@ -86,12 +99,12 @@
       <!-- STEP 3: Skills -->
       <div class="signup-step-panel" id="signupStep3">
         <h2>Quick Skill Check</h2>
-        <p class="signup-subtitle">Rate your confidence — skills rated 3★ or more are added to your profile</p>
+        <p class="signup-subtitle">Rate your confidence — we'll tailor your dashboard</p>
         <div class="signup-skill-list" id="signupSkillList"></div>
         <p class="form-error" id="registerFinalError" role="alert" hidden></p>
         <div class="signup-btn-row">
           <button class="btn btn-secondary signup-back-btn" id="signupBack3" type="button">← Back</button>
-          <button class="btn btn-primary signup-next-btn" id="signupLaunchBtn" type="button">🚀 Create my account</button>
+          <button class="btn btn-primary signup-next-btn" id="signupLaunchBtn" type="button">🚀 Launch My Dashboard</button>
         </div>
       </div>
 

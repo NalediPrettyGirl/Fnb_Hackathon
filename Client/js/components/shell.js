@@ -58,7 +58,7 @@ function sidebarMarkup(user, activeId) {
             <div class="user-name-title"><span class="user-name" id="userNameDisplay">${escapeHtml(user.name)}</span></div>
             <div class="user-badges">
               <span class="badge badge-rank" id="userRankDisplay">${isFreelancer ? levelFor(user.xp || 0).current.name : 'Client'}</span>
-              <span class="badge badge-tier verified">${isFreelancer ? 'Freelancer' : 'Hiring'}</span>
+              <span class="badge badge-tier verified" id="userCareerBadge">${!isFreelancer ? 'Hiring' : (user.headline || (typeof localStorage !== 'undefined' ? localStorage.getItem('skillbridge_career_path') : null) || 'Data Analyst')}</span>
             </div>
           </div>
         </div>
@@ -143,6 +143,9 @@ async function refreshIdentity() {
     });
     $$('#sidebarAvatar, #topbarAvatarSm').forEach(node => { node.textContent = initials(profile.name); });
     if (profile.role === ROLES.FREELANCER) {
+      const career = profile.headline || (typeof localStorage !== 'undefined' ? localStorage.getItem('skillbridge_career_path') : null) || 'Data Analyst';
+      const careerBadge = $('#userCareerBadge');
+      if (careerBadge) careerBadge.textContent = career;
       const level = levelFor(profile.xp || 0);
       const rank = $('#userRankDisplay');
       if (rank) rank.textContent = level.current.name;

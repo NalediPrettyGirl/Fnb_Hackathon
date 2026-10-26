@@ -26,9 +26,8 @@
         <section class="view-panel active">
           <div class="view-header">
             <div class="view-header-titles">
-              
               <h1 class="view-title">Skill Arena</h1>
-              <p class="view-subtitle">Level up with hands-on challenges and build proof of your skills.</p>
+              <p class="view-subtitle">Level up with hands-on company challenges and qualify for verified freelance gigs.</p>
             </div>
             <div class="view-header-actions"><div class="filter-pills-bar" id="trackFilters"></div></div>
           </div>
@@ -37,9 +36,15 @@
       </div>
     </main>
   </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SIMULATION SANDBOX MODAL
+  ════════════════════════════════════════════════ -->
   <div class="modal-backdrop" id="simSandboxModal">
     <div class="modal-container modal-xl">
-      <div class="modal-header">
+
+      <!-- Header -->
+      <div class="modal-header sandbox-modal-header">
         <div class="modal-title-row">
           <div class="modal-company-logo" id="simModalLogo">⚡</div>
           <div>
@@ -49,41 +54,112 @@
         </div>
         <button class="modal-close-btn" type="button" data-close-modal="simSandboxModal" aria-label="Close">✕</button>
       </div>
+
+      <!-- Body: sidebar + main -->
       <div class="modal-body-sandbox">
-        <div class="sandbox-sidebar">
+
+        <!-- ── LEFT SIDEBAR ─────────────────────────── -->
+        <aside class="sandbox-sidebar">
+
+          <!-- Brief -->
           <div class="sandbox-brief-box">
-            <h4 class="box-heading">The Brief</h4>
+            <h4 class="box-heading">The Client Brief</h4>
             <p id="simBriefText"></p>
-            <div class="brief-deliverables">
-              <strong>Your Deliverable:</strong>
-              <ul>
-                <li>Write a clear, practical response to the brief.</li>
-                <li>State your assumptions and explain your reasoning.</li>
-              </ul>
-            </div>
           </div>
-          <div class="simulation-job-link-box">
-            <span class="link-label">Reward:</span>
+
+          <!-- Deliverables -->
+          <div class="sandbox-deliverables-box">
+            <h4 class="box-heading">Your Deliverable</h4>
+            <ul class="sandbox-deliverables-list" id="simDeliverables"></ul>
+          </div>
+
+          <!-- Schema (SQL only) -->
+          <div class="sandbox-schema-box" id="simSchemaBox" style="display:none">
+            <h4 class="box-heading">Available Tables in Database</h4>
+            <div class="schema-tree" id="simSchema"></div>
+          </div>
+
+          <!-- Qualifies For -->
+          <div class="simulation-job-link-box" id="simQualifiesBox">
+            <span class="link-label">Qualifies For:</span>
             <span class="link-role" id="simModalReward"></span>
           </div>
-        </div>
+
+        </aside>
+
+        <!-- ── MAIN EDITOR PANE ──────────────────────── -->
         <div class="sandbox-main">
+
+          <!-- Toolbar: tabs + action buttons -->
           <div class="sandbox-toolbar">
-            <div class="sandbox-tabs"><button class="s-tab active" type="button">Your answer</button></div>
-          </div>
-          <textarea id="simAnswerInput" class="sandbox-answer" maxlength="10000" placeholder="Write your solution here (at least 5 characters)…"></textarea>
-          <div class="sandbox-footer">
-            <div class="sandbox-footer-info"><span class="evaluation-note">Each simulation can be completed once. Your answer is saved to your portfolio.</span></div>
-            <div class="sandbox-footer-buttons">
-              <button class="btn btn-secondary" type="button" data-close-modal="simSandboxModal">Close</button>
-              <button class="btn btn-primary" type="button" id="submitSimBtn">Submit solution</button>
+            <div class="sandbox-tabs" id="sandboxTabs">
+              <button class="s-tab active" type="button" data-tab="editor" id="tabEditor">
+                <span id="editorTabLabel">Your Answer</span>
+              </button>
+              <button class="s-tab" type="button" data-tab="preview" id="tabPreview" style="display:none">
+                Data Table Preview
+              </button>
+            </div>
+            <div class="sandbox-toolbar-actions" id="sandboxToolbarActions">
+              <!-- SQL-only buttons injected by JS -->
             </div>
           </div>
+
+          <!-- Tab: Editor (textarea or code editor) -->
+          <div class="sandbox-tab-pane active" id="paneEditor">
+            <!-- Plain text answer (non-SQL) -->
+            <textarea
+              id="simAnswerInput"
+              class="sandbox-answer"
+              maxlength="10000"
+              placeholder="Write your solution here (at least 5 characters)…"
+            ></textarea>
+            <!-- SQL code editor (SQL track) — shown/hidden by JS -->
+            <div class="sql-editor-wrap" id="sqlEditorWrap" style="display:none">
+              <textarea
+                id="sqlCodeInput"
+                class="sql-code-area"
+                spellcheck="false"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                placeholder="-- Write your SQL query here…"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Tab: Data Preview (SQL only) -->
+          <div class="sandbox-tab-pane" id="panePreview">
+            <div class="output-header">
+              <span>Query Results Output</span>
+              <span class="output-status" id="outputStatus">Ready to execute</span>
+            </div>
+            <div class="output-table-scroll" id="queryOutput">
+              <p class="empty-state-output">
+                Click <strong>"Run Query"</strong> to test your SQL against the dataset.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /modal-body-sandbox -->
+
+      <!-- Footer -->
+      <div class="sandbox-footer">
+        <div class="sandbox-footer-info">
+          <span class="evaluation-note" id="evalNote">Each simulation can be completed once. Your answer is saved to your portfolio.</span>
+        </div>
+        <div class="sandbox-footer-buttons">
+          <button class="btn btn-secondary" type="button" data-close-modal="simSandboxModal">Close</button>
+          <button class="btn btn-primary" type="button" id="submitSimBtn">Submit Solution &amp; Grade</button>
         </div>
       </div>
+
     </div>
-  </div>
+  </div><!-- /simSandboxModal -->
+
   <div class="toast-container" id="toastContainer"></div>
   <script type="module" src="../js/pages/skill-arena.js"></script>
 </body>
 </html>
+
