@@ -1,0 +1,672 @@
+/* ==========================================================================
+   PORTFOLIO & CERTS PAGE — portfolio.css
+   ========================================================================== */
+
+/* ── Grid override: 3-col on wide screens ─────────────────────────────── */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── Stats strip ──────────────────────────────────────────────────────── */
+.pf-stats-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.pf-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 3px;
+}
+
+.pf-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-forest);
+  line-height: 1;
+}
+
+.pf-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-charcoal-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pf-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-beige);
+  margin: 0 8px;
+}
+
+/* ── Portfolio v2 Card ────────────────────────────────────────────────── */
+.pf-card-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease;
+}
+
+.pf-card-v2:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-sage-border);
+}
+
+/* Header band */
+.pf-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px 14px;
+  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-sage-light) 100%);
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.pf-card-icon {
+  width: 46px;
+  height: 46px;
+  background: var(--color-white);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pf-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pf-track-badge {
+  font-size: 0.7rem;
+}
+
+.pf-card-xp {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-terracotta);
+}
+
+/* Card body */
+.pf-card-title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin: 0;
+  padding: 14px 18px 8px;
+  line-height: 1.35;
+}
+
+/* Case study preview block */
+.pf-case-study-preview {
+  padding: 0 18px 14px;
+  flex: 1;
+}
+
+.pf-case-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-charcoal-muted);
+  margin-bottom: 6px;
+  background: var(--color-cream);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+
+.pf-case-excerpt {
+  font-size: 0.83rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Certificate strip */
+.pf-cert-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(90deg, #f0f4ed 0%, #e8f0e9 100%);
+  border-top: 1px solid var(--color-beige);
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.pf-cert-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.pf-cert-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  flex: 1;
+}
+
+.pf-cert-date {
+  font-size: 0.72rem;
+  color: var(--color-charcoal-muted);
+  white-space: nowrap;
+}
+
+/* Action buttons row */
+.pf-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 14px 18px;
+  align-items: center;
+}
+
+.pf-card-actions .btn-secondary-sm,
+.pf-card-actions .btn-primary-sm {
+  flex: 1;
+  justify-content: center;
+  font-size: 0.78rem;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+/* ── Certificate download (opens a print-ready popup) ─────────────────── */
+.cert-print-window {
+  font-family: 'Plus Jakarta Sans', 'Georgia', serif;
+}
+
+/* ── Case Study Modal enhancements ────────────────────────────────────── */
+.pf-case-modal-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.pf-case-modal-meta .badge {
+  font-size: 0.78rem;
+}
+
+.pf-case-section-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-charcoal-muted);
+  margin: 0 0 10px;
+}
+
+.pf-case-answer {
+  background: var(--color-cream);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 340px;
+  overflow-y: auto;
+  margin: 0 0 20px;
+}
+
+.pf-case-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-beige);
+}
+
+.pf-case-modal-body {
+  margin-bottom: 0;
+}
+
+/* ── Empty portfolio CTA ──────────────────────────────────────────────── */
+.pf-empty-cta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 24px;
+  border: 2px dashed var(--color-beige-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-cream-card);
+  text-align: center;
+}
+
+.pf-empty-icon {
+  font-size: 3rem;
+}
+
+.pf-empty-cta h3 {
+  font-size: 1.1rem;
+  color: var(--color-charcoal);
+  margin: 0;
+}
+
+.pf-empty-cta p {
+  color: var(--color-charcoal-muted);
+  font-size: 0.88rem;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  .pf-stats-strip {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .pf-stat-divider { display: none; }
+  .pf-stat-item { flex: 1 0 80px; }
+}
+
+/* ── Streak Card ──────────────────────────────────────────────────────── */
+.pf-streak-card {
+  display: flex;
+  gap: 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-streak-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e67e22 0%, #f39c12 50%, #e67e22 100%);
+  border-radius: 4px 4px 0 0;
+}
+
+.pf-streak-card.lor-unlocked::before {
+  background: linear-gradient(90deg, var(--color-forest) 0%, #6baf72 50%, var(--color-forest) 100%);
+}
+
+.pf-streak-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* SVG progress ring */
+.pf-ring-svg {
+  transform: rotate(-90deg);
+  display: block;
+}
+
+.pf-ring-track {
+  fill: none;
+  stroke: var(--color-cream);
+  stroke-width: 8;
+}
+
+.pf-ring-fill {
+  fill: none;
+  stroke: #e67e22;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.pf-streak-card.lor-unlocked .pf-ring-fill {
+  stroke: var(--color-forest);
+}
+
+.pf-streak-ring-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.pf-ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.pf-ring-days {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  line-height: 1;
+}
+
+.pf-ring-sub {
+  font-size: 0.62rem;
+  color: var(--color-charcoal-muted);
+  font-weight: 600;
+}
+
+/* Verified hours chip below ring */
+.pf-hours-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff8e6;
+  border: 1.5px solid #f5c842;
+  border-radius: var(--radius-md);
+  padding: 5px 12px;
+  min-width: 70px;
+}
+
+.pf-hours-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #b7780a;
+  line-height: 1;
+}
+
+.pf-hours-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #b7780a;
+  margin-top: 2px;
+}
+
+/* Streak body */
+.pf-streak-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pf-streak-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pf-streak-fire {
+  font-size: 1.2rem;
+}
+
+.pf-streak-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0;
+}
+
+.pf-streak-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #fff3e0;
+  color: #e67e22;
+  border: 1px solid #f5c842;
+  border-radius: var(--radius-pill);
+  padding: 2px 10px;
+}
+
+.pf-streak-badge.unlocked {
+  background: #e2ede5;
+  color: var(--color-forest);
+  border-color: #b5d4b8;
+}
+
+.pf-streak-desc {
+  font-size: 0.86rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pf-streak-val {
+  color: #e67e22;
+}
+
+/* Milestones */
+.pf-streak-milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pf-milestone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.pf-milestone.done {
+  opacity: 1;
+}
+
+.pf-mile-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-beige);
+  border: 2px solid var(--color-beige-border);
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.pf-milestone.done .pf-mile-dot {
+  background: var(--color-forest);
+  border-color: var(--color-forest);
+}
+
+.pf-mile-label {
+  font-size: 0.82rem;
+  color: var(--color-charcoal-muted);
+  font-weight: 500;
+}
+
+.pf-milestone.done .pf-mile-label {
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+/* Streak action area (hint text or LoR download button) */
+.pf-streak-actions {
+  margin-top: 4px;
+}
+
+.pf-streak-hint {
+  font-size: 0.8rem;
+  color: var(--color-charcoal-subtle);
+  font-style: italic;
+}
+
+.pf-lor-unlock-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #e8f4e8 0%, #f0f8f0 100%);
+  border: 1.5px solid #b5d4b8;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+}
+
+.pf-lor-unlock-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.pf-lor-unlock-text {
+  flex: 1;
+  font-size: 0.84rem;
+  color: var(--color-forest);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.pf-lor-unlock-text small {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: var(--color-charcoal-muted);
+  margin-top: 2px;
+}
+
+/* ── Profile: Verified Hours public panel ─────────────────────────────── */
+.profile-verified-hours-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, #fff8e6 0%, #fffdf5 100%);
+  border: 1.5px solid #f5c842;
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(245, 200, 66, 0.12);
+}
+
+.pvh-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pvh-shield {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.pvh-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pvh-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #7a5200;
+}
+
+.pvh-sub {
+  font-size: 0.74rem;
+  color: #9a6e00;
+}
+
+.pvh-right {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.pvh-hours-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #b7780a;
+  line-height: 1;
+}
+
+.pvh-hours-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #b7780a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Streak milestone badges on profile */
+.profile-streak-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.psb-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-charcoal-muted);
+}
+
+.psb-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.psb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: #e2ede5;
+  color: var(--color-forest);
+  border: 1px solid #b5d4b8;
+  border-radius: var(--radius-pill);
+  padding: 3px 12px;
+}
+
+/* Streak card responsive */
+@media (max-width: 640px) {
+  .pf-streak-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .pf-streak-heading-row {
+    justify-content: center;
+  }
+  .profile-verified-hours-panel {
+    flex-direction: column;
+    text-align: center;
+  }
+}

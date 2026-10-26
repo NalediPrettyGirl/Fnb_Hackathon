@@ -105,18 +105,63 @@ export function simulationCardMarkup(sim, { completed = false, canSubmit = true 
 }
 
 
-/** Portfolio card (a completed submission). */
+/** Portfolio card (a completed submission) — with cert download + case study view. */
 export function portfolioCardMarkup(project) {
   const sim = project.simulationId || {};
+  const simId = sim._id || project.simulationId || 'unknown';
+  const title = sim.title || 'Completed Simulation';
+  const track = sim.skillTrack || 'Project';
+  const xp = Number(project.xpAwarded) || 0;
+  const completedDate = formatDate(project.completedAt);
+  const answer = project.answer || '';
+  // Show a short excerpt of the submission as the case study preview
+  const excerpt = answer.length > 180 ? answer.slice(0, 180).trimEnd() + '…' : answer;
+
+  const TRACK_ICONS_LOCAL = {
+    'data analytics': '📊', sql: '🗄️', 'web development': '💻', 'ui/ux design': '🎨',
+    'business analysis': '📈', 'content writing': '✍️', 'software engineering': '⚙️'
+  };
+  const icon = sim.icon || TRACK_ICONS_LOCAL[String(track).toLowerCase()] || '⚡';
+
   return `
-    <article class="portfolio-card">
-      <div class="portfolio-card-top">
-        <span class="badge badge-rank">${escapeHtml(sim.skillTrack || 'Project')}</span>
-        <span class="portfolio-xp">+${Number(project.xpAwarded) || 0} XP</span>
+    <article class="portfolio-card pf-card-v2" data-project-id="${escapeHtml(String(simId))}">
+      <div class="pf-card-header">
+        <div class="pf-card-icon">${icon}</div>
+        <div class="pf-card-meta">
+          <span class="badge badge-rank pf-track-badge">${escapeHtml(track)}</span>
+          <span class="pf-card-xp">+${xp} XP</span>
+        </div>
       </div>
-      <h3>${escapeHtml(sim.title || 'Completed simulation')}</h3>
-      <p>${escapeHtml(project.answer || '')}</p>
-      <small>Completed ${formatDate(project.completedAt)}</small>
+
+      <h3 class="pf-card-title">${escapeHtml(title)}</h3>
+
+      <div class="pf-case-study-preview">
+        <span class="pf-case-label">📝 Case Study</span>
+        <p class="pf-case-excerpt">${escapeHtml(excerpt || 'No answer recorded.')}</p>
+      </div>
+
+      <div class="pf-cert-strip">
+        <span class="pf-cert-icon">🏆</span>
+        <span class="pf-cert-text">Certificate of Completion</span>
+        <span class="pf-cert-date">${completedDate}</span>
+      </div>
+
+      <div class="pf-card-actions">
+        <button class="btn btn-secondary-sm pf-download-cert-btn"
+          type="button"
+          data-project-id="${escapeHtml(String(simId))}"
+          data-sim-title="${escapeHtml(title)}"
+          data-sim-track="${escapeHtml(track)}"
+          data-sim-xp="${xp}"
+          data-sim-date="${escapeHtml(project.completedAt || '')}">
+          ⬇ Download Certificate
+        </button>
+        <button class="btn btn-primary-sm pf-view-case-btn"
+          type="button"
+          data-project-id="${escapeHtml(String(simId))}">
+          View Case Study →
+        </button>
+      </div>
     </article>`;
 }
 

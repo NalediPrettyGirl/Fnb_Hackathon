@@ -47,6 +47,28 @@
             <p class="form-error on-light" id="profileError" role="alert" hidden></p>
             <div class="modal-footer"><button type="submit" class="btn btn-primary" id="profileSaveBtn">Save changes</button></div>
           </form>
+
+          <!-- ── Verified Hours Panel (public, visible to clients) ── -->
+          <div class="profile-verified-hours-panel" id="profileHoursPanel" style="display:none">
+            <div class="pvh-left">
+              <span class="pvh-shield">🛡️</span>
+              <div class="pvh-text">
+                <strong class="pvh-title">Verified Remote Working Hours</strong>
+                <span class="pvh-sub">Immutable proof of daily commitment, logged by SkillBridge</span>
+              </div>
+            </div>
+            <div class="pvh-right">
+              <span class="pvh-hours-num" id="profileVerifiedHours">0</span>
+              <span class="pvh-hours-label">hrs</span>
+            </div>
+          </div>
+
+          <!-- ── Streak milestone badges (public) ── -->
+          <div class="profile-streak-badges" id="profileStreakBadges" style="display:none">
+            <span class="psb-label">Streak Milestones</span>
+            <div class="psb-chips" id="profileStreakChips"></div>
+          </div>
+
         </section>
       </div>
     </main>

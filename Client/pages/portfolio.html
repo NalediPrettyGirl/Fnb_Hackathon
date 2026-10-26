@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — SkillBridge</title>
+  <title>Portfolio & Certs — SkillBridge</title>
+  <meta name="description" content="Your Portfolio and Certifications from completed SkillBridge simulations. Download certificates and view case studies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,6 +18,7 @@
   <link rel="stylesheet" href="../css/track-guides.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/portfolio.css">
 </head>
 <body class="app-body">
   <!-- Sidebar and top bar are injected by js/components/shell.js -->
@@ -24,18 +26,129 @@
     <main class="app-main" id="appMain">
       <div class="content-viewport">
         <section class="view-panel active">
+
           <div class="view-header">
             <div class="view-header-titles">
-              
-              <h1 class="view-title">Your Portfolio</h1>
-              <p class="view-subtitle">Real submissions from your completed SkillBridge simulations.</p>
+              <h1 class="view-title">Portfolio &amp; Certs</h1>
+              <p class="view-subtitle">Your real submissions from completed simulations — download certificates &amp; share case studies.</p>
             </div>
-            <div class="view-header-actions"><span class="badge badge-rank"><span id="portfolioCount">0</span> projects</span></div>
+            <div class="view-header-actions">
+              <span class="badge badge-rank"><span id="portfolioCount">0</span> projects</span>
+              <span class="badge badge-tier verified"><span id="certCount">0</span> certs</span>
+            </div>
           </div>
-          <div class="portfolio-grid" id="portfolioGrid"><p class="api-empty-state">Loading portfolio…</p></div>
+
+          <!-- Stats summary strip -->
+          <div class="pf-stats-strip" id="portfolioStatsStrip" style="display:none">
+            <div class="pf-stat-item">
+              <span class="pf-stat-value" id="pfTotalXp">0</span>
+              <span class="pf-stat-label">Total XP Earned</span>
+            </div>
+            <div class="pf-stat-divider"></div>
+            <div class="pf-stat-item">
+              <span class="pf-stat-value" id="pfCompletedCount">0</span>
+              <span class="pf-stat-label">Simulations Done</span>
+            </div>
+            <div class="pf-stat-divider"></div>
+            <div class="pf-stat-item">
+              <span class="pf-stat-value" id="pfCertCount">0</span>
+              <span class="pf-stat-label">Certificates</span>
+            </div>
+            <div class="pf-stat-divider"></div>
+            <div class="pf-stat-item">
+              <span class="pf-stat-value pf-streak-val" id="pfStreakDays">0</span>
+              <span class="pf-stat-label">🔥 Day Streak</span>
+            </div>
+          </div>
+
+          <!-- 90-Day Streak Card -->
+          <div class="pf-streak-card" id="pfStreakCard">
+            <div class="pf-streak-left">
+              <div class="pf-streak-ring-wrap">
+                <svg class="pf-ring-svg" viewBox="0 0 80 80" width="80" height="80">
+                  <circle class="pf-ring-track" cx="40" cy="40" r="34" />
+                  <circle class="pf-ring-fill" id="pfRingFill" cx="40" cy="40" r="34"
+                    stroke-dasharray="213.6" stroke-dashoffset="213.6" />
+                </svg>
+                <div class="pf-ring-label">
+                  <span class="pf-ring-days" id="pfRingDays">0</span>
+                  <span class="pf-ring-sub">/ 90</span>
+                </div>
+              </div>
+              <div class="pf-hours-chip">
+                <span class="pf-hours-num" id="pfVerifiedHours">0</span>
+                <span class="pf-hours-label">verified hrs</span>
+              </div>
+            </div>
+            <div class="pf-streak-body">
+              <div class="pf-streak-heading-row">
+                <span class="pf-streak-fire">🔥</span>
+                <h3 class="pf-streak-heading">90-Day Consistency Streak</h3>
+                <span class="pf-streak-badge" id="pfStreakBadge">In Progress</span>
+              </div>
+              <p class="pf-streak-desc">
+                Maintain your learning streak for 90 consecutive days to earn an official
+                <strong>SkillBridge Letter of Recommendation</strong> — a signed document detailing
+                your technical stamina and professional discipline.
+                Each active day logs <strong>+4 verified remote working hours</strong> on your public
+                profile — immutable proof of daily commitment visible to freelance clients
+                <em>(e.g. 90 days = 360 verified hours)</em>.
+              </p>
+              <div class="pf-streak-milestones">
+                <div class="pf-milestone" id="pfMile7">
+                  <span class="pf-mile-dot"></span>
+                  <span class="pf-mile-label">7 days — Starter Badge &amp; +28 verified hrs</span>
+                </div>
+                <div class="pf-milestone" id="pfMile30">
+                  <span class="pf-mile-dot"></span>
+                  <span class="pf-mile-label">30 days — Consistency Medal &amp; +120 verified hrs</span>
+                </div>
+                <div class="pf-milestone" id="pfMile90">
+                  <span class="pf-mile-dot"></span>
+                  <span class="pf-mile-label">90 days — Letter of Recommendation 🏅 &amp; 360 verified hrs</span>
+                </div>
+              </div>
+              <div class="pf-streak-actions" id="pfStreakActions">
+                <span class="pf-streak-hint" id="pfStreakHint">Keep going — complete a simulation or apply for a gig each day to log hours.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-grid" id="portfolioGrid">
+            <p class="api-empty-state">Loading portfolio…</p>
+          </div>
+
         </section>
       </div>
     </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CASE STUDY MODAL
+  ════════════════════════════════════════════════ -->
+  <div class="modal-backdrop" id="caseStudyModal">
+    <div class="modal-container modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <div class="modal-company-logo" id="caseModalIcon">📝</div>
+          <div>
+            <h2 class="modal-title" id="caseModalTitle">Case Study</h2>
+            <p class="modal-subtitle" id="caseModalSubtitle"></p>
+          </div>
+        </div>
+        <button class="modal-close-btn" type="button" data-close-modal="caseStudyModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 24px">
+        <div class="pf-case-modal-meta" id="caseModalMeta"></div>
+        <div class="pf-case-modal-body">
+          <h4 class="pf-case-section-heading">Your Submission</h4>
+          <pre class="pf-case-answer" id="caseModalAnswer"></pre>
+        </div>
+        <div class="pf-case-modal-footer">
+          <button class="btn btn-secondary" type="button" id="caseModalDownloadCert">⬇ Download Certificate</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="toast-container" id="toastContainer"></div>
